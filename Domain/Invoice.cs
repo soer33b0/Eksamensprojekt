@@ -8,8 +8,6 @@ namespace Domain
 {
     public class Invoice
     {
-        Employee employee = new Employee("");
-
         public string Date
         {
             get;
@@ -30,8 +28,8 @@ namespace Domain
 
         public double VAT //moms
         {
-            get;
-            set;
+            get { return VAT; }
+            set { VAT = 1.25; }
         }
 
         public double TotalSalary
@@ -40,12 +38,11 @@ namespace Domain
             set;
         }
 
-        public Invoice(string _date, int _hoursWorked, double _hourlySalary, double _VAT, double _totalSalary)
+        public Invoice(string _date, int _hoursWorked, double _hourlySalary, double _totalSalary)
         {
             Date = _date;
             HoursWorked = _hoursWorked;
             HourlySalary = _hourlySalary;
-            VAT = _VAT;
             TotalSalary = _totalSalary;
         }
     }
