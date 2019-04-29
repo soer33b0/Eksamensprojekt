@@ -22,19 +22,12 @@ namespace Application
                 conn.Open();
                 try
                 {
-                    string filepath = "";
-                    FileStream stream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
-                    BinaryReader reader = new BinaryReader(stream);
-                    Byte[] file = reader.ReadBytes((int)stream.Length);
-                    reader.Close();
-                    stream.Close();
-
-                    SqlCommand command;
                     SqlConnection connection = new SqlConnection(connectionString);
-                    command = new SqlCommand("INSERT INTO FileTable (File) Values(@file)", connection);
-                    command.Parameters.Add("file", SqlDbType.Binary, file.Length).Value = file;
                     connection.Open();
-                    command.ExecuteNonQuery();
+
+                    SqlCommand saveInvoice = new SqlCommand("SaveInvoice", conn);
+                    saveInvoice.CommandType = CommandType.StoredProcedure;
+                    saveInvoice.Parameters.Add(new SqlParameter("@"))
                 }
                 catch (SqlException e)
                 {
