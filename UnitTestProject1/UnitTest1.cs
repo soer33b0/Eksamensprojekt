@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Application;
-using Domain;
+using ApplicationLayer;
+using DomainLayer;
 using UI;
 
 namespace UnitTestProject1

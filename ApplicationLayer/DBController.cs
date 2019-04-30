@@ -6,9 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain;
+using DomainLayer;
 
-namespace Application
+namespace ApplicationLayer
 {
     public class DBController
     {

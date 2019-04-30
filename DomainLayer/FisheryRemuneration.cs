@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application
+namespace DomainLayer
 {
-    class Program
+    public class FisheryRemuneration
     {
-        static void Main(string[] args)
-        {
 
-        }
     }
 }

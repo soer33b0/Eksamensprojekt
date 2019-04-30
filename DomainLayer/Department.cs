@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace DomainLayer
 {
-    class Program
+    public class Department
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

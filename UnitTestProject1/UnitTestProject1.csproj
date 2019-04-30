@@ -56,13 +56,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application\Application.csproj">
-      <Project>{999be048-0ee3-452f-84db-63f73ff3b16a}</Project>
-      <Name>Application</Name>
+    <ProjectReference Include="..\ApplicationLayer\ApplicationLayer.csproj">
+      <Project>{39652c88-234e-464a-b4bb-5111db9148b4}</Project>
+      <Name>ApplicationLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{c3064702-19d9-4654-91d9-c3309d4cbf00}</Project>
-      <Name>Domain</Name>
+    <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
+      <Project>{325efdef-d11e-4993-acf1-081b1a1f1faa}</Project>
+      <Name>DomainLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\UI\UI.csproj">
       <Project>{d70b619b-85ef-42a9-bdce-f5ff5f628395}</Project>
