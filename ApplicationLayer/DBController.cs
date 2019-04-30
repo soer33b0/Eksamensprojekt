@@ -39,5 +39,29 @@ namespace ApplicationLayer
                 }
             }
         }
+        public void AddCustomer(string customerName, string customerAddress, string customerEmail, string customerPhone)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.Open();
+                try
+                {
+                    SqlCommand addCustomer = new SqlCommand("AddCustomer", conn);
+                    addCustomer.CommandType = CommandType.StoredProcedure;
+                    addCustomer.Parameters.Add(new SqlParameter("@CustomerName", customerName));
+                    addCustomer.Parameters.Add(new SqlParameter("@CustomerAddress", customerAddress));
+                    addCustomer.Parameters.Add(new SqlParameter("@CustomerEmail", customerEmail));
+                    addCustomer.Parameters.Add(new SqlParameter("@CustomerPhone", customerPhone));
+                    addCustomer.ExecuteNonQuery();
+                    Console.Clear();
+                    Console.WriteLine("Faktura gemt!");
+                }
+
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl" + e.Message);
+                }
+            }
+        }
     }
 }
