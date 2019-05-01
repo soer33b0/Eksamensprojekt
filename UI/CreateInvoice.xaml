@@ -25,5 +25,7 @@
         <Label Name="ItemCount"  Content="0" HorizontalAlignment="Left" Margin="478,380,0,0" VerticalAlignment="Top" Height="31" Width="37"/>
         <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="48,243,0,0" VerticalAlignment="Top" Height="39" Width="177"/>
         <TextBox Name="Description" HorizontalAlignment="Left" Height="39" Margin="256,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
+        <Button Content="Afslut" HorizontalAlignment="Left" Margin="630,380,0,0" VerticalAlignment="Top" Width="111" Height="31"/>
+        <Button Content="Se faktura" HorizontalAlignment="Left" Margin="48,380,0,0" VerticalAlignment="Top" Width="111" Height="31"/>
     </Grid>
 </Window>

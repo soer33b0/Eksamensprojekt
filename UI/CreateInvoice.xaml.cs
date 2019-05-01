@@ -29,6 +29,11 @@ namespace UI
         {
             LineItemCount++;
             ItemCount.Content = LineItemCount;
+            
+            
+            
+            
+
         }
     }
 }
