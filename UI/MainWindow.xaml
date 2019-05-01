@@ -10,7 +10,7 @@
         <Button Content="Gem Følgeseddel" HorizontalAlignment="Left" Margin="45,110,0,0" VerticalAlignment="Top" Width="280" Height="60" Click="Button_Click"/>
         <Button Content="Gemte Følgesedler" HorizontalAlignment="Left" Margin="45,175,0,0" VerticalAlignment="Top" Width="280" Height="60"/>
         <Button Content="Fangststatistik" HorizontalAlignment="Left" Margin="45,240,0,0" VerticalAlignment="Top" Width="280" Height="60"/>
-        <Button Content="Optegn Faktura" HorizontalAlignment="Left" Margin="459,110,0,0" VerticalAlignment="Top" Width="280" Height="60"/>
+        <Button Content="Optegn Faktura" HorizontalAlignment="Left" Margin="459,110,0,0" VerticalAlignment="Top" Width="280" Height="60" Click="Button_Click_1"/>
         <Button Content="Gemte Fakturaer" HorizontalAlignment="Left" Margin="459,175,0,0" VerticalAlignment="Top" Width="280" Height="60"/>
         <Label Content="FISK" HorizontalAlignment="Left" Margin="158,37,0,0" VerticalAlignment="Top" Height="35" Width="53" FontSize="20
                "/>

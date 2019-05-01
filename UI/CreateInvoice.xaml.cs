@@ -10,19 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for CreateInvoice.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class CreateInvoice : Window
     {
-        public Page1()
+        int LineItemCount = 0;
+        public CreateInvoice()
         {
             InitializeComponent();
+        }
+
+        private void AddItemClicked(object sender, RoutedEventArgs e)
+        {
+            LineItemCount++;
+            ItemCount.Content = LineItemCount;
         }
     }
 }

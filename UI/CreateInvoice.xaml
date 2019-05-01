@@ -1,14 +1,29 @@
-﻿<Page x:Class="UI.Page1"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:UI"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page1">
-
+﻿<Window x:Class="UI.CreateInvoice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="CreateInvoice" Height="450" Width="800">
     <Grid>
-        
+        <TextBox Name="InvoiceNum" HorizontalAlignment="Left" Height="39" Margin="256,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
+        <TextBox Name="NumOfHours" HorizontalAlignment="Left" Height="39" Margin="257,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
+        <TextBox Name="HourlySalary" HorizontalAlignment="Left" Height="39" Margin="257,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
+        <Label Content="Optegn Faktura" HorizontalAlignment="Left" Margin="288,5,0,0" VerticalAlignment="Top" Height="61" Width="185" FontSize="24"/>
+        <TextBox Name="InvoiceDate" HorizontalAlignment="Left" Height="39" Margin="256,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
+        <Label Content="Faktureringsdato" HorizontalAlignment="Left" Margin="48,155,0,0" VerticalAlignment="Top" Height="39" Width="177"/>
+        <Label Content="Fakturanummer" HorizontalAlignment="Left" Margin="48,199,0,0" VerticalAlignment="Top" Height="39" Width="177"/>
+        <Label Content="Antal timer arbejdet" HorizontalAlignment="Left" Margin="49,286,0,0" VerticalAlignment="Top" Height="39" Width="177" RenderTransformOrigin="0.535,-0.308"/>
+        <Label Content="Timeløn excl. moms" HorizontalAlignment="Left" Margin="48,330,0,0" VerticalAlignment="Top" Height="39" Width="177"/>
+        <Label Content="Vælg modtager" HorizontalAlignment="Left" Margin="48,66,0,0" VerticalAlignment="Top" Height="39" Width="177"/>
+        <ComboBox Name="Customer_names" HorizontalAlignment="Left" Margin="256,66,0,0" VerticalAlignment="Top" Width="484" Height="39"/>
+        <Label Content="Titel" HorizontalAlignment="Left" Margin="48,110,0,0" VerticalAlignment="Top" Height="39" Width="177"/>
+        <TextBox Name="Title" HorizontalAlignment="Left" Height="39" Margin="256,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
+        <Button Content="Tilføj punkt" Margin="257,380,0,0" VerticalAlignment="Top" Height="31" HorizontalAlignment="Left" Width="94" Click="AddItemClicked"/>
+        <Label Content="Antal punkter tilføjet:" Margin="356,380,315.333,0" VerticalAlignment="Top" Height="31"/>
+        <Label Name="ItemCount"  Content="0" HorizontalAlignment="Left" Margin="478,380,0,0" VerticalAlignment="Top" Height="31" Width="37"/>
+        <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="48,243,0,0" VerticalAlignment="Top" Height="39" Width="177"/>
+        <TextBox Name="Description" HorizontalAlignment="Left" Height="39" Margin="256,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="484"/>
     </Grid>
-</Page>
+</Window>

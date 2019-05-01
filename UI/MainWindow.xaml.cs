@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DomainLayer;
 
 namespace UI
 {
@@ -27,6 +28,16 @@ namespace UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            InvoiceGen i = new InvoiceGen();
+            CreateInvoice createInvoice = new CreateInvoice();
+            createInvoice.Show();
+
+            //i.OpenDocx();
 
         }
     }

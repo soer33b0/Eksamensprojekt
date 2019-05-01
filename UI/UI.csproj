@@ -55,9 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CreateInvoice.xaml.cs">
+      <DependentUpon>CreateInvoice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StoredRemunerations.xaml.cs">
       <DependentUpon>StoredRemunerations.xaml</DependentUpon>
     </Compile>
+    <Page Include="CreateInvoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SaveRemuneration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,19 +91,12 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="CreateInvoice.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="StoredRemunerations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateInvoice.xaml.cs">
-      <DependentUpon>CreateInvoice.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -126,6 +126,10 @@
     <ProjectReference Include="..\ApplicationLayer\ApplicationLayer.csproj">
       <Project>{39652c88-234e-464a-b4bb-5111db9148b4}</Project>
       <Name>ApplicationLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
+      <Project>{325efdef-d11e-4993-acf1-081b1a1f1faa}</Project>
+      <Name>DomainLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
