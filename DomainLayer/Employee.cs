@@ -26,24 +26,24 @@ namespace DomainLayer
             set;
         }
 
-        public string EmployeeSeNumber
+        public string EmployeeSeNum
         {
             get;
             set;
         }
-        public string EmployeeAccountNumber
+        public string EmployeeAccountNum
         {
             get;
             set;
         }
 
-        public Employee(string _employeeName, string _employeeAddress, string _employeeZipCity, string _employeeSeNumber, string _employeeAccountNumber)
+        public Employee(string _employeeName, string _employeeAddress, string _employeeZipCity, string _employeeSeNum, string _employeeAccountNum)
         {
             EmployeeName = _employeeName;
             EmployeeAddress = _employeeAddress;
             EmployeeZipCity = _employeeZipCity;
-            EmployeeSeNumber = _employeeSeNumber;
-            EmployeeAccountNumber = _employeeAccountNumber;
+            EmployeeSeNum = _employeeSeNum;
+            EmployeeAccountNum = _employeeAccountNum;
         }
     }
 }

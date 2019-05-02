@@ -33,11 +33,12 @@ namespace UI
 
             //metodekald indsæt i tabel
             InvoiceGen invoiceGen = new InvoiceGen();
+            invoiceGen.OpenDocx();
 
-            Description.Text = "";
-            NumOfHours.Text = "";
-            HourlySalary.Text = "";
-            MessageBox.Show("Punkt tilføjet!");
+            //Description.Text = "";
+            //NumOfHours.Text = "";
+            //HourlySalary.Text = "";
+            //MessageBox.Show("Punkt tilføjet!");
             
         }
     }
