@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DomainLayer;
+using UI;
 
 namespace UI
 {
@@ -22,6 +24,12 @@ namespace UI
         public CreateInvoice()
         {
             InitializeComponent();
+        }
+
+        private void NextButttonClicked(object sender, RoutedEventArgs e)
+        {
+            CreateInvoice2 createInvoice2 = new CreateInvoice2();
+            this.Content = createInvoice2;
         }
     }
 }
