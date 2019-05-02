@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DomainLayer;
 
 namespace UI
 {
@@ -30,12 +31,13 @@ namespace UI
             LineItemCount++;
             ItemCount.Content = LineItemCount;
 
-            MessageBox.Show("Punkt tilføjet!");
+            //metodekald indsæt i tabel
+            InvoiceGen invoiceGen = new InvoiceGen();
 
             Description.Text = "";
             NumOfHours.Text = "";
             HourlySalary.Text = "";
-            MessageBox.Show("Punkt tilføjet.");
+            MessageBox.Show("Punkt tilføjet!");
             
         }
     }

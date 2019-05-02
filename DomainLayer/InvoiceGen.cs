@@ -10,17 +10,24 @@ namespace DomainLayer
 {
     public class InvoiceGen
     {
-        //public void OpenDocx()
-        //{
-        //    string fileName = @"C:\Users\Søren\Desktop\Eksamensprojekt\Fakturaskabelon.docx";
+        public void OpenDocx()
+        {
+            string fileName = @"C:\Users\Søren\Desktop\Eksamensprojekt\Fakturaskabelon.docx";
 
-        //    var doc = DocX.Load(fileName);
+            var doc = DocX.Load(fileName);
 
-        //    doc.ReplaceText("<customerName>", "Jan");
+            doc.SaveAs("temp.docx");
 
-        //    doc.SaveAs("test.docx");
+            //Process.Start("WINWORD.EXE", @"C:\Users\Søren\source\repos\Eksamensprojekt\UI\bin\Debug\test.docx");
+        }
 
-        //    //Process.Start("WINWORD.EXE", @"C:\Users\Søren\source\repos\Eksamensprojekt\UI\bin\Debug\test.docx");
-        //}
+        public void ReplaceInvoiceText(string customerName, string customerAddress, string customerZipCity, string employeeName, string employeeAddress, string employeeZipCity)
+        {
+
+        }
+        
+
     }
+
+    
 }

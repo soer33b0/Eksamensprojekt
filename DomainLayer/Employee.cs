@@ -10,45 +10,38 @@ namespace DomainLayer
     {
         public string EmployeeName
         {
-            get { return EmployeeName; }
-            set { EmployeeName = value; }
+            get;
+            set;
         }
 
         public string EmployeeAddress
         {
-            get { return EmployeeAddress; }
-            set { EmployeeAddress = value; }
+            get;
+            set;
         }
 
-        public string EmployeeZipCode
+        public string EmployeeZipCity
         {
-            get { return EmployeeZipCode; }
-            set { EmployeeZipCode = value; }
-        }
-
-        public string EmployeeCity
-        {
-            get { return EmployeeCity; }
-            set { EmployeeCity = value; }
+            get;
+            set;
         }
 
         public string EmployeeSeNumber
         {
-            get { return EmployeeSeNumber; }
-            set { EmployeeSeNumber = value; }
+            get;
+            set;
         }
         public string EmployeeAccountNumber
         {
-            get { return EmployeeAccountNumber; }
-            set { EmployeeAccountNumber = value; }
+            get;
+            set;
         }
 
-        public Employee(string _employeeName, string _employeeAddress, string _employeeZipCode, string _employeeCity, string _employeeSeNumber, string _employeeAccountNumber)
+        public Employee(string _employeeName, string _employeeAddress, string _employeeZipCity, string _employeeSeNumber, string _employeeAccountNumber)
         {
             EmployeeName = _employeeName;
             EmployeeAddress = _employeeAddress;
-            EmployeeZipCode = _employeeZipCode;
-            EmployeeCity = _employeeCity;
+            EmployeeZipCity = _employeeZipCity;
             EmployeeSeNumber = _employeeSeNumber;
             EmployeeAccountNumber = _employeeAccountNumber;
         }
