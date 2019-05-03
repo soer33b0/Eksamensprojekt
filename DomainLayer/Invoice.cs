@@ -20,6 +20,12 @@ namespace DomainLayer
             set;
         }
 
+        public string InvoiceTitle
+        {
+            get;
+            set;
+        }
+
         public double HoursWorked
         {
             get;
@@ -44,10 +50,11 @@ namespace DomainLayer
             set;
         }
 
-        public Invoice(string _invoiceDate, string _invoiceNum, int _hoursWorked, double _hourlySalary, double _totalSalary)
+        public Invoice(string _invoiceDate, string _invoiceNum, string _invoiceTitle, int _hoursWorked, double _hourlySalary, double _totalSalary)
         {
             InvoiceDate = _invoiceDate;
             InvoiceNum = _invoiceNum;
+            InvoiceTitle = _invoiceTitle;
             HoursWorked = _hoursWorked;
             HourlySalary = _hourlySalary;
             TotalSalary = _totalSalary;
