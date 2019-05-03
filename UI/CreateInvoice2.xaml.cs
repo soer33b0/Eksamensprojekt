@@ -44,7 +44,7 @@ namespace UI
 
             Customer cust = new Customer("Hans", "hula bulla gade", "123@nej.dk", "33313215", "4412");
             Employee emp = new Employee("Jørn Jensen", "nejgade 42", "4000 odense Q", "12355578876", "6352 6125343124");
-            Invoice inv = new Invoice("21-03-2018", 420, 220, 412534);
+            Invoice inv = new Invoice("12/11/2018", "420", 220, 412534, 3333);
 
             invoiceGen.ReplaceInvoiceText(cust, emp, inv);
 

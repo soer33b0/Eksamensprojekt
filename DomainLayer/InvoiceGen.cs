@@ -39,7 +39,8 @@ namespace DomainLayer
             doc.ReplaceText("%seNum%", employee.EmployeeSeNum);
             doc.ReplaceText("%employeeAccountNum%", employee.EmployeeAccountNum);
 
-            doc.ReplaceText("%invoiceDate%", invoice.Date);
+            doc.ReplaceText("%invoiceDate%", invoice.InvoiceDate);
+            doc.ReplaceText("%invoiceNum%", invoice.InvoiceNum);
 
             doc.SaveAs(@"C:\Users\Søren\source\repos\Eksamensprojekt\UI\bin\Debug\temp.docx");
         }
