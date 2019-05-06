@@ -69,7 +69,7 @@ namespace DomainLayer
 
         }
 
-        public void InsertTable()
+        public void InsertInvoiceTable()
         {
             Console.WriteLine("\tInsertRowAndImageTable()");
 
@@ -79,23 +79,20 @@ namespace DomainLayer
                 var t = document.AddTable(2, 4);
                 t.Design = TableDesign.ColorfulListAccent1;
                 t.Alignment = Alignment.center;
-                t.Rows[0].Cells[0].Paragraphs[0].Append("Mike");
-                t.Rows[0].Cells[1].Paragraphs[0].Append("65");
-                t.Rows[0].Cells[2].Paragraphs[0].Append("Kevin");
-                t.Rows[0].Cells[3].Paragraphs[0].Append("62");
-                t.Rows[1].Cells[0].Paragraphs[0].Append("Carl");
-                t.Rows[1].Cells[1].Paragraphs[0].Append("60");
-                t.Rows[1].Cells[2].Paragraphs[0].Append("Michael");
-                t.Rows[1].Cells[3].Paragraphs[0].Append("59");
+                t.Rows[0].Cells[0].Paragraphs.First().Append("Beskrivelse");
+                t.Rows[0].Cells[1].Paragraphs.First().Append("Enhedspris");
+                t.Rows[0].Cells[2].Paragraphs.First().Append("Antal");
+                t.Rows[0].Cells[3].Paragraphs.First().Append("Beløb");
+                t.Rows[1].Cells[0].Paragraphs.First().Append("D");
+                t.Rows[1].Cells[1].Paragraphs.First().Append("E");
+                t.Rows[1].Cells[2].Paragraphs.First().Append("F");
+                t.Rows[1].Cells[3].Paragraphs.First().Append("KKK");
 
-                document.InsertTable(t);
-
-                // Add a row at the end of the table and sets its values.
-                var r = t.InsertRow();
-                r.Cells[0].Paragraphs[0].Append("Mario");
-                r.Cells[1].Paragraphs[0].Append("Kart");
-                r.Cells[1].Paragraphs[0].Append("Nigga");
-                r.Cells[1].Paragraphs[0].Append("!");
+                foreach (var paragraph in document.Paragraphs)
+                {
+                    paragraph.FindAll("%TABLE%").ForEach(index => paragraph.InsertTableAfterSelf((t)));
+                }
+                document.ReplaceText("%TABLE%", "");
 
                 document.SaveAs(@"C:\Users\Søren\Desktop\testlort\temp.docx");
             }

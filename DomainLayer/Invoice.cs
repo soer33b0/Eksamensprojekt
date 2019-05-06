@@ -49,7 +49,7 @@ namespace DomainLayer
             get;
             set;
         }
-        /*
+
         public Invoice(string _invoiceDate, string _invoiceNum, string _invoiceTitle, int _hoursWorked, double _hourlySalary, double _totalSalary)
         {
             InvoiceDate = _invoiceDate;
@@ -58,6 +58,7 @@ namespace DomainLayer
             HoursWorked = _hoursWorked;
             HourlySalary = _hourlySalary;
             TotalSalary = _totalSalary;
-        }*/
+        }
+        public Invoice() { }
     }
 }

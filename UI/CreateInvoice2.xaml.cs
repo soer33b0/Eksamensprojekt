@@ -52,11 +52,9 @@ namespace UI
             Employee emp = new Employee();
             Invoice inv = new Invoice();
 
-            invoiceGen.InsertTable();
-
             //invoiceGen.ReplaceInvoiceText(cust, emp, inv);
 
-
+            invoiceGen.InsertInvoiceTable();
         }
     }
 }
