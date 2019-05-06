@@ -10,7 +10,7 @@ using System.IO;
 using System.Windows;
 using System.Threading;
 
-namespace DomainLayer
+namespace ApplicationLayer
 {
     public class InvoiceGen
     {

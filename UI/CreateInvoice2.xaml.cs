@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ApplicationLayer;
 using DomainLayer;
 
 namespace UI
@@ -36,10 +37,10 @@ namespace UI
 
             //metodekald indsæt kolonne
 
-            //Description.Text = "";
-            //NumOfHours.Text = "";
-            //HourlySalary.Text = "";
-            //MessageBox.Show("Punkt tilføjet!");
+            Description.Text = "";
+            NumOfHours.Text = "";
+            HourlySalary.Text = "";
+            MessageBox.Show("Punkt tilføjet!");
 
         }
 
