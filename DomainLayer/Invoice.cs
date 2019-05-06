@@ -59,6 +59,7 @@ namespace DomainLayer
             HourlySalary = _hourlySalary;
             TotalSalary = _totalSalary;
         }
+
         public Invoice() { }
     }
 }
