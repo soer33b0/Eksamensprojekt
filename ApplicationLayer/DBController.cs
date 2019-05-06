@@ -41,6 +41,44 @@ namespace ApplicationLayer
                 }
             }
         }
+
+        public List<Invoice> ShowInvoice()
+        {
+            List<Invoice> invoice = new List<Invoice>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    SqlCommand showInvoice = new SqlCommand("ShowInvoice", conn);
+                    showInvoice.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader read = showInvoice.ExecuteReader();
+
+                    if (read.HasRows)
+                    {
+                        while (read.Read())
+                        {
+                            string invoiceID = read["InvoiceID"].ToString();
+                            string customerID = read["CustomerID"].ToString();
+                            string invoiceDate = read["InoiceDate"].ToString();
+                            string hoursWorked = read["HoursWorked"].ToString();
+                            string hourlySalary = read["HourlySalary"].ToString();
+                            string totalSalary = read["totalSalary"].ToString();
+                            Console.WriteLine(invoiceID + " " + customerID + " " + invoiceDate + " " + hoursWorked + " " + hourlySalary + " " + totalSalary);
+                        }
+                    }
+                }
+
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl " + e.Message);
+                }
+                return invoice;
+            }
+        }
+
         public void AddCustomer(Customer customer)
         {
             using (SqlConnection conn = new SqlConnection())

@@ -16,6 +16,10 @@ namespace ApplicationLayer
             Invoice invoice = new Invoice { InvoiceDate = invoiceDate, InvoiceNum = invoiceNum, InvoiceTitle = invoiceTitle, HoursWorked = hoursWorked, HourlySalary = hourlySalary, TotalSalary = totalSalary };
             Dbcontroller.SaveInvoice(invoice);
         }
+        public List<Invoice> ShowInvoice()
+        {
+            return Dbcontroller.ShowInvoice();
+        }
         public void AddCustomer(string customerName, string customerAddress, string customerZipCity, string customerEmail, string customerPhone)
         {
             Customer customer = new Customer { CustomerName= customerName, CustomerAddress = customerAddress, CustomerZipCity = customerZipCity, CustomerEmail = customerEmail, CustomerPhone = customerPhone };
