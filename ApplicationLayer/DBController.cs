@@ -102,13 +102,6 @@ namespace ApplicationLayer
                             invoice.HoursWorked = Convert.ToDouble(read["HoursWorked"]);
                             invoice.HourlySalary = Convert.ToDouble(read["HourlySalary"]);
                             invoice.TotalSalary = Convert.ToDouble(read["TotalSalary"]);
-                            string invoiceID = read["InvoiceID"].ToString();
-                            string customerID = read["CustomerID"].ToString();
-                            string invoiceDate = read["InvoiceDate"].ToString();
-                            string hoursWorked = read["HoursWorked"].ToString();
-                            string hourlySalary = read["HourlySalary"].ToString();
-                            string totalSalary = read["TotalSalary"].ToString();
-                            Console.WriteLine(invoiceID + " " + customerID + " " + invoiceDate + " " + hoursWorked + " " + hourlySalary + " " + totalSalary);
                         }
                     }
                 }
