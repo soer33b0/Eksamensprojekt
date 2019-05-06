@@ -81,7 +81,7 @@ namespace ApplicationLayer
 
         public Invoice GetInvoice()
         {
-            Invoice invoice = null;
+            Invoice invoice = new Invoice();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -96,6 +96,12 @@ namespace ApplicationLayer
                     {
                         while (read.Read())
                         {
+                            invoice.InvoiceDate = read["InvoiceDate"].ToString();
+                            invoice.InvoiceNum = read["InvoiceNum"].ToString();
+                            invoice.InvoiceTitle = read["InvoiceTitle"].ToString();
+                            invoice.HoursWorked = read["HoursWorked"].ToString();
+                            invoice.HourlySalary = read["HourlySalary"].ToString();
+                            invoice.TotalSalary = read["TotalSalary"].ToString();
                             string invoiceID = read["InvoiceID"].ToString();
                             string customerID = read["CustomerID"].ToString();
                             string invoiceDate = read["InvoiceDate"].ToString();
