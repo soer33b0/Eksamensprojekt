@@ -36,7 +36,7 @@ namespace DomainLayer
             get;
             set;
         }
-
+        /*
         public Employee(string _employeeName, string _employeeAddress, string _employeeZipCity, string _employeeSeNum, string _employeeAccountNum)
         {
             EmployeeName = _employeeName;
@@ -44,6 +44,6 @@ namespace DomainLayer
             EmployeeZipCity = _employeeZipCity;
             EmployeeSeNum = _employeeSeNum;
             EmployeeAccountNum = _employeeAccountNum;
-        }
+        }*/
     }
 }

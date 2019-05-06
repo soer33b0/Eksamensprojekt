@@ -52,7 +52,7 @@ namespace DomainLayer
 
         public static void AddItemToTable(Table table, Row rowPattern, string productName)
         {
-            Invoice invoice = new Invoice("22/11/2018", "333221", "Mathias r dåm", 200, 250, 331123);
+            Invoice invoice = new Invoice();
 
             var unitPrice = invoice.HourlySalary;
             var unitQuantity = invoice.HoursWorked;
