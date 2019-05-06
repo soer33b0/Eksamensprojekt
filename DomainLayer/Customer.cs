@@ -37,7 +37,7 @@ namespace DomainLayer
             get;
             set;
         }
-
+        /*
         public Customer(string _customerName, string _customerAddress, string _customerEmail, string _customerPhone, string _customerZipCity)
         {
             CustomerName = _customerName;
@@ -45,6 +45,6 @@ namespace DomainLayer
             CustomerEmail = _customerEmail;
             CustomerPhone = _customerPhone;
             CustomerZipCity = _customerZipCity;
-        }
+        }*/
     }
 }
