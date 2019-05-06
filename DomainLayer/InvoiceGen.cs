@@ -8,12 +8,13 @@ using Xceed.Words.NET;
 using DomainLayer;
 using System.IO;
 using System.Windows;
+using System.Threading;
 
 namespace DomainLayer
 {
     public class InvoiceGen
     {
-            public void OpenDocx(string dir, string fileName)
+        public void OpenDocx(string dir, string fileName)
         {
             string lort = dir + fileName;
             var doc = DocX.Load(lort);
@@ -28,7 +29,7 @@ namespace DomainLayer
 
         public void ReplaceInvoiceText(Customer customer, Employee employee, Invoice invoice)
         {
-            string fileName = @"C:\Users\Søren\Desktop\Eksamensprojekt\Fakturaskabelon.docx";
+            string fileName = @"C:\Users\Søren\Desktop\testlort\skabelon.docx";
             var doc = DocX.Load(fileName);
 
             doc.ReplaceText("%customerName%", customer.CustomerName);
@@ -46,7 +47,7 @@ namespace DomainLayer
             doc.ReplaceText("%invoiceDate%", invoice.InvoiceDate);
             doc.ReplaceText("%invoiceNum%", invoice.InvoiceNum);
 
-            doc.SaveAs(@"C:\Users\Søren\source\repos\Eksamensprojekt\UI\bin\Debug\temp.docx");
+            doc.SaveAs(@"C:\Users\Søren\Desktop\testlort\temp.docx");
         }
 
         public static void AddItemToTable(Table table, Row rowPattern, string productName)
@@ -68,36 +69,35 @@ namespace DomainLayer
 
         }
 
-        public void InvoiceTableGen(/*string description, double unitPrice, double hourlySalary, double totalSalary*/)
+        public void InsertTable()
         {
-            using (DocX doc = DocX.Load(@"C:\Users\Søren\source\repos\Eksamensprojekt\UI\bin\Debug\temp.docx"))
+            Console.WriteLine("\tInsertRowAndImageTable()");
+
+            using (DocX document = DocX.Load(@"C:\Users\Søren\Desktop\testlort\skabelon.docx"))
             {
-                var invoiceTable = doc.Tables.FirstOrDefault(t => t.TableCaption == "1INVOICE");
-                if (invoiceTable == null)
-                {
-                    MessageBox.Show("\tError, couldn't find table with caption InvoiceTable in current document.");
-                }
-                else
-                {
-                    if (invoiceTable.RowCount > 1)
-                    {
-                        // Get the row pattern of the second row.
-                        var rowPattern = invoiceTable.Rows[1];
-                        MessageBox.Show(rowPattern.ToString());
-                        // Add items (rows) to the grocery list.
-                        InvoiceGen.AddItemToTable(invoiceTable, rowPattern, "Banana");
-                        InvoiceGen.AddItemToTable(invoiceTable, rowPattern, "Strawberry");
-                        InvoiceGen.AddItemToTable(invoiceTable, rowPattern, "Chicken");
-                        InvoiceGen.AddItemToTable(invoiceTable, rowPattern, "Bread");
-                        InvoiceGen.AddItemToTable(invoiceTable, rowPattern, "Eggs");
-                        InvoiceGen.AddItemToTable(invoiceTable, rowPattern, "Salad");
+                // Add a Table into the document and sets its values.
+                var t = document.AddTable(2, 4);
+                t.Design = TableDesign.ColorfulListAccent1;
+                t.Alignment = Alignment.center;
+                t.Rows[0].Cells[0].Paragraphs[0].Append("Mike");
+                t.Rows[0].Cells[1].Paragraphs[0].Append("65");
+                t.Rows[0].Cells[2].Paragraphs[0].Append("Kevin");
+                t.Rows[0].Cells[3].Paragraphs[0].Append("62");
+                t.Rows[1].Cells[0].Paragraphs[0].Append("Carl");
+                t.Rows[1].Cells[1].Paragraphs[0].Append("60");
+                t.Rows[1].Cells[2].Paragraphs[0].Append("Michael");
+                t.Rows[1].Cells[3].Paragraphs[0].Append("59");
 
-                        // Remove the pattern row.
-                        rowPattern.Remove();
+                document.InsertTable(t);
 
-                        doc.SaveAs(@"C:\Users\Søren\source\repos\Eksamensprojekt\UI\bin\Debug\temp.docx");
-                    }
-                }
+                // Add a row at the end of the table and sets its values.
+                var r = t.InsertRow();
+                r.Cells[0].Paragraphs[0].Append("Mario");
+                r.Cells[1].Paragraphs[0].Append("Kart");
+                r.Cells[1].Paragraphs[0].Append("Nigga");
+                r.Cells[1].Paragraphs[0].Append("!");
+
+                document.SaveAs(@"C:\Users\Søren\Desktop\testlort\temp.docx");
             }
         }
     }

@@ -34,7 +34,6 @@ namespace UI
             LineItemCount++;
             ItemCount.Content = LineItemCount;
 
-            invoiceGen.InvoiceTableGen();
             //metodekald indsæt kolonne
 
             //Description.Text = "";
@@ -53,8 +52,11 @@ namespace UI
             Employee emp = new Employee("Jørn Jensen", "nejgade 42", "4000 odense Q", "12355578876", "6352 6125343124");
             Invoice inv = new Invoice("12/11/2018", "420","fisse",220, 412534, 3333);
 
-            invoiceGen.ReplaceInvoiceText(cust, emp, inv);
-            
+            invoiceGen.InsertTable();
+
+            //invoiceGen.ReplaceInvoiceText(cust, emp, inv);
+
+
         }
     }
 }
