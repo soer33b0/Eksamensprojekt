@@ -99,9 +99,9 @@ namespace ApplicationLayer
                             invoice.InvoiceDate = read["InvoiceDate"].ToString();
                             invoice.InvoiceNum = read["InvoiceNum"].ToString();
                             invoice.InvoiceTitle = read["InvoiceTitle"].ToString();
-                            invoice.HoursWorked = read["HoursWorked"].ToString();
-                            invoice.HourlySalary = read["HourlySalary"].ToString();
-                            invoice.TotalSalary = read["TotalSalary"].ToString();
+                            invoice.HoursWorked = Convert.ToDouble(read["HoursWorked"]);
+                            invoice.HourlySalary = Convert.ToDouble(read["HourlySalary"]);
+                            invoice.TotalSalary = Convert.ToDouble(read["TotalSalary"]);
                             string invoiceID = read["InvoiceID"].ToString();
                             string customerID = read["CustomerID"].ToString();
                             string invoiceDate = read["InvoiceDate"].ToString();
