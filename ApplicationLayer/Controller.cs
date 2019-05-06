@@ -20,6 +20,12 @@ namespace ApplicationLayer
         {
             return Dbcontroller.ShowInvoice();
         }
+
+        public Invoice GetInvoice()
+        {
+            return Dbcontroller.GetInvoice();
+        }
+
         public void AddCustomer(string customerName, string customerAddress, string customerZipCity, string customerEmail, string customerPhone)
         {
             Customer customer = new Customer { CustomerName= customerName, CustomerAddress = customerAddress, CustomerZipCity = customerZipCity, CustomerEmail = customerEmail, CustomerPhone = customerPhone };

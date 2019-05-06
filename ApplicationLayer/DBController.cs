@@ -62,10 +62,10 @@ namespace ApplicationLayer
                         {
                             string invoiceID = read["InvoiceID"].ToString();
                             string customerID = read["CustomerID"].ToString();
-                            string invoiceDate = read["InoiceDate"].ToString();
+                            string invoiceDate = read["InvoiceDate"].ToString();
                             string hoursWorked = read["HoursWorked"].ToString();
                             string hourlySalary = read["HourlySalary"].ToString();
-                            string totalSalary = read["totalSalary"].ToString();
+                            string totalSalary = read["TotalSalary"].ToString();
                             Console.WriteLine(invoiceID + " " + customerID + " " + invoiceDate + " " + hoursWorked + " " + hourlySalary + " " + totalSalary);
                         }
                     }
@@ -79,6 +79,42 @@ namespace ApplicationLayer
             }
         }
 
+        public Invoice GetInvoice()
+        {
+            Invoice invoice = null;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    SqlCommand getInvoice = new SqlCommand("GetInvoice", conn);
+                    getInvoice.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader read = getInvoice.ExecuteReader();
+
+                    if (read.HasRows)
+                    {
+                        while (read.Read())
+                        {
+                            string invoiceID = read["InvoiceID"].ToString();
+                            string customerID = read["CustomerID"].ToString();
+                            string invoiceDate = read["InvoiceDate"].ToString();
+                            string hoursWorked = read["HoursWorked"].ToString();
+                            string hourlySalary = read["HourlySalary"].ToString();
+                            string totalSalary = read["TotalSalary"].ToString();
+                            Console.WriteLine(invoiceID + " " + customerID + " " + invoiceDate + " " + hoursWorked + " " + hourlySalary + " " + totalSalary);
+                        }
+                    }
+                }
+
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl " + e.Message);
+                }
+                return invoice;
+            }
+
+        }
         public void AddCustomer(Customer customer)
         {
             using (SqlConnection conn = new SqlConnection())
