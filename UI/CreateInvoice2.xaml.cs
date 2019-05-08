@@ -32,12 +32,18 @@ namespace UI
 
         private void AddItemClicked(object sender, RoutedEventArgs e)
         {
+            
             InvoiceAdd invoiceAdd = new InvoiceAdd();
 
-            invoiceAdd.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text);
+            //invoiceAdd.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text);
 
             LineItemCount++;
             ItemCount.Content = LineItemCount;
+
+            
+            string str = (Description.Text + "," + HourlySalary.Text + "," + NumOfHours.Text);
+            invoiceAdd.items.Add(str);
+
 
             Description.Text = "";
             NumOfHours.Text = "";
@@ -47,14 +53,11 @@ namespace UI
 
         private void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            using (DocX document = DocX.Load(@"C:\Users\Søren\Desktop\testlort\temp.docx"))
-            {
-                var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
+            InvoiceAdd invoiceAdd = new InvoiceAdd();
 
-                var rowPattern = invoiceTable.RowCount - 1;
-                //rowPattern.Remove();
-                document.Save();
-            }
+            invoiceAdd.arraylort();
+
+            MessageBox.Show("gemt");
         }
     }
 }

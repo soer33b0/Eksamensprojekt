@@ -70,6 +70,7 @@ namespace ApplicationLayer
                 t.Rows[1].Cells[2].Paragraphs.First().Append("%PRODUCT_QUANTITY%");
                 t.Rows[1].Cells[3].Paragraphs.First().Append("%PRODUCT_TOTALPRICE%");
 
+
                 foreach (var paragraph in document.Paragraphs)
                 {
                     paragraph.FindAll("%TABLE%").ForEach(index => paragraph.InsertTableAfterSelf((t)));
