@@ -50,49 +50,31 @@ namespace ApplicationLayer
             doc.SaveAs(@"C:\Users\Søren\Desktop\testlort\temp.docx");
         }
 
-        public static void AddItemToTable(Table table, Row rowPattern, string productName)
-        {
-            Invoice invoice = new Invoice();
-
-            var unitPrice = invoice.HourlySalary;
-            var unitQuantity = invoice.HoursWorked;
-
-            // Insert a copy of the rowPattern at the last index in the table.
-            var newItem = table.InsertRow(rowPattern, table.RowCount - 1);
-
-            // Replace the default values of the newly inserted row.
-            newItem.ReplaceText("%PRODUCT_NAME%", productName);
-            newItem.ReplaceText("%PRODUCT_UNITPRICE%", "$ " + unitPrice.ToString("N2"));
-            newItem.ReplaceText("%PRODUCT_QUANTITY%", unitQuantity.ToString());
-            newItem.ReplaceText("%PRODUCT_TOTALPRICE%", "$ " + (unitPrice * unitQuantity).ToString("N2"));
-
-
-        }
-
         public void InsertInvoiceTable()
         {
             Console.WriteLine("\tInsertRowAndImageTable()");
 
-            using (DocX document = DocX.Load(@"C:\Users\Søren\Desktop\testlort\skabelon.docx"))
+            using (DocX document = DocX.Load(@"C:\Users\Søren\Desktop\testlort\temp.docx"))
             {
                 // Add a Table into the document and sets its values.
                 var t = document.AddTable(2, 4);
+                t.TableCaption = "INVOICE_TABLE";
                 t.Design = TableDesign.ColorfulListAccent1;
                 t.Alignment = Alignment.center;
                 t.Rows[0].Cells[0].Paragraphs.First().Append("Beskrivelse");
                 t.Rows[0].Cells[1].Paragraphs.First().Append("Enhedspris");
                 t.Rows[0].Cells[2].Paragraphs.First().Append("Antal");
                 t.Rows[0].Cells[3].Paragraphs.First().Append("Beløb");
-                t.Rows[1].Cells[0].Paragraphs.First().Append("D");
-                t.Rows[1].Cells[1].Paragraphs.First().Append("E");
-                t.Rows[1].Cells[2].Paragraphs.First().Append("F");
-                t.Rows[1].Cells[3].Paragraphs.First().Append("KKK");
+                t.Rows[1].Cells[0].Paragraphs.First().Append("%PRODUCT_NAME%");
+                t.Rows[1].Cells[1].Paragraphs.First().Append("%PRODUCT_UNITPRICE%");
+                t.Rows[1].Cells[2].Paragraphs.First().Append("%PRODUCT_QUANTITY%");
+                t.Rows[1].Cells[3].Paragraphs.First().Append("%PRODUCT_TOTALPRICE%");
 
                 foreach (var paragraph in document.Paragraphs)
                 {
                     paragraph.FindAll("%TABLE%").ForEach(index => paragraph.InsertTableAfterSelf((t)));
                 }
-                document.ReplaceText("%TABLE%", "");
+                document.ReplaceText("%TABLE%", t.TableCaption);
 
                 document.SaveAs(@"C:\Users\Søren\Desktop\testlort\temp.docx");
             }

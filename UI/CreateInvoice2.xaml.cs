@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ApplicationLayer;
 using DomainLayer;
+using Xceed.Words.NET;
+
 
 namespace UI
 {
@@ -30,32 +32,29 @@ namespace UI
 
         private void AddItemClicked(object sender, RoutedEventArgs e)
         {
-            InvoiceGen invoiceGen = new InvoiceGen();
+            InvoiceAdd invoiceAdd = new InvoiceAdd();
+
+            invoiceAdd.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text);
 
             LineItemCount++;
             ItemCount.Content = LineItemCount;
-
-            //metodekald indsæt kolonne
 
             Description.Text = "";
             NumOfHours.Text = "";
             HourlySalary.Text = "";
             MessageBox.Show("Punkt tilføjet!");
-
         }
 
         private void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            InvoiceGen invoiceGen = new InvoiceGen();
-            invoiceGen.OpenDocx(@"C:\Users\Søren\Desktop\Eksamensprojekt", @"\Fakturaskabelon.docx");
+            using (DocX document = DocX.Load(@"C:\Users\Søren\Desktop\testlort\temp.docx"))
+            {
+                var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
 
-            Customer cust = new Customer();
-            Employee emp = new Employee();
-            Invoice inv = new Invoice();
-
-            invoiceGen.ReplaceInvoiceText(cust, emp, inv);
-
-            invoiceGen.InsertInvoiceTable();
+                var rowPattern = invoiceTable.RowCount - 1;
+                //rowPattern.Remove();
+                document.Save();
+            }
         }
     }
 }
