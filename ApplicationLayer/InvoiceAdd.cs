@@ -14,6 +14,7 @@ namespace ApplicationLayer
 {
     public class InvoiceAdd
     {
+        int rowCount = 1;
         public void AddInvoiceLine(string description, string hourlySalary, string hoursWorked)
         {
             using (DocX document = DocX.Load(@"C:\Users\Søren\Desktop\testlort\temp.docx"))
@@ -26,20 +27,20 @@ namespace ApplicationLayer
                 }
                 else
                 {
-                    Invoice invoice = new Invoice();
-                    InvoiceGen invoiceGen = new InvoiceGen();
-                    var rowPattern = invoiceTable.Rows[1];
+                   
+                    var rowPattern = invoiceTable.Rows[rowCount];
 
                     // Insert a copy of the rowPattern at the last index in the table.
-                    var newItem = invoiceTable.InsertRow(rowPattern, invoiceTable.RowCount - 1);
+                    
+                    var pislort = invoiceTable.InsertRow(rowPattern, invoiceTable.RowCount);
+                    pislort.Cells[0].Paragraphs.First().Append(description);
+                    pislort.Cells[1].Paragraphs.First().Append(hourlySalary);
+                    pislort.Cells[2].Paragraphs.First().Append(hoursWorked);
+                    pislort.Cells[3].Paragraphs.First().Append("%PRODUCT_TOTALPRICE%");
 
-                    // Replace the default values of the newly inserted row.
-                    newItem.ReplaceText("%PRODUCT_NAME%", description);
-                    newItem.ReplaceText("%PRODUCT_UNITPRICE%", "$ " + hourlySalary);
-                    newItem.ReplaceText("%PRODUCT_QUANTITY%", hoursWorked);
-                    newItem.ReplaceText("%PRODUCT_TOTALPRICE%", "$ " + (Convert.ToDouble(hourlySalary) * Convert.ToDouble(hoursWorked)).ToString("N2"));
 
                     document.SaveAs(@"C:\Users\Søren\Desktop\testlort\temp.docx");
+                    rowCount++;
                 }
             }
         }

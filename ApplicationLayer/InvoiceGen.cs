@@ -65,12 +65,8 @@ namespace ApplicationLayer
                 t.Rows[0].Cells[1].Paragraphs.First().Append("Enhedspris");
                 t.Rows[0].Cells[2].Paragraphs.First().Append("Antal");
                 t.Rows[0].Cells[3].Paragraphs.First().Append("Beløb");
-                t.Rows[1].Cells[0].Paragraphs.First().Append("%PRODUCT_NAME%");
-                t.Rows[1].Cells[1].Paragraphs.First().Append("%PRODUCT_UNITPRICE%");
-                t.Rows[1].Cells[2].Paragraphs.First().Append("%PRODUCT_QUANTITY%");
-                t.Rows[1].Cells[3].Paragraphs.First().Append("%PRODUCT_TOTALPRICE%");
-
-                foreach (var paragraph in document.Paragraphs)
+                
+                foreach (var paragraph in document.Paragraphs) 
                 {
                     paragraph.FindAll("%TABLE%").ForEach(index => paragraph.InsertTableAfterSelf((t)));
                 }

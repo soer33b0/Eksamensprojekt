@@ -51,6 +51,7 @@ namespace UI
             {
                 var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
 
+                MessageBox.Show(invoiceTable.RowCount.ToString());
                 var rowPattern = invoiceTable.RowCount - 1;
                 //rowPattern.Remove();
                 document.Save();
