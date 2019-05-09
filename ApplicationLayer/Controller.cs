@@ -37,7 +37,7 @@ namespace ApplicationLayer
             Employee employee = new Employee { EmployeeName = employeeName, EmployeeAddress = employeeAddress, EmployeeZipCity = employeeZipCity, EmployeeSeNum = employeeSeNum, EmployeeAccountNum = employeeAccountNum };
             Dbcontroller.AddEmployee(employee);
         }
-        public void SaveFisheryRemuneration(double fishPrice, string fishType, double fishWeight, DateTime saleDate, int customerID)
+        public void SaveFisheryRemuneration(double fishPrice, string fishType, double fishWeight, string saleDate, int customerID)
         {
             FisheryRemuneration fisheryRemuneration = new FisheryRemuneration { FishPrice = fishPrice, FishType = fishType, FishWeight = fishWeight, SaleDate = saleDate, CustomerID = customerID };
             Dbcontroller.SaveFisheryRemuneration(fisheryRemuneration);

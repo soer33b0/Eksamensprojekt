@@ -20,7 +20,7 @@ namespace DomainLayer
         {
             get; set;
         }
-        public DateTime SaleDate
+        public string SaleDate
         {
             get; set;
         }
