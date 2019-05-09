@@ -8,6 +8,17 @@ namespace DomainLayer
 {
     public class Customer
     {
+        public Customer(string _customerName, string _customerAddress, string _customerEmail, string _customerPhone, string _customerZipCity)
+        {
+            CustomerName = _customerName;
+            CustomerAddress = _customerAddress;
+            CustomerEmail = _customerEmail;
+            CustomerPhone = _customerPhone;
+            CustomerZipCity = _customerZipCity;
+        }
+
+        public Customer() { }
+
         public string CustomerName
         {
             get;
@@ -38,14 +49,6 @@ namespace DomainLayer
             set;
         }
 
-        public Customer(string _customerName, string _customerAddress, string _customerEmail, string _customerPhone, string _customerZipCity)
-        {
-            CustomerName = _customerName;
-            CustomerAddress = _customerAddress;
-            CustomerEmail = _customerEmail;
-            CustomerPhone = _customerPhone;
-            CustomerZipCity = _customerZipCity;
-        }
-        public Customer() { }
+        
     }
 }

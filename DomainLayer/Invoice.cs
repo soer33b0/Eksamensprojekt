@@ -8,6 +8,17 @@ namespace DomainLayer
 {
     public class Invoice
     {
+        public Invoice(string _invoiceDate, string _invoiceNum, string _invoiceTitle, int _hoursWorked, double _hourlySalary)
+        {
+            InvoiceDate = _invoiceDate;
+            InvoiceNum = _invoiceNum;
+            InvoiceTitle = _invoiceTitle;
+            HoursWorked = _hoursWorked;
+            HourlySalary = _hourlySalary;
+        }
+
+        public Invoice() { }
+
         public string InvoiceDate
         {
             get;
@@ -49,17 +60,5 @@ namespace DomainLayer
             get;
             set;
         }
-
-
-        public Invoice(string _invoiceDate, string _invoiceNum, string _invoiceTitle, int _hoursWorked, double _hourlySalary)
-        {
-            InvoiceDate = _invoiceDate;
-            InvoiceNum = _invoiceNum;
-            InvoiceTitle = _invoiceTitle;
-            HoursWorked = _hoursWorked;
-            HourlySalary = _hourlySalary;
-        }
-
-        public Invoice() { }
     }
 }
