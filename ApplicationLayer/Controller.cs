@@ -31,5 +31,20 @@ namespace ApplicationLayer
             Customer customer = new Customer { CustomerName= customerName, CustomerAddress = customerAddress, CustomerZipCity = customerZipCity, CustomerEmail = customerEmail, CustomerPhone = customerPhone };
             Dbcontroller.AddCustomer(customer);
         }
+
+        public void AddEmployee(string employeeName, string employeeAddress, string employeeZipCity, string employeeSeNum, string employeeAccountNum)
+        {
+            Employee employee = new Employee { EmployeeName = employeeName, EmployeeAddress = employeeAddress, EmployeeZipCity = employeeZipCity, EmployeeSeNum = employeeSeNum, EmployeeAccountNum = employeeAccountNum };
+            Dbcontroller.AddEmployee(employee);
+        }
+        public void SaveFisheryRemuneration(double fishPrice, string fishType, double fishWeight, DateTime saleDate, int customerID)
+        {
+            FisheryRemuneration fisheryRemuneration = new FisheryRemuneration { FishPrice = fishPrice, FishType = fishType, FishWeight = fishWeight, SaleDate = saleDate, CustomerID = customerID };
+            Dbcontroller.SaveFisheryRemuneration(fisheryRemuneration);
+        }
+        public List<FisheryRemuneration> ShowFisheryRemuneration()
+        {
+            return Dbcontroller.ShowFisheryRemuneration();
+        }
     }
 }

@@ -130,13 +130,99 @@ namespace ApplicationLayer
                     addCustomer.Parameters.Add(new SqlParameter("@CustomerPhone", customer.CustomerPhone));
                     addCustomer.ExecuteNonQuery();
                     Console.Clear();
-                    Console.WriteLine("Faktura gemt!");
+                    Console.WriteLine("Kunde tilføjet");
                 }
 
                 catch (SqlException e)
                 {
                     Console.WriteLine("Fejl" + e.Message);
                 }
+            }
+        }
+        public void AddEmployee(Employee employee)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.Open();
+                try
+                {
+                    SqlCommand addEmployee = new SqlCommand("AddEmployee", conn);
+                    addEmployee.CommandType = CommandType.StoredProcedure;
+                    addEmployee.Parameters.Add(new SqlParameter("@EmployeeName", employee.EmployeeName));
+                    addEmployee.Parameters.Add(new SqlParameter("@EmployeeAddress", employee.EmployeeAddress));
+                    addEmployee.Parameters.Add(new SqlParameter("@EmployeeZipZity", employee.EmployeeZipCity));
+                    addEmployee.Parameters.Add(new SqlParameter("@EmployeeSeNum", employee.EmployeeSeNum));
+                    addEmployee.Parameters.Add(new SqlParameter("@EmployeeAccountNum", employee.EmployeeAccountNum));
+                    addEmployee.ExecuteNonQuery();
+                    Console.Clear();
+                    Console.WriteLine("Medarbejder tilføjet");
+                }
+
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl" + e.Message);
+                }
+            }
+        }
+        public void SaveFisheryRemuneration(FisheryRemuneration fisheryRemuneration)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                try
+                {
+                    SqlCommand saveFisheryRemuneration = new SqlCommand("SaveFisheryRemuneration", conn);
+                    saveFisheryRemuneration.CommandType = CommandType.StoredProcedure;
+                    saveFisheryRemuneration.Parameters.Add(new SqlParameter("@FishPrice", fisheryRemuneration.FishPrice));
+                    saveFisheryRemuneration.Parameters.Add(new SqlParameter("@FishType", fisheryRemuneration.FishType));
+                    saveFisheryRemuneration.Parameters.Add(new SqlParameter("@FishWeight", fisheryRemuneration.FishWeight));
+                    saveFisheryRemuneration.Parameters.Add(new SqlParameter("@SaleDate", fisheryRemuneration.SaleDate));
+                    saveFisheryRemuneration.Parameters.Add(new SqlParameter("@CustomerID", fisheryRemuneration.CustomerID));
+                    saveFisheryRemuneration.ExecuteNonQuery();
+                    Console.Clear();
+                    Console.WriteLine("Fiskeri vedlag gemt!");
+                }
+
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl" + e.Message);
+                }
+            }
+        }
+        public List<FisheryRemuneration> ShowFisheryRemuneration()
+        {
+            List<FisheryRemuneration> fisheryRemuneration = new List<FisheryRemuneration>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    SqlCommand showFisheryRemuneration = new SqlCommand("ShowFisheryRemuneration", conn);
+                    showFisheryRemuneration.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader read = showFisheryRemuneration.ExecuteReader();
+
+                    if (read.HasRows)
+                    {
+                        while (read.Read())
+                        {
+                            string remunerationID = read["RemunerationID"].ToString();
+                            string fishPrice = read["FishPrice"].ToString();
+                            string fishType = read["FishType"].ToString();
+                            string fishWeight = read["FishWeight"].ToString();
+                            string saleDate = read["SaleDate"].ToString();
+                            string customerID = read["CustomerID"].ToString();
+                            Console.WriteLine(remunerationID + " " + fishPrice + " " + fishType + " " + fishWeight + " " + saleDate + " " + customerID);
+                        }
+                    }
+                }
+
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl " + e.Message);
+                }
+                return fisheryRemuneration;
             }
         }
     }
