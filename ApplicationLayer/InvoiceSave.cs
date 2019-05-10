@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xceed.Words.NET;
 
@@ -9,23 +10,22 @@ namespace ApplicationLayer
 {
     public class InvoiceSave
     {
-        public string InvSave()
+        public bool InvSave(double totalprice)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             using (DocX document = DocX.Load(@path + "\\temp.docx"))
             {
                 var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
                 int count = (invoiceTable.RowCount - 2);
+                double VAT = totalprice * 0.25;
+                double finalprice = totalprice + VAT;
+
                 document.ReplaceText("INVOICE_TABLE", "");
+                document.ReplaceText("%VAT%", VAT.ToString());
+                document.ReplaceText("%totalPrice%", finalprice.ToString);
+
                 document.Save();
-                if (count == 1)
-                {
-                    return (invoiceTable.RowCount - 2).ToString() + " punkt blev tilføjet. Faktura er gemt.";
-                }
-                else
-                    document.Save();
-                    return count.ToString()+" punkter blev tilføjet. Faktura er gemt.";
-                
+                return true;
             }
         }
     }

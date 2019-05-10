@@ -46,7 +46,7 @@ namespace ApplicationLayer
 
                     document.SaveAs(@path+"\\temp.docx");
                     rowCount++;
-                    return "Punkt tilføjet!";
+                    return total.ToString();
                 }
             }
         }

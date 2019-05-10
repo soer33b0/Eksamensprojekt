@@ -25,6 +25,7 @@ namespace UI
     public partial class CreateInvoice2 : Page
     {
         int LineItemCount = 0;
+        double totalprice = 0;
         public CreateInvoice2()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace UI
             InvoiceAdd invoiceAdd = new InvoiceAdd();
 
 
-            MessageBox.Show(invoiceAdd.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text));
+            totalprice += Convert.ToDouble(invoiceAdd.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text));
 
             LineItemCount++;
             ItemCount.Content = LineItemCount;
@@ -48,8 +49,7 @@ namespace UI
         private void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
             InvoiceSave invoiceSave = new InvoiceSave();
-            MessageBox.Show(invoiceSave.InvSave());
-
+            invoiceSave.InvSave(totalprice);
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
         }
