@@ -29,6 +29,10 @@ namespace UI
 
         private void NextButttonClicked(object sender, RoutedEventArgs e)
         {
+            Invoice invoice = new Invoice();
+            invoice.InvoiceTitle = Title.Text;
+            invoice.InvoiceNum = InvoiceNum.Text;
+
             CreateInvoice2 createInvoice2 = new CreateInvoice2();
             this.Content = createInvoice2;
 
@@ -44,8 +48,7 @@ namespace UI
 
         private void Title_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Invoice invoice = new Invoice();
-            invoice.InvoiceTitle = Title.Text;
+            
         }
     }
 }

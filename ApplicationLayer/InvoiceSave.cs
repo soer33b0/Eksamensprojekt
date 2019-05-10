@@ -20,9 +20,10 @@ namespace ApplicationLayer
                 double VAT = totalprice * 0.25;
                 double finalprice = totalprice + VAT;
 
-                document.ReplaceText("INVOICE_TABLE", "");
+                document.ReplaceText("INVOICE_TABLE", "FAKTURA");
                 document.ReplaceText("%VAT%", VAT.ToString());
-                document.ReplaceText("%totalPrice%", finalprice.ToString);
+                document.ReplaceText("%totalPrice%", finalprice.ToString());
+                document.ReplaceText("%netto%", totalprice.ToString());
 
                 document.Save();
                 return true;
