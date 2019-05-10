@@ -15,32 +15,38 @@ namespace ApplicationLayer
     public class InvoiceAdd
     {
         int rowCount = 1;
-        public void AddInvoiceLine(string description, string hourlySalary, string hoursWorked)
+        double finalPrice = 0;
+        public string AddInvoiceLine(string description, string hourlySalary, string hoursWorked)
         {
-            using (DocX document = DocX.Load(@"C:\Users\Søren\Desktop\testlort\temp.docx"))
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (DocX document = DocX.Load(path + "\\temp.docx"))
             {
                 var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
 
                 if (invoiceTable == null)
                 {
-                    Console.WriteLine("\tError, couldn't find table with caption INVOICE_TABLE in current document.");
+                    return "\tError, couldn't find table with caption INVOICE_TABLE in current document.";
                 }
                 else
                 {
-                   
+                    double hourlySalaryDouble = Convert.ToDouble(hourlySalary);
+                    double hoursWorkedDouble = Convert.ToDouble(hoursWorked);
+                    double total = hourlySalaryDouble + hoursWorkedDouble;
+                    finalPrice += total;
                     var rowPattern = invoiceTable.Rows[rowCount];
 
                     // Insert a copy of the rowPattern at the last index in the table.
                     
                     var pislort = invoiceTable.InsertRow(rowPattern, invoiceTable.RowCount);
-                    pislort.Cells[0].Paragraphs.First().Append(description);
-                    pislort.Cells[1].Paragraphs.First().Append(hourlySalary);
+                    pislort.Cells[0].Paragraphs.First().Append(description.ToUpper()).Italic();
+                    pislort.Cells[1].Paragraphs.First().Append(hourlySalary+" DKK");
                     pislort.Cells[2].Paragraphs.First().Append(hoursWorked);
-                    pislort.Cells[3].Paragraphs.First().Append("%PRODUCT_TOTALPRICE%");
+                    pislort.Cells[3].Paragraphs.First().Append(total.ToString()+" DKK").Bold();
 
 
-                    document.SaveAs(@"C:\Users\Søren\Desktop\testlort\temp.docx");
+                    document.SaveAs(@path+"\\temp.docx");
                     rowCount++;
+                    return "Punkt tilføjet!";
                 }
             }
         }

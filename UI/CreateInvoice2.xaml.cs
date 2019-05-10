@@ -34,7 +34,8 @@ namespace UI
         {
             InvoiceAdd invoiceAdd = new InvoiceAdd();
 
-            invoiceAdd.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text);
+
+            MessageBox.Show(invoiceAdd.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text));
 
             LineItemCount++;
             ItemCount.Content = LineItemCount;
@@ -42,20 +43,15 @@ namespace UI
             Description.Text = "";
             NumOfHours.Text = "";
             HourlySalary.Text = "";
-            MessageBox.Show("Punkt tilføjet!");
         }
 
         private void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            using (DocX document = DocX.Load(@"C:\Users\Søren\Desktop\testlort\temp.docx"))
-            {
-                var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
+            InvoiceSave invoiceSave = new InvoiceSave();
+            MessageBox.Show(invoiceSave.InvSave());
 
-                MessageBox.Show(invoiceTable.RowCount.ToString());
-                var rowPattern = invoiceTable.RowCount - 1;
-                //rowPattern.Remove();
-                document.Save();
-            }
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();
         }
     }
 }

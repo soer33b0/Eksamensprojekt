@@ -37,9 +37,6 @@ namespace UI
             InvoiceGen i = new InvoiceGen();
             CreateInvoice createInvoice = new CreateInvoice();
             createInvoice.Show();
-
-            //i.OpenDocx();
-
         }
     }
 }
