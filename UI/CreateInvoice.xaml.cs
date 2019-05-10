@@ -41,5 +41,11 @@ namespace UI
             invoiceGen.InsertInvoiceTable();
             
         }
+
+        private void Title_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Invoice invoice = new Invoice();
+            invoice.InvoiceTitle = Title.Text;
+        }
     }
 }
