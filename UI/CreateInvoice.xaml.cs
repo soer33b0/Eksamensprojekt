@@ -29,21 +29,20 @@ namespace UI
 
         private void NextButttonClicked(object sender, RoutedEventArgs e)
         {
+            InvoiceGen invoiceGen = new InvoiceGen();
+            Customer customer = new Customer("Smedegården Hans Jørgen ApS", "vollsmose 4", "Jørgenleth@nej.uk.dk.usa.gov", "44411231", "5000 Odense C");
+            Employee employee = new Employee("Jørn Jensen", "Jørnvej 420", "3299 århus F", "44155523564", "5321 66666661661");
             Invoice invoice = new Invoice();
+
             invoice.InvoiceTitle = Title.Text;
             invoice.InvoiceNum = InvoiceNum.Text;
+            invoice.InvoiceDate = InvoiceDate.Text;
+
+            invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
+            invoiceGen.InsertInvoiceTable();
 
             CreateInvoice2 createInvoice2 = new CreateInvoice2();
             this.Content = createInvoice2;
-
-            InvoiceGen invoiceGen = new InvoiceGen();
-            Customer cust = new Customer("Smedegården Hans Jørgen ApS", "vollsmose 4", "Jørgenleth@nej.uk.dk.usa.gov", "44411231", "5000 Odense C");
-            Employee emp = new Employee("Jørn Jensen", "Jørnvej 420", "3299 århus F", "44155523564", "5321 66666661661");
-            Invoice inv = new Invoice("22-01-2013", "63", "Uge 42 - 52", 41, 4441);
-
-            invoiceGen.ReplaceInvoiceText(cust, emp, inv);
-            invoiceGen.InsertInvoiceTable();
-            
         }
 
         private void Title_TextChanged(object sender, TextChangedEventArgs e)

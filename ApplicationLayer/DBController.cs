@@ -114,6 +114,7 @@ namespace ApplicationLayer
             }
 
         }
+
         public void AddCustomer(Customer customer)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -139,6 +140,42 @@ namespace ApplicationLayer
                 }
             }
         }
+
+        public Customer GetCustomer()
+        {
+            Customer customer = new Customer();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    SqlCommand getInvoice = new SqlCommand("GetCustomer", conn);
+                    GetCustomer.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader read = getInvoice.ExecuteReader();
+
+                    if (read.HasRows)
+                    {
+                        while (read.Read())
+                        {
+                            customer.CustomerAddress = read["CustomerAddress"].ToString();
+                            customer.CustomerEmail = read["CustomerEmail"].ToString();
+                            customer.CustomerName = read["CustomerName"].ToString();
+                            customer.CustomerPhone = read["CustomerPhone"].ToString();
+                            customer.CustomerZipCity = read["CustomerZipCity"].ToString();
+                        }
+                    }
+                }
+
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl " + e.Message);
+                }
+                return invoice;
+            }
+
+        }
+
         public void AddEmployee(Employee employee)
         {
             using (SqlConnection conn = new SqlConnection())
