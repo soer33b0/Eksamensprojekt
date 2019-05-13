@@ -9,16 +9,11 @@ namespace ApplicationLayer
 {
     public class InvoiceRepo
     {
-        private List<Invoice> ListInvoice;
-
-        public InvoiceRepo()
-        {
-            ListInvoice = new List<Invoice>();
-        }
+        private List<Invoice> invoices = new List<Invoice>();
 
         public void AddInvoice(Invoice invoice)
         {
-            ListInvoice.Add(invoice);
+            invoices.Add(invoice);
         }
 
         public List<Invoice> GetInvoice()
