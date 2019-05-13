@@ -9,16 +9,11 @@ namespace ApplicationLayer
 {
     public class EmployeeRepo
     {
-        private List<Employee> ListEmployee;
-
-        public EmployeeRepo()
-        {
-            ListEmployee = new List<Employee>();
-        }
+        private List<Employee> employees = new List<Employee>();
 
         public void AddEmployee(Employee employee)
         {
-            ListEmployee.Add(employee);
+            employees.Add(employee);
         }
     }
 }

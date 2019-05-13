@@ -9,22 +9,11 @@ namespace ApplicationLayer
 {
     public class FisheryRemunerationRepo
     {
-        private List<FisheryRemuneration> ListFisheryRemuneration;
-
-        public FisheryRemunerationRepo()
-        {
-            ListFisheryRemuneration = new List<FisheryRemuneration>();
-        }
+        private List<FisheryRemuneration> fisheryRemunerations = new List<FisheryRemuneration>();
 
         public void AddFisheryRemuneration(FisheryRemuneration fisheryRemuneration)
         {
-            ListFisheryRemuneration.Add(fisheryRemuneration);
-        }
-
-        public List<FisheryRemuneration> GetFisheryRemuneration()
-        {
-            List<FisheryRemuneration> showFisheries = new List<FisheryRemuneration>();
-            return showFisheries;
+            fisheryRemunerations.Add(fisheryRemuneration);
         }
     }
 }

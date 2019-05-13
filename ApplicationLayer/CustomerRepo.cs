@@ -14,7 +14,5 @@ namespace DomainLayer
         {
             customers.Add(customer);
         }
-
-
     }
 }
