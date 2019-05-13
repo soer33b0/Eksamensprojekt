@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Controller.cs" />
     <Compile Include="DBController.cs" />
+    <Compile Include="EmployeeRepo.cs" />
     <Compile Include="InvoiceAdd.cs" />
     <Compile Include="InvoiceGen.cs" />
     <Compile Include="InvoiceSave.cs" />
