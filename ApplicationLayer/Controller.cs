@@ -9,42 +9,46 @@ namespace ApplicationLayer
 {
     public class Controller
     {
-        DBController Dbcontroller = new DBController();
+        DBController dbController = new DBController();
 
         public void SaveInvoice(string invoiceDate, string invoiceNum, string invoiceTitle, int hoursWorked, double hourlySalary, double totalSalary)
         {
             Invoice invoice = new Invoice { InvoiceDate = invoiceDate, InvoiceNum = invoiceNum, InvoiceTitle = invoiceTitle, HoursWorked = hoursWorked, HourlySalary = hourlySalary, TotalSalary = totalSalary };
-            Dbcontroller.SaveInvoice(invoice);
-        }
-        public List<Invoice> ShowInvoice()
-        {
-            return Dbcontroller.ShowInvoice();
+            dbController.SaveInvoice(invoice);
         }
 
         public Invoice GetInvoice()
         {
-            return Dbcontroller.GetInvoice();
+            return dbController.GetInvoice();
         }
 
         public void AddCustomer(string customerName, string customerAddress, string customerZipCity, string customerEmail, string customerPhone)
         {
             Customer customer = new Customer { CustomerName= customerName, CustomerAddress = customerAddress, CustomerZipCity = customerZipCity, CustomerEmail = customerEmail, CustomerPhone = customerPhone };
-            Dbcontroller.AddCustomer(customer);
+            dbController.AddCustomer(customer);
+        }
+
+        public Customer GetCustomer()
+        {
+            return dbController.GetCustomer();
         }
 
         public void AddEmployee(string employeeName, string employeeAddress, string employeeZipCity, string employeeSeNum, string employeeAccountNum)
         {
             Employee employee = new Employee { EmployeeName = employeeName, EmployeeAddress = employeeAddress, EmployeeZipCity = employeeZipCity, EmployeeSeNum = employeeSeNum, EmployeeAccountNum = employeeAccountNum };
-            Dbcontroller.AddEmployee(employee);
+            dbController.AddEmployee(employee);
         }
+
+        public Employee GetEmployee()
+        {
+            return dbController.GetEmployee();
+        }
+
         public void SaveFisheryRemuneration(double fishPrice, string fishType, double fishWeight, string saleDate, int customerID)
         {
             FisheryRemuneration fisheryRemuneration = new FisheryRemuneration { FishPrice = fishPrice, FishType = fishType, FishWeight = fishWeight, SaleDate = saleDate, CustomerID = customerID };
-            Dbcontroller.SaveFisheryRemuneration(fisheryRemuneration);
+            dbController.SaveFisheryRemuneration(fisheryRemuneration);
         }
-        public List<FisheryRemuneration> ShowFisheryRemuneration()
-        {
-            return Dbcontroller.ShowFisheryRemuneration();
-        }
+
     }
 }
