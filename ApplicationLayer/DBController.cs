@@ -253,30 +253,27 @@ namespace ApplicationLayer
                 }
             }
         }
-        public List<FisheryRemuneration> ShowFisheryRemuneration()
+        public FisheryRemuneration GetFisheryRemuneration()
         {
-            List<FisheryRemuneration> fisheryRemuneration = new List<FisheryRemuneration>();
-
+            FisheryRemuneration fisheryRemuneration = new FisheryRemuneration();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
 
-                    SqlCommand showFisheryRemuneration = new SqlCommand("ShowFisheryRemuneration", conn);
-                    showFisheryRemuneration.CommandType = CommandType.StoredProcedure;
-                    SqlDataReader read = showFisheryRemuneration.ExecuteReader();
+                    SqlCommand getFisheryRemuneration = new SqlCommand("GetFisheryRemuneration", conn);
+                    getFisheryRemuneration.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader read = getFisheryRemuneration.ExecuteReader();
 
                     if (read.HasRows)
                     {
                         while (read.Read())
                         {
-                            string remunerationID = read["RemunerationID"].ToString();
-                            string fishPrice = read["FishPrice"].ToString();
-                            string fishType = read["FishType"].ToString();
-                            string fishWeight = read["FishWeight"].ToString();
-                            string saleDate = read["SaleDate"].ToString();
-                            string customerID = read["CustomerID"].ToString();
+                            fisheryRemuneration.FishPrice = Convert.ToDouble(read["FishPrice"]);
+                            fisheryRemuneration.FishType = read["FishType"].ToString();
+                            fisheryRemuneration.FishWeight = Convert.ToDouble(read["FishWeight"]);
+                            fisheryRemuneration.SaleDate = read["SaleDate"].ToString();
                         }
                     }
                 }
