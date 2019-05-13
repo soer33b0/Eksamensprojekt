@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller.cs" />
+    <Compile Include="CustomerRepo.cs" />
     <Compile Include="DBController.cs" />
     <Compile Include="EmployeeRepo.cs" />
     <Compile Include="InvoiceAdd.cs" />
