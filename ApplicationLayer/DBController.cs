@@ -171,7 +171,7 @@ namespace ApplicationLayer
                 {
                     Console.WriteLine("Fejl " + e.Message);
                 }
-                return invoice;
+                return customer;
             }
 
         }
