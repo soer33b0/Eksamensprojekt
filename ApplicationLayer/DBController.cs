@@ -245,8 +245,6 @@ namespace ApplicationLayer
                     saveFisheryRemuneration.Parameters.Add(new SqlParameter("@SaleDate", fisheryRemuneration.SaleDate));
                     saveFisheryRemuneration.Parameters.Add(new SqlParameter("@CustomerID", fisheryRemuneration.CustomerID));
                     saveFisheryRemuneration.ExecuteNonQuery();
-                    Console.Clear();
-                    Console.WriteLine("Fiskeri vedlag gemt!");
                 }
 
                 catch (SqlException e)
@@ -279,7 +277,6 @@ namespace ApplicationLayer
                             string fishWeight = read["FishWeight"].ToString();
                             string saleDate = read["SaleDate"].ToString();
                             string customerID = read["CustomerID"].ToString();
-                            Console.WriteLine(remunerationID + " " + fishPrice + " " + fishType + " " + fishWeight + " " + saleDate + " " + customerID);
                         }
                     }
                 }

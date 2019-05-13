@@ -25,7 +25,7 @@ namespace ApplicationLayer
                 document.ReplaceText("%totalPrice%", finalprice.ToString());
                 document.ReplaceText("%netto%", totalprice.ToString());
 
-                document.Save();
+                document.SaveAs(@path + "\\temp.docx");
                 return true;
             }
         }
