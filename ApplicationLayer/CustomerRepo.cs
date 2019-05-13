@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace DomainLayer
 {
-    class CustomerRepo
+    public class CustomerRepo
     {
-        List<Customer> customers = new List<Customer>();
+        private List<Customer> customers = new List<Customer>();
 
-        public void 
+        public void AddToCustomerList(Customer customer)
+        {
+            customers.Add(customer);
+        }
+
+
     }
 }
