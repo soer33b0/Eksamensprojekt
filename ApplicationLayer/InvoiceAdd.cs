@@ -31,7 +31,7 @@ namespace ApplicationLayer
                 {
                     double hourlySalaryDouble = Convert.ToDouble(hourlySalary);
                     double hoursWorkedDouble = Convert.ToDouble(hoursWorked);
-                    double total = hourlySalaryDouble + hoursWorkedDouble;
+                    double total = hourlySalaryDouble * hoursWorkedDouble;
                     finalPrice += total;
                     var rowPattern = invoiceTable.Rows[rowCount];
 

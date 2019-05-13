@@ -31,8 +31,6 @@ namespace ApplicationLayer
                     saveInvoice.Parameters.Add(new SqlParameter("@HourlySalary", invoice.HourlySalary));
                     saveInvoice.Parameters.Add(new SqlParameter("@TotalSalary", invoice.TotalSalary));
                     saveInvoice.ExecuteNonQuery();
-                    Console.Clear();
-                    Console.WriteLine("Faktura gemt!");
                 }
 
                 catch (SqlException e)
@@ -66,7 +64,6 @@ namespace ApplicationLayer
                             string hoursWorked = read["HoursWorked"].ToString();
                             string hourlySalary = read["HourlySalary"].ToString();
                             string totalSalary = read["TotalSalary"].ToString();
-                            Console.WriteLine(invoiceID + " " + customerID + " " + invoiceDate + " " + hoursWorked + " " + hourlySalary + " " + totalSalary);
                         }
                     }
                 }
@@ -130,8 +127,6 @@ namespace ApplicationLayer
                     addCustomer.Parameters.Add(new SqlParameter("@CustomerEmail", customer.CustomerEmail));
                     addCustomer.Parameters.Add(new SqlParameter("@CustomerPhone", customer.CustomerPhone));
                     addCustomer.ExecuteNonQuery();
-                    Console.Clear();
-                    Console.WriteLine("Kunde tilføjet");
                 }
 
                 catch (SqlException e)
@@ -150,9 +145,9 @@ namespace ApplicationLayer
                 {
                     conn.Open();
 
-                    SqlCommand getInvoice = new SqlCommand("GetCustomer", conn);
-                    GetCustomer.CommandType = CommandType.StoredProcedure;
-                    SqlDataReader read = getInvoice.ExecuteReader();
+                    SqlCommand getCustomer = new SqlCommand("GetCustomer", conn);
+                    getCustomer.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader read = getCustomer.ExecuteReader();
 
                     if (read.HasRows)
                     {
@@ -191,8 +186,6 @@ namespace ApplicationLayer
                     addEmployee.Parameters.Add(new SqlParameter("@EmployeeSeNum", employee.EmployeeSeNum));
                     addEmployee.Parameters.Add(new SqlParameter("@EmployeeAccountNum", employee.EmployeeAccountNum));
                     addEmployee.ExecuteNonQuery();
-                    Console.Clear();
-                    Console.WriteLine("Medarbejder tilføjet");
                 }
 
                 catch (SqlException e)
@@ -201,6 +194,42 @@ namespace ApplicationLayer
                 }
             }
         }
+
+        public Employee GetEmployee()
+        {
+            Employee employee = new Employee();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    SqlCommand getEmployee = new SqlCommand("GetEmployee", conn);
+                    getEmployee.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader read = getEmployee.ExecuteReader();
+
+                    if (read.HasRows)
+                    {
+                        while (read.Read())
+                        {
+                            employee.EmployeeName = read["EmployeeName"].ToString();
+                            employee.EmployeeAddress = read["EmplyeeAddress"].ToString();
+                            employee.EmployeeZipCity = read["EmployeeZipCity"].ToString();
+                            employee.EmployeeSeNum = read["EmployeeSeNum"].ToString();
+                            employee.EmployeeAccountNum = read["EmployeeAccountNum"].ToString();
+                        }
+                    }
+                }
+
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl " + e.Message);
+                }
+                return employee;
+            }
+
+        }
+
         public void SaveFisheryRemuneration(FisheryRemuneration fisheryRemuneration)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
