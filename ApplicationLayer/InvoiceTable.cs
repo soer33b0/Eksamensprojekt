@@ -61,16 +61,13 @@ namespace ApplicationLayer
                     double hoursWorkedDouble = Convert.ToDouble(hoursWorked);
                     double total = hourlySalaryDouble * hoursWorkedDouble;
                     finalPrice += total;
-                    var rowPattern = invoiceTable.Rows[rowCount];
 
-                    // Insert a copy of the rowPattern at the last index in the table.
-                    
+                    var rowPattern = invoiceTable.Rows[rowCount];
                     var invoiceRow = invoiceTable.InsertRow(rowPattern, invoiceTable.RowCount);
                     invoiceRow.Cells[0].Paragraphs.First().Append(description.ToUpper()).Italic();
                     invoiceRow.Cells[1].Paragraphs.First().Append(hourlySalary+" DKK");
                     invoiceRow.Cells[2].Paragraphs.First().Append(hoursWorked);
                     invoiceRow.Cells[3].Paragraphs.First().Append(total.ToString()+" DKK").Bold();
-
 
                     document.SaveAs(@path+"\\temp.docx");
                     rowCount++;
