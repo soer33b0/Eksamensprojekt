@@ -18,8 +18,8 @@ namespace ApplicationLayer
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         public void OpenDocx(string dir, string fileName)
         {
-            string lort = path + fileName;
-            var doc = DocX.Load(lort);
+            string where = path + fileName;
+            var doc = DocX.Load(where);
         }
 
         public void SaveDocx(DocX doc, string dir, string fileName)
@@ -49,11 +49,9 @@ namespace ApplicationLayer
 
             doc.SaveAs(@path + "temp.docx");
         }
-
         
-        public bool InvSave(double totalprice)
+        public bool InvoiceCalc(double totalprice)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             using (DocX document = DocX.Load(@path + "\\temp.docx"))
             {
                 var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
