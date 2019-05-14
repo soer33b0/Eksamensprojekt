@@ -34,7 +34,6 @@ namespace UI
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            InvoiceGen i = new InvoiceGen();
             CreateInvoice createInvoice = new CreateInvoice();
             createInvoice.Show();
         }

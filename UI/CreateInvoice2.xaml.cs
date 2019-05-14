@@ -35,7 +35,6 @@ namespace UI
         {
             InvoiceTable invoiceTable = new InvoiceTable();
 
-
             totalprice += Convert.ToDouble(invoiceTable.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text));
 
             LineItemCount++;
@@ -48,8 +47,8 @@ namespace UI
 
         private void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            InvoiceGen invoiveGen = new InvoiceGen();
-            invoiveGen.InvoiceCalc(totalprice);
+            InvoiceGen invoiceGen = new InvoiceGen();
+            invoiceGen.InvoiceCalc(totalprice);
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
