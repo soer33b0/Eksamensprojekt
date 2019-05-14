@@ -52,7 +52,6 @@
     <Compile Include="InvoiceAdd.cs" />
     <Compile Include="InvoiceGen.cs" />
     <Compile Include="InvoiceRepo.cs" />
-    <Compile Include="InvoiceSave.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

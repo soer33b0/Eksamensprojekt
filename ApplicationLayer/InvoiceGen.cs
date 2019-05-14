@@ -20,7 +20,6 @@ namespace ApplicationLayer
         {
             string lort = path + fileName;
             var doc = DocX.Load(lort);
-            
         }
 
         public void SaveDocx(DocX doc, string dir, string fileName)
@@ -71,9 +70,27 @@ namespace ApplicationLayer
                 {
                     paragraph.FindAll("%TABLE%").ForEach(index => paragraph.InsertTableAfterSelf((t)));
                 }
-                document.ReplaceText("%TABLE%", t.TableCaption);
+                document.ReplaceText("%TABLE%", "");
 
                 document.SaveAs(@path+"\\temp.docx");
+            }
+        }
+        public bool InvSave(double totalprice)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (DocX document = DocX.Load(@path + "\\temp.docx"))
+            {
+                var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
+                int count = (invoiceTable.RowCount - 2);
+                double VAT = totalprice * 0.25;
+                double finalprice = totalprice + VAT;
+
+                document.ReplaceText("%VAT%", VAT.ToString());
+                document.ReplaceText("%totalPrice%", finalprice.ToString());
+                document.ReplaceText("%netto%", totalprice.ToString());
+
+                document.SaveAs(@path + "\\temp.docx");
+                return true;
             }
         }
     }

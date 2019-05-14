@@ -48,8 +48,9 @@ namespace UI
 
         private void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            InvoiceSave invoiceSave = new InvoiceSave();
-            invoiceSave.InvSave(totalprice);
+            InvoiceGen invoiveGen = new InvoiceGen();
+            invoiveGen.InvSave(totalprice);
+
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
         }
