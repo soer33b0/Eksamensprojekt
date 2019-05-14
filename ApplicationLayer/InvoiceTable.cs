@@ -12,10 +12,38 @@ using System.Threading;
 
 namespace ApplicationLayer
 {
-    public class InvoiceAdd
+    public class InvoiceTable
     {
         int rowCount = 1;
         double finalPrice = 0;
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+        public void InsertInvoiceTable()
+        {
+            Console.WriteLine("\tInsertRowAndImageTable()");
+
+            using (DocX document = DocX.Load(path + "temp.docx"))
+            {
+                // Add a Table into the document and sets its values.
+                var t = document.AddTable(2, 4);
+                t.TableCaption = "INVOICE_TABLE";
+                t.Design = TableDesign.ColorfulListAccent1;
+                t.Alignment = Alignment.center;
+                t.Rows[0].Cells[0].Paragraphs.First().Append("Beskrivelse");
+                t.Rows[0].Cells[1].Paragraphs.First().Append("Enhedspris");
+                t.Rows[0].Cells[2].Paragraphs.First().Append("Antal");
+                t.Rows[0].Cells[3].Paragraphs.First().Append("Beløb").Bold();
+
+                foreach (var paragraph in document.Paragraphs)
+                {
+                    paragraph.FindAll("%TABLE%").ForEach(index => paragraph.InsertTableAfterSelf((t)));
+                }
+                document.ReplaceText("%TABLE%", "");
+
+                document.SaveAs(@path + "\\temp.docx");
+            }
+        }
+
         public string AddInvoiceLine(string description, string hourlySalary, string hoursWorked)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);

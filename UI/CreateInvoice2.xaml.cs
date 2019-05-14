@@ -33,10 +33,10 @@ namespace UI
 
         private void AddItemClicked(object sender, RoutedEventArgs e)
         {
-            InvoiceAdd invoiceAdd = new InvoiceAdd();
+            InvoiceTable invoiceTable = new InvoiceTable();
 
 
-            totalprice += Convert.ToDouble(invoiceAdd.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text));
+            totalprice += Convert.ToDouble(invoiceTable.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text));
 
             LineItemCount++;
             ItemCount.Content = LineItemCount;

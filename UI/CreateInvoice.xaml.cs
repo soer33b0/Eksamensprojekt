@@ -30,6 +30,7 @@ namespace UI
         private void NextButttonClicked(object sender, RoutedEventArgs e)
         {
             InvoiceGen invoiceGen = new InvoiceGen();
+            InvoiceTable invoiceTable = new InvoiceTable();
             Customer customer = new Customer("Smedegården Hans Jørgen ApS", "vollsmose 4", "Jørgenleth@nej.uk.dk.usa.gov", "44411231", "5000 Odense C");
             Employee employee = new Employee("Jørn Jensen", "Jørnvej 420", "3299 århus F", "44155523564", "5321 66666661661");
             Invoice invoice = new Invoice();
@@ -39,7 +40,7 @@ namespace UI
             invoice.InvoiceDate = InvoiceDate.Text;
 
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
-            invoiceGen.InsertInvoiceTable();
+            invoiceTable.InsertInvoiceTable();
 
             CreateInvoice2 createInvoice2 = new CreateInvoice2();
             this.Content = createInvoice2;

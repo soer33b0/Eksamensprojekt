@@ -49,7 +49,7 @@
     <Compile Include="DBController.cs" />
     <Compile Include="EmployeeRepo.cs" />
     <Compile Include="FisheryRemunerationRepo.cs" />
-    <Compile Include="InvoiceAdd.cs" />
+    <Compile Include="InvoiceTable.cs" />
     <Compile Include="InvoiceGen.cs" />
     <Compile Include="InvoiceRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
