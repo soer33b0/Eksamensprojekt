@@ -51,8 +51,6 @@ namespace UI
             InvoiceGen invoiveGen = new InvoiceGen();
             invoiveGen.InvoiceCalc(totalprice);
 
-
-
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
         }
