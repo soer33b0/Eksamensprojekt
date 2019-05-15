@@ -34,11 +34,8 @@ namespace ApplicationLayer
 
         public void ReplaceInvoiceText(Customer customer, Employee employee, Invoice invoice)
         {
-            string fileName = Filepath() + "\\skabelon.docx";
-
-            var doc = DocX.Load(@fileName);
-
-            doc.ReplaceText("%customerName%", customer.CustomerName);
+            var doc = DocX.Load(@Directory.GetCurrentDirectory() + "\\skabelon.docx");
+            doc.ReplaceText(" % customerName%", customer.CustomerName);
             doc.ReplaceText("%customerAddress%", customer.CustomerAddress);
             doc.ReplaceText("%customerZipCity%", customer.CustomerZipCity);
 
