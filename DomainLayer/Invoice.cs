@@ -8,7 +8,7 @@ namespace DomainLayer
 {
     public class Invoice
     {
-        public Invoice(string _invoiceDate, string _invoiceNum, string _invoiceTitle, int _hoursWorked, double _hourlySalary, string _desription, double _totalSalary)
+        public Invoice(string _invoiceDate, string _invoiceNum, string _invoiceTitle, double _hoursWorked, double _hourlySalary, string _desription, double _totalSalary)
         {
             InvoiceDate = _invoiceDate;
             InvoiceNum = _invoiceNum;
