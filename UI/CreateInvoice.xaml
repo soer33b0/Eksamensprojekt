@@ -10,7 +10,6 @@
     Width="460"
     Height="420"
     Foreground="White"
-    MouseDown="Window_MouseDown"
     ResizeMode="NoResize"
     WindowStyle="None">
 
