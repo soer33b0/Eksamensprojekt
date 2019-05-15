@@ -30,6 +30,7 @@ namespace ApplicationLayer
                     saveInvoice.Parameters.Add(new SqlParameter("@HoursWorked", invoice.HoursWorked));
                     saveInvoice.Parameters.Add(new SqlParameter("@HourlySalary", invoice.HourlySalary));
                     saveInvoice.Parameters.Add(new SqlParameter("@TotalSalary", invoice.TotalSalary));
+                    saveInvoice.Parameters.Add(new SqlParameter("@InvoiceDesription", invoice.Desription));
                     saveInvoice.ExecuteNonQuery();
                 }
 
