@@ -52,7 +52,7 @@ namespace UI
             invoiceGen.InvoiceCalc(totalprice);
 
             CreateInvoice cin = new CreateInvoice();
-            control.SaveInvoice(cin.InvoiceDate.ToString(), cin.InvoiceNum.ToString(), cin.Title.ToString(), double.Parse(NumOfHours.Text), double.Parse(HourlySalary.Text), totalprice);
+            control.SaveInvoice(cin.InvoiceDate.ToString(), cin.InvoiceNum.ToString(), cin.Title.ToString(), double.Parse(NumOfHours.Text), double.Parse(HourlySalary.Text), totalprice, Description.ToString());
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
