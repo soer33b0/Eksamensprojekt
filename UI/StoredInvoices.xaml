@@ -9,6 +9,7 @@
       Title="Gemte_Fakturaer">
 
     <Grid>
-        
+        <WrapPanel HorizontalAlignment="Left" Height="430" Margin="10,10,0,0" VerticalAlignment="Top" Width="444"/>
+
     </Grid>
 </Page>
