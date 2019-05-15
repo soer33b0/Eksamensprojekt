@@ -35,7 +35,7 @@ namespace ApplicationLayer
         public void ReplaceInvoiceText(Customer customer, Employee employee, Invoice invoice)
         {
             var doc = DocX.Load(@Directory.GetCurrentDirectory() + "\\skabelon.docx");
-            doc.ReplaceText(" % customerName%", customer.CustomerName);
+            doc.ReplaceText("%customerName%", customer.CustomerName);
             doc.ReplaceText("%customerAddress%", customer.CustomerAddress);
             doc.ReplaceText("%customerZipCity%", customer.CustomerZipCity);
 
@@ -47,7 +47,7 @@ namespace ApplicationLayer
 
             doc.ReplaceText("%title%", invoice.InvoiceTitle);
 
-            doc.ReplaceText("%invoiceDate%", invoice.InvoiceDate);
+            doc.ReplaceText("%invoiceDate%", invoice.InvoiceDate.ToString());
             doc.ReplaceText("%invoiceNum%", invoice.InvoiceNum);
 
             doc.SaveAs(@Filepath() + "temp.docx");
@@ -65,7 +65,7 @@ namespace ApplicationLayer
                 document.ReplaceText("%VAT%", VAT.ToString());
                 document.ReplaceText("%totalPrice%", finalprice.ToString());
                 document.ReplaceText("%netto%", totalprice.ToString());
-                document.SaveAs(@Filepath() + "\\nigger.docx");
+                document.SaveAs(@Filepath() + "\\faktura-" + DateTime.Now.ToString("yyyy-MM-dd"));
                 File.Delete((@Filepath() + "\\temp.docx"));
 
 
