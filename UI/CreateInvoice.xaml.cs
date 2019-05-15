@@ -46,9 +46,15 @@ namespace UI
             this.Content = createInvoice2;
         }
 
-        private void Title_TextChanged(object sender, TextChangedEventArgs e)
+        public void CloseProgram(object sender, RoutedEventArgs e)
         {
-            
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

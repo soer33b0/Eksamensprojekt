@@ -39,11 +39,11 @@ namespace UI
 
             LineItemCount++;
             ItemCount.Content = LineItemCount;
-
             Description.Text = "";
             NumOfHours.Text = "";
             HourlySalary.Text = "";
         }
+        
 
         private void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
@@ -52,6 +52,22 @@ namespace UI
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
+        }
+        public void CloseProgram(object sender, RoutedEventArgs e)
+        {
+            InvoiceGen invoiceGen = new InvoiceGen();
+            invoiceGen.InvoiceCalc(totalprice);
+
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            Window parentWindow = Window.GetWindow(this);
+            if (e.ChangedButton == MouseButton.Left)
+            parentWindow.DragMove();
         }
     }
 }

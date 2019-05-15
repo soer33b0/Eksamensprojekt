@@ -14,22 +14,28 @@ namespace ApplicationLayer
 {
     public class InvoiceGen
     {
+        public string Filepath()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            bool exists = System.IO.Directory.Exists(path + "\\Fakturaer");
 
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (!exists)
+            {
+                System.IO.Directory.CreateDirectory(path + "\\Fakturaer");
+                return path + "\\Fakturaer";
+            }
+            else return path + "\\Fakturaer";
+        }
         public void OpenDocx(string dir, string fileName)
         {
-            string where = path + fileName;
-            var doc = DocX.Load(where);
-        }
-
-        public void SaveDocx(DocX doc, string dir, string fileName)
-        {
-            doc.SaveAs(dir + fileName);
+            string where = Filepath() + fileName;
+            var doc = DocX.Load(@where);
         }
 
         public void ReplaceInvoiceText(Customer customer, Employee employee, Invoice invoice)
         {
-            string fileName = path + "\\skabelon.docx";
+            string fileName = Filepath() + "\\skabelon.docx";
+
             var doc = DocX.Load(@fileName);
 
             doc.ReplaceText("%customerName%", customer.CustomerName);
@@ -47,12 +53,12 @@ namespace ApplicationLayer
             doc.ReplaceText("%invoiceDate%", invoice.InvoiceDate);
             doc.ReplaceText("%invoiceNum%", invoice.InvoiceNum);
 
-            doc.SaveAs(@path + "temp.docx");
+            doc.SaveAs(@Filepath() + "temp.docx");
         }
         
         public bool InvoiceCalc(double totalprice)
         {
-            using (DocX document = DocX.Load(@path + "\\temp.docx"))
+            using (DocX document = DocX.Load(@Filepath() + "\\temp.docx"))
             {
                 var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
                 int count = (invoiceTable.RowCount - 2);
@@ -62,8 +68,10 @@ namespace ApplicationLayer
                 document.ReplaceText("%VAT%", VAT.ToString());
                 document.ReplaceText("%totalPrice%", finalprice.ToString());
                 document.ReplaceText("%netto%", totalprice.ToString());
+                document.SaveAs(@Filepath() + "\\nigger.docx");
+                File.Delete((@Filepath() + "\\temp.docx"));
 
-                document.SaveAs(@path + "\\temp.docx");
+
                 return true;
             }
         }

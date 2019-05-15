@@ -16,13 +16,24 @@ namespace ApplicationLayer
     {
         int rowCount = 1;
         double finalPrice = 0;
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
+        public string Filepath()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            bool exists = System.IO.Directory.Exists(path + "\\Fakturaer");
+
+            if (!exists)
+            {
+                System.IO.Directory.CreateDirectory(path + "\\Fakturaer");
+                return path + "\\Fakturaer";
+            }
+            else return path + "\\Fakturaer";
+        }
         public void InsertInvoiceTable()
         {
             Console.WriteLine("\tInsertRowAndImageTable()");
 
-            using (DocX document = DocX.Load(path + "temp.docx"))
+            using (DocX document = DocX.Load(Filepath() + "temp.docx"))
             {
                 // Add a Table into the document and sets its values.
                 var t = document.AddTable(2, 4);
@@ -40,14 +51,13 @@ namespace ApplicationLayer
                 }
                 document.ReplaceText("%TABLE%", "");
 
-                document.SaveAs(@path + "\\temp.docx");
+                document.SaveAs(@Filepath() + "\\temp.docx");
             }
         }
 
         public string AddInvoiceLine(string description, string hourlySalary, string hoursWorked)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            using (DocX document = DocX.Load(path + "\\temp.docx"))
+            using (DocX document = DocX.Load(Filepath() + "\\temp.docx"))
             {
                 var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
 
@@ -69,7 +79,7 @@ namespace ApplicationLayer
                     invoiceRow.Cells[2].Paragraphs.First().Append(hoursWorked);
                     invoiceRow.Cells[3].Paragraphs.First().Append(total.ToString()+" DKK").Bold();
 
-                    document.SaveAs(@path+"\\temp.docx");
+                    document.SaveAs(Filepath() + "\\temp.docx");
                     rowCount++;
                     return total.ToString();
                 }

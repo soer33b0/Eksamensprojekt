@@ -37,5 +37,16 @@ namespace UI
             CreateInvoice createInvoice = new CreateInvoice();
             createInvoice.Show();
         }
+
+        private void CloseProgram(object sender, RoutedEventArgs e)
+        {
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
     }
 }
