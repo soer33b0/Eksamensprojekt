@@ -8,7 +8,7 @@ namespace DomainLayer
 {
     public class Invoice
     {
-        public Invoice(string _invoiceDate, string _invoiceNum, string _invoiceTitle, int _hoursWorked, double _hourlySalary, string _desription)
+        public Invoice(string _invoiceDate, string _invoiceNum, string _invoiceTitle, int _hoursWorked, double _hourlySalary, string _desription, double _totalSalary)
         {
             InvoiceDate = _invoiceDate;
             InvoiceNum = _invoiceNum;
@@ -16,6 +16,7 @@ namespace DomainLayer
             HoursWorked = _hoursWorked;
             HourlySalary = _hourlySalary;
             Desription = _desription;
+            TotalSalary = _totalSalary;
         }
 
         public Invoice() { }
