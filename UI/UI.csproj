@@ -148,43 +148,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image1.png" />
+    <Resource Include="fish.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="imageedit_1_5057666730.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="fisk.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="output-onlinepngtools.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Webp.net-resizeimage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Webp.net-resizeimage %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Webp.net-resizeimage %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Anvil.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Webp.net-resizeimage %285%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Webp.net-resizeimage %286%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Webp.net-resizeimage %287%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Webp.net-resizeimage %288%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Webp.net-resizeimage %289%29.png" />
+    <Resource Include="anvil.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

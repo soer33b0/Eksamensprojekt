@@ -65,7 +65,7 @@ namespace ApplicationLayer
                 document.ReplaceText("%VAT%", VAT.ToString());
                 document.ReplaceText("%totalPrice%", finalprice.ToString());
                 document.ReplaceText("%netto%", totalprice.ToString());
-                document.SaveAs(@Filepath() + "\\nigger.docx");
+                document.SaveAs(@Filepath() + "\\faktura-" + DateTime.Now.ToString("yyyy-MM-dd"));
                 File.Delete((@Filepath() + "\\temp.docx"));
 
 
