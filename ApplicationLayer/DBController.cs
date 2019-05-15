@@ -151,7 +151,7 @@ namespace ApplicationLayer
                     conn.Open();
 
                     SqlCommand getInvoice = new SqlCommand("GetCustomer", conn);
-                    GetCustomer.CommandType = CommandType.StoredProcedure;
+                    //GetCustomer.CommandType = CommandType.StoredProcedure;
                     SqlDataReader read = getInvoice.ExecuteReader();
 
                     if (read.HasRows)
