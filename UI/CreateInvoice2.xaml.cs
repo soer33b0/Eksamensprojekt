@@ -24,6 +24,7 @@ namespace UI
     /// </summary>
     public partial class CreateInvoice2 : Page
     {
+        Controller control = new Controller();
         int LineItemCount = 0;
         double totalprice = 0;
         public CreateInvoice2()
@@ -49,6 +50,9 @@ namespace UI
         {
             InvoiceGen invoiceGen = new InvoiceGen();
             invoiceGen.InvoiceCalc(totalprice);
+
+            CreateInvoice cin = new CreateInvoice();
+            control.SaveInvoice(cin.InvoiceDate.ToString(), cin.InvoiceNum.ToString(), cin.Title.ToString(), double.Parse(NumOfHours.Text), double.Parse(HourlySalary.Text), totalprice);
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
