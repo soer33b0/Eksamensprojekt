@@ -18,9 +18,8 @@ namespace ApplicationLayer
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         public void OpenDocx(string dir, string fileName)
         {
-            string lort = path + fileName;
-            var doc = DocX.Load(lort);
-            
+            string where = path + fileName;
+            var doc = DocX.Load(where);
         }
 
         public void SaveDocx(DocX doc, string dir, string fileName)
@@ -50,30 +49,22 @@ namespace ApplicationLayer
 
             doc.SaveAs(@path + "temp.docx");
         }
-
-        public void InsertInvoiceTable()
+        
+        public bool InvoiceCalc(double totalprice)
         {
-            Console.WriteLine("\tInsertRowAndImageTable()");
-
-            using (DocX document = DocX.Load(path + "temp.docx"))
+            using (DocX document = DocX.Load(@path + "\\temp.docx"))
             {
-                // Add a Table into the document and sets its values.
-                var t = document.AddTable(2, 4);
-                t.TableCaption = "INVOICE_TABLE";
-                t.Design = TableDesign.ColorfulListAccent1;
-                t.Alignment = Alignment.center;
-                t.Rows[0].Cells[0].Paragraphs.First().Append("Beskrivelse");
-                t.Rows[0].Cells[1].Paragraphs.First().Append("Enhedspris");
-                t.Rows[0].Cells[2].Paragraphs.First().Append("Antal");
-                t.Rows[0].Cells[3].Paragraphs.First().Append("Beløb").Bold();
-                
-                foreach (var paragraph in document.Paragraphs) 
-                {
-                    paragraph.FindAll("%TABLE%").ForEach(index => paragraph.InsertTableAfterSelf((t)));
-                }
-                document.ReplaceText("%TABLE%", t.TableCaption);
+                var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
+                int count = (invoiceTable.RowCount - 2);
+                double VAT = totalprice * 0.25;
+                double finalprice = totalprice + VAT;
 
-                document.SaveAs(@path+"\\temp.docx");
+                document.ReplaceText("%VAT%", VAT.ToString());
+                document.ReplaceText("%totalPrice%", finalprice.ToString());
+                document.ReplaceText("%netto%", totalprice.ToString());
+
+                document.SaveAs(@path + "\\temp.docx");
+                return true;
             }
         }
     }
