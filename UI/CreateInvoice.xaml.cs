@@ -35,6 +35,9 @@ namespace UI
             Employee employee = new Employee("Jørn Jensen", "Jørnvej 420", "3299 århus F", "44155523564", "5321 66666661661");
             Invoice invoice = new Invoice();
 
+            //Controller controller = new Controller();
+            //invoiceGen.ReplaceInvoiceText(controller.GetCustomer(), controller.GetEmployee(), invoice);
+
             invoice.InvoiceTitle = Title.Text;
             invoice.InvoiceNum = InvoiceNum.Text;
             invoice.InvoiceDate = InvoiceDate.Text;

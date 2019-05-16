@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ApplicationLayer;
+using DomainLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,9 +26,10 @@ namespace UI
         {
             InitializeComponent();
         }
-        //public void UpdatePictures(PictureRepo noCommentOrStatusPictureRepo)
+        //public void UpdatePictures(InvoiceRepo invoiceRepo)
         //{
-        //    foreach (GruppeA2.Domain.Picture picture in noCommentOrStatusPictureRepo.RepoCollection)
+            
+        //    foreach (Invoice invoice in invoiceRepo.invoices)
         //    {
 
 
@@ -38,14 +41,14 @@ namespace UI
         //            VerticalAlignment = VerticalAlignment.Top,
         //            Content = new Image { Source = new BitmapImage(new Uri(picture.PictureLink, UriKind.Relative)) },
         //            Name = "_" + picture.PictureNumber.ToString(),
-                    
-                    
-                    
+
+
+
         //        };
         //        radioBtn.Checked += this.Radio_Checked;
         //        WP_mainWrapPanel.Children.Add(radioBtn);
-                
-                
+
+
         //    }
         //}
     }
