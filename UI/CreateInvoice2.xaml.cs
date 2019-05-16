@@ -26,6 +26,7 @@ namespace UI
     {
         Controller control = new Controller();
         int LineItemCount = 0;
+
         double totalprice = 0;
         string numofHours = "";
         string description = "";
@@ -49,6 +50,14 @@ namespace UI
             InvoiceTable invoiceTable = new InvoiceTable();
 
             totalprice += Convert.ToDouble(invoiceTable.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text));
+
+
+            numofHours += NumOfHours.Text + ",";
+            hourlySalary += HourlySalary.Text + ",";
+            description += Description.Text + ",";
+            totalprice1 += totalprice.ToString()+",";
+
+            
             LineItemCount++;
             ItemCount.Content = LineItemCount;
             Description.Text = "";
@@ -62,7 +71,7 @@ namespace UI
             InvoiceGen invoiceGen = new InvoiceGen();
             invoiceGen.InvoiceCalc(totalprice);
             
-            //control.SaveInvoice();
+            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, numofHours, hourlySalary, totalprice1, description);
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();

@@ -15,7 +15,7 @@ namespace ApplicationLayer
 
         private string connectionString = "Server = ealSQL1.eal.local; Database = A_DB30_2018 ; User Id = A_STUDENT30; Password=A_OPENDB30;";
 
-        public void SaveInvoice(Invoice invoice)
+        public void  SaveInvoice(Invoice invoice)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -97,9 +97,9 @@ namespace ApplicationLayer
                             invoice.InvoiceDate = read["InvoiceDate"].ToString();
                             invoice.InvoiceNum = read["InvoiceNum"].ToString();
                             invoice.InvoiceTitle = read["InvoiceTitle"].ToString();
-                            invoice.HoursWorked = Convert.ToDouble(read["HoursWorked"]);
-                            invoice.HourlySalary = Convert.ToDouble(read["HourlySalary"]);
-                            invoice.TotalSalary = Convert.ToDouble(read["TotalSalary"]);
+                            invoice.HoursWorked = read["HoursWorked"].ToString();
+                            invoice.HourlySalary = read["HourlySalary"].ToString();
+                            invoice.TotalSalary = read["TotalSalary"].ToString();
                         }
                     }
                 }

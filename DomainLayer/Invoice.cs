@@ -8,7 +8,7 @@ namespace DomainLayer
 {
     public class Invoice
     {
-        public Invoice(string _invoiceDate, string _invoiceNum, string _invoiceTitle, double _hoursWorked, double _hourlySalary, string _desription, double _totalSalary)
+        public Invoice(string _invoiceDate, string _invoiceNum, string _invoiceTitle, string _hoursWorked, string _hourlySalary, string _desription, string _totalSalary)
         {
             InvoiceDate = _invoiceDate;
             InvoiceNum = _invoiceNum;
@@ -39,13 +39,13 @@ namespace DomainLayer
             set;
         }
 
-        public double HoursWorked
+        public string HoursWorked
         {
             get;
             set;
         }
 
-        public double HourlySalary
+        public string HourlySalary
         {
             get;
             set;
@@ -57,7 +57,7 @@ namespace DomainLayer
             set { VAT = 1.25; }
         }
 
-        public double TotalSalary
+        public string TotalSalary
         {
             get;
             set;
