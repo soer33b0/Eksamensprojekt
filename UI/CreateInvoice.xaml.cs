@@ -42,7 +42,7 @@ namespace UI
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
             invoiceTable.InsertInvoiceTable();
 
-            CreateInvoice2 createInvoice2 = new CreateInvoice2();
+            CreateInvoice2 createInvoice2 = new CreateInvoice2(invoice);
             this.Content = createInvoice2;
         }
 
