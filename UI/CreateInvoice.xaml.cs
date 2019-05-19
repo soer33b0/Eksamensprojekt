@@ -27,6 +27,8 @@ namespace UI
             InitializeComponent();
         }
 
+        CustomerRepo customerRepo = new CustomerRepo();
+
         private void NextButttonClicked(object sender, RoutedEventArgs e)
         {
             InvoiceGen invoiceGen = new InvoiceGen();
@@ -55,6 +57,22 @@ namespace UI
             parentWindow.Close();
         }
 
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> customers = customerRepo.GetCustomerNames();
 
+            var comboBox = sender as ComboBox;
+
+            comboBox.ItemsSource = customers;
+            comboBox.SelectedIndex = 0;
+        }
+
+        private void Customer_names_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedComboItem = sender as ComboBox;
+            string value = selectedComboItem.SelectedItem as string;
+            
+            
+        }
     }
 }

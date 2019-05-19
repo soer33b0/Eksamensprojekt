@@ -137,9 +137,11 @@ namespace ApplicationLayer
             }
         }
 
-        public Customer GetCustomer()
+        public List<Customer> GetCustomerList()
         {
             Customer customer = new Customer();
+            List<Customer> customers = new List<Customer>();
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -159,6 +161,7 @@ namespace ApplicationLayer
                             customer.CustomerName = read["CustomerName"].ToString();
                             customer.CustomerPhone = read["CustomerPhone"].ToString();
                             customer.CustomerZipCity = read["CustomerZipCity"].ToString();
+                            customers.Add(customer);
                         }
                     }
                 }
@@ -167,7 +170,7 @@ namespace ApplicationLayer
                 {
                     Console.WriteLine("Fejl " + e.Message);
                 }
-                return customer;
+                return customers;
             }
 
         }

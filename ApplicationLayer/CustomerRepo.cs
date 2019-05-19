@@ -9,14 +9,32 @@ namespace ApplicationLayer
 {
     public class CustomerRepo
     {
-        DBController dbController = new DBController();
+        Controller controller = new Controller();
 
         private List<Customer> customers = new List<Customer>();
-
-
-        public void AddToCustomerList(Customer customer)
+        
+        public void UpdateCustomerList()
         {
-            customers.Add(customer);
+            customers = controller.GetCustomerList();
+            customers.Sort();
+        }
+
+        public List<Customer> GetCustomerList()
+        {
+            UpdateCustomerList();
+            return customers;
+        }
+
+        public List<string> GetCustomerNames()
+        {
+            List<string> customerNames = new List<String>();
+
+            foreach (Customer customer in customers)
+            {
+                customerNames.Add(customer.CustomerName);
+            }
+     
+            return customerNames;
         }
     }
 }

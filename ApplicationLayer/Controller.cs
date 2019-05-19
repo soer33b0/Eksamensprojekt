@@ -10,11 +10,24 @@ namespace ApplicationLayer
     public class Controller
     {
         DBController dbController = new DBController();
+        InvoiceGen invoiceGen = new InvoiceGen();
+        InvoiceTable invoiceTable = new InvoiceTable();
+        CustomerRepo customerRepo = new CustomerRepo();
 
         public void SaveInvoice(string invoiceDate, string invoiceNum, string invoiceTitle, string hoursWorked, string hourlySalary, string totalSalary, string desription)
         {
             Invoice invoice = new Invoice { InvoiceDate = invoiceDate, InvoiceNum = invoiceNum, InvoiceTitle = invoiceTitle, HoursWorked = hoursWorked, HourlySalary = hourlySalary, TotalSalary = totalSalary, Desription = desription };
             dbController.SaveInvoice(invoice);
+        }
+
+        public void CreateInvoice()
+        {
+            Customer customer = GetCustomer();
+            Employee employee = GetEmployee();
+            Invoice invoice = new Invoice();
+
+            invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
+            invoiceTable.InsertInvoiceTable();
         }
 
         public Invoice GetInvoice()
@@ -28,9 +41,9 @@ namespace ApplicationLayer
             dbController.AddCustomer(customer);
         }
 
-        public Customer GetCustomer()
+        public List<Customer> GetCustomerList()
         {
-            return dbController.GetCustomer();
+            return dbController.GetCustomerList();
         }
 
         public void AddEmployee(string employeeName, string employeeAddress, string employeeZipCity, string employeeSeNum, string employeeAccountNum)
