@@ -56,6 +56,7 @@ namespace UI
 
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
             invoiceTable.InsertInvoiceTable();
+            DisableStepOne();
         }
 
         public void CloseProgram(object sender, RoutedEventArgs e)
@@ -98,6 +99,22 @@ namespace UI
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+        }
+
+        public void DisableStepOne()
+        {
+            Customer_names.IsEnabled = false;
+            Title.IsEnabled = false;
+            InvoiceDate.IsEnabled = false;
+            InvoiceNum.IsEnabled = false;
+            Next.IsEnabled = false;
+
+            Description.IsEnabled = true;
+            NumOfHours.IsEnabled = true;
+            HourlySalary.IsEnabled = true;
+            AddItem.IsEnabled = true;
+            OpenInvoice.IsEnabled = true;
+            Close.IsEnabled = true;
         }
     }
 }
