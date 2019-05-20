@@ -46,10 +46,9 @@ namespace UI
             InvoiceGen invoiceGen = new InvoiceGen();
             InvoiceTable invoiceTable = new InvoiceTable();
             Customer customer = new Customer("Smedegården Hans Jørgen ApS", "vollsmose 4", "Jørgenleth@nej.uk.dk.usa.gov", "44411231", "5000 Odense C");
-            Employee employee = new Employee("Jørn Jensen", "Jørnvej 420", "3299 århus F", "44155523564", "5321 66666661661");
+            Employee employee = new Employee("Jørn Jensen", "Holbækvej 62", "4400 Kalundborg", "88888888", "5321 6666666666");
             Invoice invoice = new Invoice();
             
-
             invoice.InvoiceTitle = Title.Text;
             invoice.InvoiceNum = InvoiceNum.Text;
             invoice.InvoiceDate = InvoiceDate.Text;
