@@ -41,54 +41,20 @@ namespace ApplicationLayer
             }
         }
 
-        public List<Invoice> ShowInvoice()
+        public List<Invoice> GetInvoiceList()
         {
-            List<Invoice> invoice = new List<Invoice>();
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-
-                    SqlCommand showInvoice = new SqlCommand("ShowInvoice", conn);
-                    showInvoice.CommandType = CommandType.StoredProcedure;
-                    SqlDataReader read = showInvoice.ExecuteReader();
-
-                    if (read.HasRows)
-                    {
-                        while (read.Read())
-                        {
-                            string invoiceID = read["InvoiceID"].ToString();
-                            string customerID = read["CustomerID"].ToString();
-                            string invoiceDate = read["InvoiceDate"].ToString();
-                            string hoursWorked = read["HoursWorked"].ToString();
-                            string hourlySalary = read["HourlySalary"].ToString();
-                            string totalSalary = read["TotalSalary"].ToString();
-                        }
-                    }
-                }
-
-                catch (SqlException e)
-                {
-                    Console.WriteLine("Fejl " + e.Message);
-                }
-                return invoice;
-            }
-        }
-
-        public Invoice GetInvoice()
-        {
+            List<Invoice> invoices = new List<Invoice>();
             Invoice invoice = new Invoice();
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
 
-                    SqlCommand getInvoice = new SqlCommand("GetInvoice", conn);
-                    getInvoice.CommandType = CommandType.StoredProcedure;
-                    SqlDataReader read = getInvoice.ExecuteReader();
+                    SqlCommand getCustomer = new SqlCommand("GetCustomer", conn);
+                    getCustomer.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader read = getCustomer.ExecuteReader();
 
                     if (read.HasRows)
                     {
@@ -97,9 +63,11 @@ namespace ApplicationLayer
                             invoice.InvoiceDate = read["InvoiceDate"].ToString();
                             invoice.InvoiceNum = read["InvoiceNum"].ToString();
                             invoice.InvoiceTitle = read["InvoiceTitle"].ToString();
-                            invoice.HoursWorked = read["HoursWorked"].ToString();
                             invoice.HourlySalary = read["HourlySalary"].ToString();
+                            invoice.HoursWorked = read["HoursWorked"].ToString();
+                            invoice.Desription = read["Description"].ToString();
                             invoice.TotalSalary = read["TotalSalary"].ToString();
+                            invoices.Add(invoice);
                         }
                     }
                 }
@@ -108,11 +76,11 @@ namespace ApplicationLayer
                 {
                     Console.WriteLine("Fejl " + e.Message);
                 }
-                return invoice;
+                return invoices;
             }
-
         }
 
+        
         public void AddCustomer(Customer customer)
         {
             using (SqlConnection conn = new SqlConnection())

@@ -28,9 +28,9 @@ namespace ApplicationLayer
             invoiceTable.InsertInvoiceTable();
         }
 
-        public Invoice GetInvoice()
+        public List<Invoice> GetInvoiceList()
         {
-            return dbController.GetInvoice();
+            return dbController.GetInvoiceList();
         }
 
         public void AddCustomer(string customerName, string customerAddress, string customerZipCity, string customerEmail, string customerPhone)
@@ -50,9 +50,9 @@ namespace ApplicationLayer
             dbController.AddEmployee(employee);
         }
 
-        public Employee GetEmployee()
+        public List<Employee> GetEmployeeList()
         {
-            return dbController.GetEmployee();
+            return dbController.GetEmployeeList();
         }
 
         public void SaveFisheryRemuneration(double fishPrice, string fishType, double fishWeight, string saleDate, int customerID)

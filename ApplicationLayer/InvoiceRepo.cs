@@ -9,6 +9,7 @@ namespace ApplicationLayer
 {
     public class InvoiceRepo
     {
+        Controller controller = new Controller();
         private List<Invoice> invoices = new List<Invoice>();
 
         public void AddInvoice(Invoice invoice)
@@ -16,10 +17,19 @@ namespace ApplicationLayer
             invoices.Add(invoice);
         }
 
-        public List<Invoice> GetInvoice()
+        public void UpdateInvoiceList()
         {
-            List<Invoice> showInvoice = new List<Invoice>();
-            return showInvoice;
+            invoices = controller.GetInvoiceList();
+            invoices.Sort();
         }
+
+        public List<Invoice> GetInvoiceList()
+        {
+            UpdateInvoiceList();
+            return invoices;
+        }
+
+        
+        
     }
 }
