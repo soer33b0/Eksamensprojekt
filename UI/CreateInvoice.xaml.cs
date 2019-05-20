@@ -27,7 +27,17 @@ namespace UI
             InitializeComponent();
         }
 
+        Controller control = new Controller();
         CustomerRepo customerRepo = new CustomerRepo();
+
+        int LineItemCount = 0;
+
+        double totalprice = 0;
+        string numofHours = "";
+        string description = "";
+        string hourlySalary = "";
+        string totalprice1 = "";
+
 
         private void NextButttonClicked(object sender, RoutedEventArgs e)
         {
@@ -36,9 +46,7 @@ namespace UI
             Customer customer = new Customer("Smedegården Hans Jørgen ApS", "vollsmose 4", "Jørgenleth@nej.uk.dk.usa.gov", "44411231", "5000 Odense C");
             Employee employee = new Employee("Jørn Jensen", "Jørnvej 420", "3299 århus F", "44155523564", "5321 66666661661");
             Invoice invoice = new Invoice();
-
-            //Controller controller = new Controller();
-            //invoiceGen.ReplaceInvoiceText(controller.GetCustomer(), controller.GetEmployee(), invoice);
+            
 
             invoice.InvoiceTitle = Title.Text;
             invoice.InvoiceNum = InvoiceNum.Text;
@@ -46,15 +54,11 @@ namespace UI
 
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
             invoiceTable.InsertInvoiceTable();
-
-            CreateInvoice2 createInvoice2 = new CreateInvoice2(invoice);
-            this.Content = createInvoice2;
         }
 
         public void CloseProgram(object sender, RoutedEventArgs e)
         {
-            Window parentWindow = Window.GetWindow(this);
-            parentWindow.Close();
+            this.Close();
         }
 
         private void ComboBox_Loaded(object sender, RoutedEventArgs e)
@@ -73,6 +77,35 @@ namespace UI
             string value = selectedComboItem.SelectedItem as string;
             
             
+        }
+        private void AddItemClicked(object sender, RoutedEventArgs e)
+        {
+            InvoiceTable invoiceTable = new InvoiceTable();
+
+            totalprice += Convert.ToDouble(invoiceTable.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text));
+
+
+            numofHours += NumOfHours.Text + ",";
+            hourlySalary += HourlySalary.Text + ",";
+            description += Description.Text + ",";
+            totalprice1 += totalprice.ToString() + ",";
+
+
+            LineItemCount++;
+            ItemCount.Content = LineItemCount;
+            Description.Text = "";
+            NumOfHours.Text = "";
+            HourlySalary.Text = "";
+        }
+        private void CloseButtonClicked(object sender, RoutedEventArgs e)
+        {
+            InvoiceGen invoiceGen = new InvoiceGen();
+            invoiceGen.InvoiceCalc(totalprice);
+
+            control.SaveInvoice();
+
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();
         }
     }
 }

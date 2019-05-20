@@ -65,17 +65,10 @@
     <Compile Include="CreateInvoice.xaml.cs">
       <DependentUpon>CreateInvoice.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreateInvoice2.xaml.cs">
-      <DependentUpon>CreateInvoice2.xaml</DependentUpon>
-    </Compile>
     <Compile Include="StoredRemunerations.xaml.cs">
       <DependentUpon>StoredRemunerations.xaml</DependentUpon>
     </Compile>
     <Page Include="CreateInvoice.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CreateInvoice2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
