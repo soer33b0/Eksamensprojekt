@@ -217,7 +217,7 @@
             Name="OpenInvoice"
             Width="135"
             Height="46"
-            Margin="0,352,300,0"
+            Margin="0,351,300,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Click="AddItemClicked"
