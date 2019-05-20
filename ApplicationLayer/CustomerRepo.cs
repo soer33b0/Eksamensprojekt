@@ -36,5 +36,20 @@ namespace ApplicationLayer
      
             return customerNames;
         }
+
+        public Customer GetCustomerWithName(string customerName)
+        {
+            Customer customer = new Customer();
+
+            foreach (Customer c in customers)
+            {
+                if(customer.CustomerName == customerName)
+                {
+                    return customer;
+                }
+            }
+
+            return customer;
+        }
     }
 }
