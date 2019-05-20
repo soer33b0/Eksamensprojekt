@@ -38,7 +38,12 @@ namespace UI
             {
                 controller.AddCustomer(customerName.Text, customerAddress.Text, customerZipCity.Text, customerEmail.Text, customerPhone.Text);
             }
-            
         }
+        private void CloseProgram(object sender, RoutedEventArgs e)
+        {
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();
+        }
+
     }
 }

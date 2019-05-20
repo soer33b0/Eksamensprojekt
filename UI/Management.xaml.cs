@@ -34,5 +34,10 @@ namespace UI
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
+        private void CloseProgram(object sender, RoutedEventArgs e)
+        {
+            Window parentWindow = Window.GetWindow(this);
+            parentWindow.Close();
+        }
     }
 }
