@@ -75,9 +75,8 @@ namespace UI
         {
             var selectedComboItem = sender as ComboBox;
             string value = selectedComboItem.SelectedItem as string;
-            
-            
         }
+
         private void AddItemClicked(object sender, RoutedEventArgs e)
         {
             InvoiceTable invoiceTable = new InvoiceTable();
@@ -102,7 +101,7 @@ namespace UI
             InvoiceGen invoiceGen = new InvoiceGen();
             invoiceGen.InvoiceCalc(totalprice);
 
-            control.SaveInvoice();
+            //control.SaveInvoice("");
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
