@@ -94,9 +94,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="LightGray"
-            Foreground="Black" 
-            Loaded="ComboBox_Loaded"
-            SelectionChanged="Customer_names_SelectionChanged" />
+            Foreground="Black" />
         <Label
             Width="96"
             Height="39"

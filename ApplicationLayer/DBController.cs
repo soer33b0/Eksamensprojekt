@@ -83,7 +83,7 @@ namespace ApplicationLayer
         
         public void AddCustomer(Customer customer)
         {
-            using (SqlConnection conn = new SqlConnection())
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 try

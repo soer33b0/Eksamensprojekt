@@ -52,10 +52,19 @@
             Grid.ColumnSpan="2"
             Width="210"
             Height="33"
-            Margin="30,167,0,0"
+            Margin="30,205,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="Gem Følgeseddel" />
+        <Button
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Width="210"
+            Height="33"
+            Margin="30,167,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Gemte Følgesedler" />
         <Button
             Grid.Row="1"
             Grid.ColumnSpan="2"
@@ -64,22 +73,13 @@
             Margin="30,91,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="Gemte Følgesedler" />
-        <Button
-            Grid.Row="1"
-            Grid.ColumnSpan="2"
-            Width="210"
-            Height="33"
-            Margin="30,205,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
             Content="Fangststatistik" />
         <Button
             Grid.Row="1"
             Grid.Column="1"
             Width="202"
-            Height="71"
-            Margin="162,91,0,0"
+            Height="33"
+            Margin="162,167,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="Button_Click_1"
@@ -88,8 +88,8 @@
             Grid.Row="1"
             Grid.Column="1"
             Width="202"
-            Height="71"
-            Margin="162,167,0,0"
+            Height="33"
+            Margin="162,205,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="Gemte Fakturaer" />
@@ -126,5 +126,15 @@
             Margin="172,49,28,184"
             Source="Anvil.png"
             Stretch="Fill" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="202"
+            Height="71"
+            Margin="162,91,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="Button_Click"
+            Content="Administration" />
     </Grid>
 </Window>

@@ -25,6 +25,8 @@ namespace UI
         public CreateInvoice()
         {
             InitializeComponent();
+
+            Customer_names.ItemsSource = customerRepo.GetCustomerNames();
         }
 
         Controller control = new Controller();
@@ -60,23 +62,8 @@ namespace UI
         {
             this.Close();
         }
-
-        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
-        {
-            List<string> customers = customerRepo.GetCustomerNames();
-
-            var comboBox = sender as ComboBox;
-
-            comboBox.ItemsSource = customers;
-            comboBox.SelectedIndex = 0;
-        }
-
-        private void Customer_names_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectedComboItem = sender as ComboBox;
-            string value = selectedComboItem.SelectedItem as string;
-        }
-
+        
+        
         private void AddItemClicked(object sender, RoutedEventArgs e)
         {
             InvoiceTable invoiceTable = new InvoiceTable();
@@ -105,6 +92,12 @@ namespace UI
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }
