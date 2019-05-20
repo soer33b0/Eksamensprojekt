@@ -199,9 +199,11 @@ namespace ApplicationLayer
             }
         }
 
-        public Employee GetEmployee()
+        public List<Employee> GetEmployeeList()
         {
             Employee employee = new Employee();
+            List<Employee> employees = new List<Employee>();
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -216,11 +218,12 @@ namespace ApplicationLayer
                     {
                         while (read.Read())
                         {
+                            employee.EmployeeAddress = read["EmployeeAddress"].ToString();
                             employee.EmployeeName = read["EmployeeName"].ToString();
-                            employee.EmployeeAddress = read["EmplyeeAddress"].ToString();
                             employee.EmployeeZipCity = read["EmployeeZipCity"].ToString();
                             employee.EmployeeSeNum = read["EmployeeSeNum"].ToString();
                             employee.EmployeeAccountNum = read["EmployeeAccountNum"].ToString();
+                            employees.Add(employee);
                         }
                     }
                 }
@@ -229,10 +232,10 @@ namespace ApplicationLayer
                 {
                     Console.WriteLine("Fejl " + e.Message);
                 }
-                return employee;
+                return employees;
             }
-
         }
+
 
         public void SaveFisheryRemuneration(FisheryRemuneration fisheryRemuneration)
         {
