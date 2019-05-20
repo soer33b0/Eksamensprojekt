@@ -20,10 +20,8 @@ namespace ApplicationLayer
             dbController.SaveInvoice(invoice);
         }
 
-        public void CreateInvoice()
+        public void CreateInvoice(Customer customer, Employee employee)
         {
-            Customer customer = GetCustomer();
-            Employee employee = GetEmployee();
             Invoice invoice = new Invoice();
 
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
