@@ -49,5 +49,11 @@ namespace UI
             Management management = new Management();
             management.Show();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            StoredInvoices storedInvoices = new StoredInvoices();
+            this.Content = storedInvoices;
+        }
     }
 }
