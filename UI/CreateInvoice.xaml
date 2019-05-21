@@ -41,6 +41,7 @@
             VerticalAlignment="Top"
             Background="LightGray"
             Foreground="Black"
+            TabIndex="3"
             TextWrapping="Wrap" />
         <Label
             Width="185"
@@ -61,6 +62,7 @@
             VerticalAlignment="Top"
             Background="LightGray"
             Foreground="Black"
+            TabIndex="2"
             TextWrapping="Wrap" />
         <Label
             Width="171"
@@ -113,6 +115,7 @@
             VerticalAlignment="Top"
             Background="LightGray"
             Foreground="Black"
+            TabIndex="1"
             TextWrapping="Wrap" />
         <Button
             Name="Next"
@@ -122,7 +125,8 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="NextButttonClicked"
-            Content="Anvend" />
+            Content="Anvend"
+            TabIndex="4" />
 
         <TextBox
             Name="NumOfHours"
@@ -135,6 +139,7 @@
             Background="LightGray"
             Foreground="Black"
             IsEnabled="False"
+            TabIndex="6"
             TextWrapping="Wrap" />
         <TextBox
             Name="HourlySalary"
@@ -147,6 +152,7 @@
             Background="LightGray"
             Foreground="Black"
             IsEnabled="False"
+            TabIndex="7"
             TextWrapping="Wrap" />
         <Label
             Width="118"
@@ -175,7 +181,8 @@
             Click="AddItemClicked"
             Content="Tilføj punkt"
             IsEnabled="False"
-            RenderTransformOrigin="2.52,0.323" />
+            RenderTransformOrigin="2.52,0.323"
+            TabIndex="8" />
         <Label
             Width="211"
             Height="36"
@@ -212,6 +219,7 @@
             Background="LightGray"
             Foreground="Black"
             IsEnabled="False"
+            TabIndex="5"
             TextWrapping="Wrap" />
         <Button
             Name="OpenInvoice"
@@ -234,6 +242,7 @@
             Click="CloseButtonClicked"
             Content="Afslut"
             FontSize="20"
-            IsEnabled="False" />
+            IsEnabled="False"
+            TabIndex="9" />
     </Grid>
 </Window>
