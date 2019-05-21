@@ -33,6 +33,13 @@ namespace ApplicationLayer
             return dbController.GetInvoiceList();
         }
 
+        public string[] GetCustomerNames()
+        {
+
+            DBController dbController = new DBController();
+            return dbController.GetCustomerNames();
+        }
+
         public void AddCustomer(string customerName, string customerAddress, string customerZipCity, string customerEmail, string customerPhone)
         {
             DBController dbController = new DBController();

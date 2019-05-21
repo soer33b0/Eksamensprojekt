@@ -145,7 +145,6 @@ namespace ApplicationLayer
         public string[] GetCustomerNames()
         {
             List<string> templist = new List<string>();
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -160,7 +159,7 @@ namespace ApplicationLayer
                     {
                         while (read.Read())
                         {
-                            templist.Add(read.GetString(1));
+                            templist.Add(read.GetString(2));
                         }
                     }
                 }

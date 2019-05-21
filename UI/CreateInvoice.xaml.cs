@@ -25,6 +25,8 @@ namespace UI
         public CreateInvoice()
         {
             InitializeComponent();
+
+            Customer_names.ItemsSource = control.GetCustomerNames();
         }
 
         Controller control = new Controller();
