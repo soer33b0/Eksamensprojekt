@@ -159,7 +159,7 @@ namespace ApplicationLayer
                     {
                         while (read.Read())
                         {
-                            templist.Add(read.GetString(1));
+                            templist.Add(read.GetString(0));
                         }
                     }
                 }
