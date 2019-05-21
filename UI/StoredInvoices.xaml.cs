@@ -20,9 +20,9 @@ namespace UI
     /// <summary>
     /// Interaction logic for Gemte_Fakturaer.xaml
     /// </summary>
-    public partial class Gemte_Fakturaer : Page
+    public partial class StoredInvoices : Page
     {
-        public Gemte_Fakturaer()
+        public StoredInvoices()
         {
             InitializeComponent();
         }
