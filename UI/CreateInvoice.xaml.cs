@@ -58,7 +58,7 @@ namespace UI
             customer = customerRepo.GetCustomerAtIndex(selectedIndex, selectedItem);
             if (customer == null)
             {
-                MessageBox.Show("fuck niggers");
+                MessageBox.Show("Fejl! 404 kunde not found");
             }
 
             invoice.InvoiceTitle = Title.Text;
