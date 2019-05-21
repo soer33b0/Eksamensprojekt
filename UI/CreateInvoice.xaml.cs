@@ -42,12 +42,25 @@ namespace UI
 
         private void NextButttonClicked(object sender, RoutedEventArgs e)
         {
+            Controller controller = new Controller();
             InvoiceGen invoiceGen = new InvoiceGen();
             InvoiceTable invoiceTable = new InvoiceTable();
-            Customer customer = new Customer("Smedegården Hans Jørgen ApS", "vollsmose 4", "Jørgenleth@nej.uk.dk.usa.gov", "44411231", "5000 Odense C");
-            Employee employee = new Employee("Jørn Jensen", "Holbækvej 62", "4400 Kalundborg", "88888888", "5321 6666666666");
+            CustomerRepo customerRepo = new CustomerRepo();
+            Customer customer = new Customer();
             Invoice invoice = new Invoice();
-            
+            Employee employee = new Employee("Jørn Jensen", "Holbækvej 62", "4400 Kalundborg", "88888888", "5321 6666666666");
+
+            customerRepo.UpdateCustomerList();
+
+            int selectedIndex = Customer_names.SelectedIndex;
+            string selectedItem = Customer_names.SelectedItem.ToString();
+
+            customer = customerRepo.GetCustomerAtIndex(selectedIndex, selectedItem);
+            if (customer == null)
+            {
+                MessageBox.Show("fuck niggers");
+            }
+
             invoice.InvoiceTitle = Title.Text;
             invoice.InvoiceNum = InvoiceNum.Text;
             invoice.InvoiceDate = InvoiceDate.Text;
@@ -113,6 +126,22 @@ namespace UI
             AddItem.IsEnabled = true;
             OpenInvoice.IsEnabled = true;
             Close.IsEnabled = true;
+        }
+
+        private void Customer_names_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Customer customer = new Customer();
+            //CustomerRepo customerRepo = new CustomerRepo();
+
+            //int selectedIndex = Customer_names.SelectedIndex;
+            //string selectedItem = Customer_names.SelectedItem.ToString();
+
+            
+            //customer = customerRepo.GetCustomerAtIndex(selectedIndex, selectedItem);
+            //if(customer == null)
+            //{
+            //    MessageBox.Show("fuck niggers");
+            //}
         }
     }
 }

@@ -28,7 +28,7 @@ namespace UI
         }
         //public void UpdatePictures(InvoiceRepo invoiceRepo)
         //{
-            
+
         //    foreach (Invoice invoice in invoiceRepo.invoices)
         //    {
 
