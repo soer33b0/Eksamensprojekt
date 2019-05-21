@@ -140,7 +140,38 @@ namespace ApplicationLayer
                 }
                 return customers;
             }
+        }
 
+        public string[] GetCustomerNames()
+        {
+            List<string> templist = new List<string>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    SqlCommand getCustomerNames = new SqlCommand("GetCustomerNames", conn);
+                    getCustomerNames.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader read = getCustomerNames.ExecuteReader();
+
+                    if (read.HasRows)
+                    {
+                        while (read.Read())
+                        {
+                            templist.Add(read.GetString(1));
+                        }
+                    }
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl " + e.Message);
+                }
+
+                string[] customerNames = templist.ToArray();
+                return customerNames;
+            }
         }
 
         public void AddEmployee(Employee employee)
