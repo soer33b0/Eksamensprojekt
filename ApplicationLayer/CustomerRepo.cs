@@ -16,13 +16,6 @@ namespace ApplicationLayer
         public void UpdateCustomerList()
         {
             customers = controller.GetCustomerList();
-            customers.Sort();
-        }
-
-        public List<Customer> GetCustomerList()
-        {
-            UpdateCustomerList();
-            return customers;
         }
 
         public List<string> GetCustomerNames()
@@ -37,16 +30,15 @@ namespace ApplicationLayer
             return customerNames;
         }
 
-        public Customer GetCustomerWithName(string customerName)
+        public Customer GetCustomerAtIndex(int index, string customerName)
         {
             Customer customer = new Customer();
 
-            foreach (Customer c in customers)
+            customer = customers.ElementAt(index);
+
+            if (customerName != customer.CustomerName)
             {
-                if(customer.CustomerName == customerName)
-                {
-                    return customer;
-                }
+                return null;
             }
 
             return customer;

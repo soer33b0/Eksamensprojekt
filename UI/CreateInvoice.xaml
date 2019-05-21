@@ -94,7 +94,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="LightGray"
-            Foreground="Black" />
+            Foreground="Black" SelectionChanged="Customer_names_SelectionChanged" />
         <Label
             Width="96"
             Height="39"
