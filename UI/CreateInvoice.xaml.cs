@@ -25,13 +25,11 @@ namespace UI
         public CreateInvoice()
         {
             InitializeComponent();
-
-            Customer_names.ItemsSource = customerRepo.GetCustomerNames();
         }
 
         Controller control = new Controller();
-        CustomerRepo customerRepo = new CustomerRepo();
 
+        private List<string> customers;
         int LineItemCount = 0;
 
         double totalprice = 0;
@@ -39,7 +37,6 @@ namespace UI
         string description = "";
         string hourlySalary = "";
         string totalprice1 = "";
-
 
         private void NextButttonClicked(object sender, RoutedEventArgs e)
         {

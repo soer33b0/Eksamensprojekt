@@ -20,7 +20,6 @@ namespace ApplicationLayer
         public void UpdateInvoiceList()
         {
             invoices = controller.GetInvoiceList();
-            invoices.Sort();
         }
 
         public List<Invoice> GetInvoiceList()

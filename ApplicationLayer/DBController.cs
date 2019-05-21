@@ -92,7 +92,7 @@ namespace ApplicationLayer
                     addCustomer.CommandType = CommandType.StoredProcedure;
                     addCustomer.Parameters.Add(new SqlParameter("@CustomerName", customer.CustomerName));
                     addCustomer.Parameters.Add(new SqlParameter("@CustomerAddress", customer.CustomerAddress));
-                    addCustomer.Parameters.Add(new SqlParameter("@CustomerZipZity", customer.CustomerZipCity));
+                    addCustomer.Parameters.Add(new SqlParameter("@CustomerZipCity", customer.CustomerZipCity));
                     addCustomer.Parameters.Add(new SqlParameter("@CustomerEmail", customer.CustomerEmail));
                     addCustomer.Parameters.Add(new SqlParameter("@CustomerPhone", customer.CustomerPhone));
                     addCustomer.ExecuteNonQuery();
@@ -154,7 +154,7 @@ namespace ApplicationLayer
                     addEmployee.CommandType = CommandType.StoredProcedure;
                     addEmployee.Parameters.Add(new SqlParameter("@EmployeeName", employee.EmployeeName));
                     addEmployee.Parameters.Add(new SqlParameter("@EmployeeAddress", employee.EmployeeAddress));
-                    addEmployee.Parameters.Add(new SqlParameter("@EmployeeZipZity", employee.EmployeeZipCity));
+                    addEmployee.Parameters.Add(new SqlParameter("@EmployeeZipCity", employee.EmployeeZipCity));
                     addEmployee.Parameters.Add(new SqlParameter("@EmployeeSeNum", employee.EmployeeSeNum));
                     addEmployee.Parameters.Add(new SqlParameter("@EmployeeAccountNum", employee.EmployeeAccountNum));
                     addEmployee.ExecuteNonQuery();
