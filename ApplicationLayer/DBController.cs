@@ -60,6 +60,7 @@ namespace ApplicationLayer
                     {
                         while (read.Read())
                         {
+                            invoice.InvoiceDate = read["CustomerName"].ToString();
                             invoice.InvoiceDate = read["InvoiceDate"].ToString();
                             invoice.InvoiceNum = read["InvoiceNum"].ToString();
                             invoice.InvoiceTitle = read["InvoiceTitle"].ToString();
