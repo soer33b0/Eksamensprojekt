@@ -100,9 +100,9 @@
             Text=""
             TextWrapping="Wrap" />
         <Button
-            Width="211"
+            Width="140"
             Height="60"
-            Margin="229,395,0,0"
+            Margin="300,395,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="Button_Click"
@@ -139,6 +139,13 @@
             VerticalAlignment="Top"
             Content="Telefon:"
             FontSize="20" />
+        <Button
+            Width="140"
+            Height="60"
+            Margin="30,395,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Start forfra" Click="Button_Click_1" />
 
     </Grid>
 </Page>
