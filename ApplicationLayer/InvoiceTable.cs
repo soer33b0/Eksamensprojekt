@@ -31,8 +31,6 @@ namespace ApplicationLayer
         }
         public void InsertInvoiceTable()
         {
-            Console.WriteLine("\tInsertRowAndImageTable()");
-
             using (DocX document = DocX.Load(Filepath() + "temp.docx"))
             {
                 // Add a Table into the document and sets its values.

@@ -30,7 +30,7 @@ namespace ApplicationLayer
                     saveInvoice.Parameters.Add(new SqlParameter("@HoursWorked", invoice.HoursWorked));
                     saveInvoice.Parameters.Add(new SqlParameter("@HourlySalary", invoice.HourlySalary));
                     saveInvoice.Parameters.Add(new SqlParameter("@TotalSalary", invoice.TotalSalary));
-                    saveInvoice.Parameters.Add(new SqlParameter("@InvoiceDesription", invoice.Desription));
+                    saveInvoice.Parameters.Add(new SqlParameter("@InvoiceDesription", invoice.Description));
                     saveInvoice.ExecuteNonQuery();
                 }
 
@@ -66,7 +66,7 @@ namespace ApplicationLayer
                             invoice.InvoiceTitle = read["InvoiceTitle"].ToString();
                             invoice.HourlySalary = read["HourlySalary"].ToString();
                             invoice.HoursWorked = read["HoursWorked"].ToString();
-                            invoice.Desription = read["Description"].ToString();
+                            invoice.Description = read["Description"].ToString();
                             invoice.TotalSalary = read["TotalSalary"].ToString();
                             invoices.Add(invoice);
                         }
