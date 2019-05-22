@@ -13,7 +13,7 @@ namespace ApplicationLayer
         DBController Dbcontroller = new DBController();
         public void SaveInvoice(string invoiceDate, string invoiceNum, string invoiceTitle, string hoursWorked, string hourlySalary, string totalSalary, string desription)
         {
-            Invoice invoice = new Invoice { InvoiceDate = invoiceDate, InvoiceNum = invoiceNum, InvoiceTitle = invoiceTitle, HoursWorked = hoursWorked, HourlySalary = hourlySalary, TotalSalary = totalSalary, Desription = desription };
+            Invoice invoice = new Invoice { InvoiceDate = invoiceDate, InvoiceNum = invoiceNum, InvoiceTitle = invoiceTitle, HoursWorked = hoursWorked, HourlySalary = hourlySalary, TotalSalary = totalSalary, Description = desription };
             Dbcontroller.SaveInvoice(invoice);
         }
 

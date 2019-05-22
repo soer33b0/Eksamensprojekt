@@ -31,9 +31,7 @@ namespace ApplicationLayer
         }
         public void InsertInvoiceTable()
         {
-            Console.WriteLine("\tInsertRowAndImageTable()");
-
-            using (DocX document = DocX.Load(Filepath() + "temp.docx"))
+            using (DocX document = DocX.Load(@Directory.GetCurrentDirectory() + "\\skabelon.docx"))
             {
                 // Add a Table into the document and sets its values.
                 var t = document.AddTable(2, 4);
