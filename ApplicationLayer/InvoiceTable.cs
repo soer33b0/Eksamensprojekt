@@ -70,7 +70,7 @@ namespace ApplicationLayer
                     double total = hourlySalaryDouble * hoursWorkedDouble;
                     finalPrice += total;
 
-                    var rowPattern = invoiceTable.Rows[rowCount];
+                    var rowPattern = invoiceTable.Rows[1];
                     var invoiceRow = invoiceTable.InsertRow(rowPattern, invoiceTable.RowCount);
                     invoiceRow.Cells[0].Paragraphs.First().Append(description.ToUpper()).Italic();
                     invoiceRow.Cells[1].Paragraphs.First().Append(hourlySalary+" DKK");

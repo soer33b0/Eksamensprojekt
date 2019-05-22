@@ -71,14 +71,16 @@ namespace UI
         
         private void AddItemClicked(object sender, RoutedEventArgs e)
         {
-            
+            //totalprice = Convert.ToDouble(invoiceTable.AddInvoiceLine(Description.Text, HourlySalary.Text, NumOfHours.Text));
 
-            totalprice += Convert.ToDouble(HourlySalary.Text) * Convert.ToDouble(NumOfHours.Text);
+            invoiceTable.AddInvoiceLine(Description.Text, HourlySalary.Text, NumOfHours.Text);
 
             numofHours += NumOfHours.Text + ",";
             hourlySalary += HourlySalary.Text + ",";
             description += Description.Text + ",";
-            totalprice1 += totalprice.ToString() + ",";
+            //totalprice1 += totalprice.ToString() + ",";
+            totalprice += Convert.ToDouble(NumOfHours.Text) * Convert.ToDouble(HourlySalary.Text);
+
 
             LineItemCount++;
             ItemCount.Content = LineItemCount;
@@ -91,7 +93,7 @@ namespace UI
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
 
 
-            invoiceGen.InvoiceCalc(totalprice);
+            invoiceGen.InvoiceCalc(Convert.ToDouble(totalprice));
             
 
             //control.SaveInvoice("");
