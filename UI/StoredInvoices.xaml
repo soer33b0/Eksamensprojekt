@@ -10,8 +10,25 @@
       Title="Gemte_Fakturaer">
 
     <Grid>
-        <WrapPanel HorizontalAlignment="Left" Height="430" Margin="10,10,0,0" VerticalAlignment="Top" Width="444"/>
-        <Button Content="Hent Faktura" HorizontalAlignment="Left" Margin="596,276,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Hent alle faktura" HorizontalAlignment="Left" Margin="353,264,0,0" VerticalAlignment="Top" Width="141" Click="Button_Click"/>
+        <Button Content="Hent faktura" HorizontalAlignment="Left" Margin="594,165,0,0" VerticalAlignment="Top" Width="141" Click="Button_Click_1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="594,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="141" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Søg efter faktura efter dato (dd-mm-åååå)" HorizontalAlignment="Left" Margin="502,83,0,0" VerticalAlignment="Top"/>
+        <Label Content="Gemte faktura" HorizontalAlignment="Left" Margin="33,19,0,0" VerticalAlignment="Top"/>
+        <ListView Name = "Lv" HorizontalAlignment="Left" Height="370" Margin="0,53,0,0" VerticalAlignment="Top" Width="348">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Kundenavn" Width="120" DisplayMemberBinding="{Binding CustomerName}" />
+                    <GridViewColumn Header="Dato" Width="120" DisplayMemberBinding="{Binding Date}" />
+                    <GridViewColumn Header="Nr." Width="60" DisplayMemberBinding="{Binding Nr}" />
+                    <GridViewColumn Header="Titel" Width="120" DisplayMemberBinding="{Binding Titel}" />
+                    <GridViewColumn Header="Enheds pris" Width="120" DisplayMemberBinding="{Binding HourlySalary}" />
+                    <GridViewColumn Header="Antal enheder" Width="120" DisplayMemberBinding="{Binding HoursWorked}" />
+                    <GridViewColumn Header="Beløb" Width="120" DisplayMemberBinding="{Binding Total}" />
+                    <GridViewColumn Header="Beskrivelse" Width="120" DisplayMemberBinding="{Binding Desription}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

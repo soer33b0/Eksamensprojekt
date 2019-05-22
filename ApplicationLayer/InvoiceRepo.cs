@@ -22,13 +22,29 @@ namespace ApplicationLayer
             invoices = controller.GetInvoiceList();
         }
 
-        public List<Invoice> GetInvoiceList()
+        /*public List<Invoice> GetInvoiceList()
         {
             UpdateInvoiceList();
             return invoices;
-        }
+        }*/
+        public string[] GetInvoiceList()
+        {
+            List<string> invoiceList = new List<String>();
 
-        
-        
+            foreach (Invoice invoice in invoices)
+            {
+                invoiceList.Add(invoice.CustomerName);
+                invoiceList.Add(invoice.InvoiceDate);
+                invoiceList.Add(invoice.InvoiceNum);
+                invoiceList.Add(invoice.InvoiceTitle);
+                invoiceList.Add(invoice.HourlySalary);
+                invoiceList.Add(invoice.HoursWorked);
+                invoiceList.Add(invoice.TotalSalary);
+                invoiceList.Add(invoice.Desription);
+                UpdateInvoiceList();
+            }
+
+            return invoiceList.ToArray();
+        }
     }
 }
