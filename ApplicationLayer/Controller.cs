@@ -17,16 +17,6 @@ namespace ApplicationLayer
             Dbcontroller.SaveInvoice(invoice);
         }
 
-        public void CreateInvoice(Customer customer, Employee employee)
-        {
-            InvoiceGen invoiceGen = new InvoiceGen();
-            Invoice invoice = new Invoice();
-            InvoiceTable invoiceTable = new InvoiceTable();
-
-            invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
-            invoiceTable.InsertInvoiceTable();
-        }
-
         public List<Invoice> GetInvoiceList()
         {
             return Dbcontroller.GetInvoiceList();
@@ -34,7 +24,7 @@ namespace ApplicationLayer
 
         public string[] GetCustomerNames()
         {
-            
+
             return Dbcontroller.GetCustomerNames();
         }
 

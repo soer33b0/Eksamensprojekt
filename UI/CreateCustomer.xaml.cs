@@ -43,8 +43,6 @@ namespace UI
                     ResetTextboxes();
                 }
             }
-
-            
         }
         private void ResetTextboxes()
         {

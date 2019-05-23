@@ -92,9 +92,7 @@ namespace UI
         {
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
 
-
             invoiceGen.InvoiceCalc(Convert.ToDouble(totalprice));
-            
 
             //control.SaveInvoice("");
 

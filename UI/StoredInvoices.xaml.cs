@@ -45,33 +45,5 @@ namespace UI
         {
             Lv.Items.Clear();
         }
-
-
-
-        //public void UpdatePictures(InvoiceRepo invoiceRepo)
-        //{
-
-        //    foreach (Invoice invoice in invoiceRepo.invoices)
-        //    {
-
-
-        //        RadioButton radioBtn = new RadioButton
-        //        {
-        //            Margin = new Thickness(2, 10, 2, 10),
-        //            Height = 100,
-        //            HorizontalAlignment = HorizontalAlignment.Center,
-        //            VerticalAlignment = VerticalAlignment.Top,
-        //            Content = new Image { Source = new BitmapImage(new Uri(picture.PictureLink, UriKind.Relative)) },
-        //            Name = "_" + picture.PictureNumber.ToString(),
-
-
-
-        //        };
-        //        radioBtn.Checked += this.Radio_Checked;
-        //        WP_mainWrapPanel.Children.Add(radioBtn);
-
-
-        //    }
-        //}
     }
 }

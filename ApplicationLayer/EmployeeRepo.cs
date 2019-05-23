@@ -21,13 +21,6 @@ namespace ApplicationLayer
         public void UpdateEmployeeList()
         {
             employees = controller.GetEmployeeList();
-            employees.Sort();
-        }
-
-        public List<Employee> GetEmployeeList()
-        {
-            UpdateEmployeeList();
-            return employees;
         }
     }
 }

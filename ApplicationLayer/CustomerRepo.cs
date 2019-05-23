@@ -18,17 +18,17 @@ namespace ApplicationLayer
             customers = controller.GetCustomerList();
         }
 
-        public List<string> GetCustomerNames()
-        {
-            List<string> customerNames = new List<String>();
+        //public List<string> GetCustomerNames()
+        //{
+        //    List<string> customerNames = new List<String>();
 
-            foreach (Customer customer in customers)
-            {
-                customerNames.Add(customer.CustomerName);
-            }
+        //    foreach (Customer customer in customers)
+        //    {
+        //        customerNames.Add(customer.CustomerName);
+        //    }
      
-            return customerNames;
-        }
+        //    return customerNames;
+        //}
 
         public Customer GetCustomerAtIndex(int index, string customerName)
         {

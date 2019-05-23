@@ -22,11 +22,6 @@ namespace ApplicationLayer
             invoices = controller.GetInvoiceList();
         }
 
-        /*public List<Invoice> GetInvoiceList()
-        {
-            UpdateInvoiceList();
-            return invoices;
-        }*/
         public string[] GetInvoiceList()
         {
             List<string> invoiceList = new List<String>();
