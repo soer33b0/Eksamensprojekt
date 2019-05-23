@@ -40,7 +40,7 @@ namespace ApplicationLayer
                 invoiceList.Add(invoice.HourlySalary);
                 invoiceList.Add(invoice.HoursWorked);
                 invoiceList.Add(invoice.TotalSalary);
-                invoiceList.Add(invoice.Desription);
+                invoiceList.Add(invoice.Description);
                 UpdateInvoiceList();
             }
 

@@ -10,22 +10,22 @@
       Title="Gemte_Fakturaer">
 
     <Grid>
-        <Button Content="Hent alle faktura" HorizontalAlignment="Left" Margin="353,264,0,0" VerticalAlignment="Top" Width="141" Click="Button_Click"/>
-        <Button Content="Hent faktura" HorizontalAlignment="Left" Margin="594,165,0,0" VerticalAlignment="Top" Width="141" Click="Button_Click_1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="594,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="141" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Søg efter faktura efter dato (dd-mm-åååå)" HorizontalAlignment="Left" Margin="502,83,0,0" VerticalAlignment="Top"/>
+        <Button Content="Hent alle faktura" HorizontalAlignment="Left" Margin="33,278,0,0" VerticalAlignment="Top" Width="141" Click="Button_Click"/>
+        <Button Content="Hent faktura" HorizontalAlignment="Left" Margin="237,386,0,0" VerticalAlignment="Top" Width="141" Click="Button_Click_1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,343,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="141" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Søg efter faktura efter dato (dd-mm-åååå)" HorizontalAlignment="Left" Margin="184,312,0,0" VerticalAlignment="Top"/>
         <Label Content="Gemte faktura" HorizontalAlignment="Left" Margin="33,19,0,0" VerticalAlignment="Top"/>
-        <ListView Name = "Lv" HorizontalAlignment="Left" Height="370" Margin="0,53,0,0" VerticalAlignment="Top" Width="348">
+        <ListView Name = "Lv" HorizontalAlignment="Left" Height="220" Margin="0,58,0,0" VerticalAlignment="Top" Width="693">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Kundenavn" Width="120" DisplayMemberBinding="{Binding CustomerName}" />
-                    <GridViewColumn Header="Dato" Width="120" DisplayMemberBinding="{Binding Date}" />
-                    <GridViewColumn Header="Nr." Width="60" DisplayMemberBinding="{Binding Nr}" />
-                    <GridViewColumn Header="Titel" Width="120" DisplayMemberBinding="{Binding Titel}" />
-                    <GridViewColumn Header="Enheds pris" Width="120" DisplayMemberBinding="{Binding HourlySalary}" />
-                    <GridViewColumn Header="Antal enheder" Width="120" DisplayMemberBinding="{Binding HoursWorked}" />
-                    <GridViewColumn Header="Beløb" Width="120" DisplayMemberBinding="{Binding Total}" />
-                    <GridViewColumn Header="Beskrivelse" Width="120" DisplayMemberBinding="{Binding Desription}" />
+                    <GridViewColumn Header="Kundenavn" Width="Auto" DisplayMemberBinding="{Binding CustomerName}" />
+                    <GridViewColumn Header="Dato" Width="Auto" DisplayMemberBinding="{Binding Date}" />
+                    <GridViewColumn Header="Nr." Width="Auto" DisplayMemberBinding="{Binding Nr}" />
+                    <GridViewColumn Header="Titel" Width="Auto" DisplayMemberBinding="{Binding Titel}" />
+                    <GridViewColumn Header="Enheds pris" Width="Auto" DisplayMemberBinding="{Binding HourlySalary}" />
+                    <GridViewColumn Header="Antal enheder" Width="Auto" DisplayMemberBinding="{Binding HoursWorked}" />
+                    <GridViewColumn Header="Beløb" Width="Auto" DisplayMemberBinding="{Binding Total}" />
+                    <GridViewColumn Header="Beskrivelse" Width="Auto" DisplayMemberBinding="{Binding Desription}" />
                 </GridView>
             </ListView.View>
         </ListView>

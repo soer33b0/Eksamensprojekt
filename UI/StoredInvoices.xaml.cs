@@ -23,19 +23,17 @@ namespace UI
     public partial class StoredInvoices : Page
     {
         InvoiceRepo invoiceRepo = new InvoiceRepo();
+        Controller controller = new Controller();
 
         public StoredInvoices()
         {
             InitializeComponent();
-            Lv.ItemsSource = invoiceRepo.GetInvoiceList();
-
-
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Lv.Items.Clear();
-            Lv.Items.Add(new InvoiceRepo() { });
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -45,8 +43,11 @@ namespace UI
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Lv.Items.Clear();
         }
+
+
+
         //public void UpdatePictures(InvoiceRepo invoiceRepo)
         //{
 
