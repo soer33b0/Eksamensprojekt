@@ -34,12 +34,7 @@ namespace ApplicationLayer
         {
             Customer customer = new Customer();
 
-            customer = customers.ElementAt(index);
-
-            if (customerName != customer.CustomerName)
-            {
-                return null;
-            }
+            customer = customers.ToArray().ElementAt(index + 1);
 
             return customer;
         }

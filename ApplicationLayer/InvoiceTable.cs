@@ -31,9 +31,7 @@ namespace ApplicationLayer
         }
         public void InsertInvoiceTable()
         {
-            Console.WriteLine("\tInsertRowAndImageTable()");
-
-            using (DocX document = DocX.Load(Filepath() + "temp.docx"))
+            using (DocX document = DocX.Load(@Directory.GetCurrentDirectory() + "\\skabelon.docx"))
             {
                 // Add a Table into the document and sets its values.
                 var t = document.AddTable(2, 4);
@@ -72,7 +70,7 @@ namespace ApplicationLayer
                     double total = hourlySalaryDouble * hoursWorkedDouble;
                     finalPrice += total;
 
-                    var rowPattern = invoiceTable.Rows[rowCount];
+                    var rowPattern = invoiceTable.Rows[1];
                     var invoiceRow = invoiceTable.InsertRow(rowPattern, invoiceTable.RowCount);
                     invoiceRow.Cells[0].Paragraphs.First().Append(description.ToUpper()).Italic();
                     invoiceRow.Cells[1].Paragraphs.First().Append(hourlySalary+" DKK");

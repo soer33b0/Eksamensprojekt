@@ -27,11 +27,18 @@ namespace UI
             InitializeComponent();
 
             Customer_names.ItemsSource = control.GetCustomerNames();
+            invoiceTable.InsertInvoiceTable();
+            customerRepo.UpdateCustomerList();
         }
 
         Controller control = new Controller();
+        InvoiceTable invoiceTable = new InvoiceTable();
+        InvoiceGen invoiceGen = new InvoiceGen();
+        CustomerRepo customerRepo = new CustomerRepo();
+        Customer customer = new Customer();
+        Invoice invoice = new Invoice();
+        Employee employee = new Employee("Jørn Jensen", "Holbækvej 62", "4400 Kalundborg", "88888888", "5321 6666666666");
 
-        private List<string> customers;
         int LineItemCount = 0;
 
         double totalprice = 0;
@@ -42,31 +49,17 @@ namespace UI
 
         private void NextButttonClicked(object sender, RoutedEventArgs e)
         {
-            Controller controller = new Controller();
-            InvoiceGen invoiceGen = new InvoiceGen();
-            InvoiceTable invoiceTable = new InvoiceTable();
-            CustomerRepo customerRepo = new CustomerRepo();
-            Customer customer = new Customer();
-            Invoice invoice = new Invoice();
-            Employee employee = new Employee("Jørn Jensen", "Holbækvej 62", "4400 Kalundborg", "88888888", "5321 6666666666");
-
-            customerRepo.UpdateCustomerList();
-
-            int selectedIndex = Customer_names.SelectedIndex;
-            string selectedItem = Customer_names.SelectedItem.ToString();
-
-            customer = customerRepo.GetCustomerAtIndex(selectedIndex, selectedItem);
             if (customer == null)
             {
-                MessageBox.Show("fuck niggers");
+                MessageBox.Show("Error 404 \nkunde not found");
             }
 
             invoice.InvoiceTitle = Title.Text;
             invoice.InvoiceNum = InvoiceNum.Text;
             invoice.InvoiceDate = InvoiceDate.Text;
 
-            invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
-            invoiceTable.InsertInvoiceTable();
+            
+
             DisableStepOne();
         }
 
@@ -78,15 +71,15 @@ namespace UI
         
         private void AddItemClicked(object sender, RoutedEventArgs e)
         {
-            InvoiceTable invoiceTable = new InvoiceTable();
+            //totalprice = Convert.ToDouble(invoiceTable.AddInvoiceLine(Description.Text, HourlySalary.Text, NumOfHours.Text));
 
-            totalprice += Convert.ToDouble(invoiceTable.AddInvoiceLine(Description.Text.ToString(), HourlySalary.Text, NumOfHours.Text));
-
+            invoiceTable.AddInvoiceLine(Description.Text, HourlySalary.Text, NumOfHours.Text);
 
             numofHours += NumOfHours.Text + ",";
             hourlySalary += HourlySalary.Text + ",";
             description += Description.Text + ",";
-            totalprice1 += totalprice.ToString() + ",";
+            //totalprice1 += totalprice.ToString() + ",";
+            totalprice += Convert.ToDouble(NumOfHours.Text) * Convert.ToDouble(HourlySalary.Text);
 
 
             LineItemCount++;
@@ -97,8 +90,11 @@ namespace UI
         }
         private void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            InvoiceGen invoiceGen = new InvoiceGen();
-            invoiceGen.InvoiceCalc(totalprice);
+            invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
+
+
+            invoiceGen.InvoiceCalc(Convert.ToDouble(totalprice));
+            
 
             //control.SaveInvoice("");
 
@@ -130,18 +126,10 @@ namespace UI
 
         private void Customer_names_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Customer customer = new Customer();
-            //CustomerRepo customerRepo = new CustomerRepo();
+            int selectedIndex = Customer_names.SelectedIndex;
+            string selectedItem = Customer_names.SelectedItem.ToString();
 
-            //int selectedIndex = Customer_names.SelectedIndex;
-            //string selectedItem = Customer_names.SelectedItem.ToString();
-
-            
-            //customer = customerRepo.GetCustomerAtIndex(selectedIndex, selectedItem);
-            //if(customer == null)
-            //{
-            //    MessageBox.Show("fuck niggers");
-            //}
+            customer = customerRepo.GetCustomerAtIndex(selectedIndex, selectedItem);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace ApplicationLayer
 
         public void ReplaceInvoiceText(Customer customer, Employee employee, Invoice invoice)
         {
-            var doc = DocX.Load(@Directory.GetCurrentDirectory() + "\\skabelon.docx");
+            var doc = DocX.Load(Filepath() + "\\temp.docx");
             doc.ReplaceText("%customerName%", customer.CustomerName);
             doc.ReplaceText("%customerAddress%", customer.CustomerAddress);
             doc.ReplaceText("%customerZipCity%", customer.CustomerZipCity);
@@ -46,11 +46,10 @@ namespace ApplicationLayer
             doc.ReplaceText("%accountNum%", employee.EmployeeAccountNum);
 
             doc.ReplaceText("%title%", invoice.InvoiceTitle);
-
             doc.ReplaceText("%invoiceDate%", invoice.InvoiceDate.ToString());
             doc.ReplaceText("%invoiceNum%", invoice.InvoiceNum);
 
-            doc.SaveAs(@Filepath() + "temp.docx");
+            doc.SaveAs(@Filepath() + "\\temp.docx");
         }
         
         public bool InvoiceCalc(double totalprice)
