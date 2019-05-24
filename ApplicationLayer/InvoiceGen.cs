@@ -46,13 +46,13 @@ namespace ApplicationLayer
             doc.ReplaceText("%accountNum%", employee.EmployeeAccountNum);
 
             doc.ReplaceText("%title%", invoice.InvoiceTitle);
-            doc.ReplaceText("%invoiceDate%", invoice.InvoiceDate.ToString());
-            doc.ReplaceText("%invoiceNum%", invoice.InvoiceNum);
+            doc.ReplaceText("%invoiceDate%", "Dato: " + invoice.InvoiceDate.ToString());
+            doc.ReplaceText("%invoiceNum%", "Faktura nummer: " + invoice.InvoiceNum);
 
             doc.SaveAs(@Filepath() + "\\temp.docx");
         }
         
-        public bool InvoiceCalc(double totalprice)
+        public bool InvoiceCalc(double totalprice, Invoice invoice)
         {
             using (DocX document = DocX.Load(@Filepath() + "\\temp.docx"))
             {
@@ -60,14 +60,11 @@ namespace ApplicationLayer
                 int count = (invoiceTable.RowCount - 2);
                 double VAT = totalprice * 0.25;
                 double finalprice = totalprice + VAT;
-
-                document.ReplaceText("%VAT%", VAT.ToString());
-                document.ReplaceText("%totalPrice%", finalprice.ToString());
-                document.ReplaceText("%netto%", totalprice.ToString());
-                document.SaveAs(@Filepath() + "\\faktura-" + DateTime.Now.ToString("yyyy-MM-dd")+".docx");
+                document.ReplaceText("%VAT%", VAT.ToString() + " DKK");
+                document.ReplaceText("%TOTALPRIS%", finalprice.ToString() + " DKK");
+                //document.ReplaceText("%netto%", totalprice.ToString());
+                document.SaveAs(@Filepath() + "\\faktura-" + invoice.InvoiceNum + "-" + DateTime.Now.ToString("dd-MM-yyyy")+".docx");
                 File.Delete((@Filepath() + "\\temp.docx"));
-
-
                 return true;
             }
         }
