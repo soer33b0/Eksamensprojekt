@@ -87,7 +87,7 @@ namespace UI
 
             invoiceGen.InvoiceCalc(invoice);
 
-            //control.SaveInvoice("");
+            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary , invoice.TotalWithoutVAT, invoice.Description);
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
