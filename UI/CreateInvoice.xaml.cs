@@ -49,7 +49,7 @@ namespace UI
             }
 
             invoice.InvoiceTitle = Title.Text;
-            invoice.InvoiceNum = InvoiceNum.Text;
+            invoice.InvoiceNum = Convert.ToInt32(InvoiceNum.Text);
             invoice.InvoiceDate = InvoiceDate.Text;
 
             

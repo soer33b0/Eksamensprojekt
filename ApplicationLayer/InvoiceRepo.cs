@@ -30,7 +30,7 @@ namespace ApplicationLayer
             {
                 invoiceList.Add(invoice.CustomerName);
                 invoiceList.Add(invoice.InvoiceDate);
-                invoiceList.Add(invoice.InvoiceNum);
+                invoiceList.Add(invoice.InvoiceNum.ToString());
                 invoiceList.Add(invoice.InvoiceTitle);
                 invoiceList.Add(invoice.HourlySalary);
                 invoiceList.Add(invoice.HoursWorked);

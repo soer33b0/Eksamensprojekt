@@ -2,7 +2,7 @@
 {
     public class Invoice
     {
-        public Invoice(string _customerName, string _invoiceDate, string _invoiceNum, string _invoiceTitle, string _hoursWorked, string _hourlySalary, string _description, double _totalSalary)
+        public Invoice(string _customerName, string _invoiceDate, int _invoiceNum, string _invoiceTitle, string _hoursWorked, string _hourlySalary, string _description, double _totalSalary)
         {
             CustomerName = _customerName;
             InvoiceDate = _invoiceDate;
@@ -27,7 +27,7 @@
             set;
         }
 
-        public string InvoiceNum
+        public int InvoiceNum
         {
             get;
             set;

@@ -62,7 +62,7 @@ namespace ApplicationLayer
                         {
                             invoice.InvoiceDate = read["CustomerName"].ToString();
                             invoice.InvoiceDate = read["InvoiceDate"].ToString();
-                            invoice.InvoiceNum = read["InvoiceNum"].ToString();
+                            invoice.InvoiceNum = Convert.ToInt32(read["InvoiceNum"]);
                             invoice.InvoiceTitle = read["InvoiceTitle"].ToString();
                             invoice.HourlySalary = read["HourlySalary"].ToString();
                             invoice.HoursWorked = read["HoursWorked"].ToString();
