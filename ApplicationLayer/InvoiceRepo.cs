@@ -34,7 +34,7 @@ namespace ApplicationLayer
                 invoiceList.Add(invoice.InvoiceTitle);
                 invoiceList.Add(invoice.HourlySalary);
                 invoiceList.Add(invoice.HoursWorked);
-                invoiceList.Add(invoice.TotalSalary);
+                invoiceList.Add(invoice.TotalWithoutVAT.ToString());
                 invoiceList.Add(invoice.Description);
                 UpdateInvoiceList();
             }

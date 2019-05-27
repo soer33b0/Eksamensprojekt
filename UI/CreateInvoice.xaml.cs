@@ -41,12 +41,6 @@ namespace UI
 
         int LineItemCount = 0;
 
-        double totalprice = 0;
-        string numofHours = "";
-        string description = "";
-        string hourlySalary = "";
-        string totalprice1 = "";
-
         private void NextButttonClicked(object sender, RoutedEventArgs e)
         {
             if (customer == null)
@@ -75,12 +69,11 @@ namespace UI
 
             invoiceTable.AddInvoiceLine(Description.Text, HourlySalary.Text, NumOfHours.Text);
 
-            numofHours += NumOfHours.Text + ",";
-            hourlySalary += HourlySalary.Text + ",";
-            description += Description.Text + ",";
-            //totalprice1 += totalprice.ToString() + ",";
-            totalprice += Convert.ToDouble(NumOfHours.Text) * Convert.ToDouble(HourlySalary.Text);
+            invoice.HoursWorked += NumOfHours.Text + ",";
+            invoice.HourlySalary += HourlySalary.Text + ",";
+            invoice.Description += Description.Text + ",";
 
+            invoice.TotalWithoutVAT += Convert.ToDouble(NumOfHours.Text) * Convert.ToDouble(HourlySalary.Text);
 
             LineItemCount++;
             ItemCount.Content = LineItemCount;
@@ -92,7 +85,7 @@ namespace UI
         {
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
 
-            invoiceGen.InvoiceCalc(Convert.ToDouble(totalprice), invoice);
+            invoiceGen.InvoiceCalc(invoice);
 
             //control.SaveInvoice("");
 

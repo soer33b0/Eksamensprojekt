@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DomainLayer
+﻿namespace DomainLayer
 {
     public class Invoice
     {
-        public Invoice(string _customerName, string _invoiceDate, string _invoiceNum, string _invoiceTitle, string _hoursWorked, string _hourlySalary, string _description, string _totalSalary)
+        public Invoice(string _customerName, string _invoiceDate, string _invoiceNum, string _invoiceTitle, string _hoursWorked, string _hourlySalary, string _description, double _totalSalary)
         {
             CustomerName = _customerName;
             InvoiceDate = _invoiceDate;
@@ -17,7 +11,7 @@ namespace DomainLayer
             HoursWorked = _hoursWorked;
             HourlySalary = _hourlySalary;
             Description = _description;
-            TotalSalary = _totalSalary;
+            TotalWithoutVAT = _totalSalary;
         }
 
         public Invoice() { }
@@ -57,13 +51,7 @@ namespace DomainLayer
             set;
         }
 
-        public double VAT //moms
-        {
-            get { return VAT; }
-            set { VAT = 1.25; }
-        }
-
-        public string TotalSalary
+        public double TotalWithoutVAT
         {
             get;
             set;
