@@ -50,26 +50,23 @@ namespace ApplicationLayer
             {
                 try
                 {
+
                     conn.Open();
 
-                    SqlCommand getInvoice = new SqlCommand("GetInvoice", conn);
-                    getInvoice.CommandType = CommandType.StoredProcedure;
-                    SqlDataReader read = getInvoice.ExecuteReader();
+                    SqlDataAdapter getInvoice = new SqlDataAdapter("SELECT CustomerName, InvoiceDate, InvoiceNum, InvoiceTitle, HoursWorked, HourlySalary, TotalSalary, InvoiceDescription FROM INVOICE AS I JOIN CUSTOMER AS C ON I.CustomerID = C.CustomerID", conn);
 
-                    if (read.HasRows)
+                    DataTable dt = new DataTable();
+                    getInvoice.Fill(dt);
+                    foreach (DataRow row in dt.Rows)
                     {
-                        while (read.Read())
-                        {
-                            invoice.InvoiceDate = read["CustomerName"].ToString();
-                            invoice.InvoiceDate = read["InvoiceDate"].ToString();
-                            invoice.InvoiceNum = Convert.ToInt32(read["InvoiceNum"]);
-                            invoice.InvoiceTitle = read["InvoiceTitle"].ToString();
-                            invoice.HourlySalary = read["HourlySalary"].ToString();
-                            invoice.HoursWorked = read["HoursWorked"].ToString();
-                            invoice.Description = read["Description"].ToString();
-                            invoice.TotalWithoutVAT = Convert.ToDouble(read["TotalSalary"]);
-                            invoices.Add(invoice);
-                        }
+                        invoice.InvoiceDate = row["InvoiceDate"].ToString();
+                        invoice.InvoiceNum = Convert.ToInt32(row["InvoiceNum"]);
+                        invoice.InvoiceTitle = row["InvoiceTitle"].ToString();
+                        invoice.HoursWorked = row["HoursWorked"].ToString();
+                        invoice.HourlySalary = row["HourlySalary"].ToString();
+                        invoice.TotalWithoutVAT = Convert.ToDouble(row["TotalSalary"]);
+                        invoice.Description = row["InvoiceDescription"].ToString();
+                        invoices.Add(invoice);
                     }
                 }
 

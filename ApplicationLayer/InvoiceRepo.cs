@@ -10,7 +10,7 @@ namespace ApplicationLayer
     public class InvoiceRepo
     {
         Controller controller = new Controller();
-        private List<Invoice> invoices = new List<Invoice>();
+        public List<Invoice> invoices = new List<Invoice>();
 
         public void AddInvoice(Invoice invoice)
         {

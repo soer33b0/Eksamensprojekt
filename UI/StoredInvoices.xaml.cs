@@ -28,12 +28,12 @@ namespace UI
         public StoredInvoices()
         {
             InitializeComponent();
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Lv.ItemsSource = controller.GetInvoiceList();
+            
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
