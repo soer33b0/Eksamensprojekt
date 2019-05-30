@@ -56,7 +56,7 @@ namespace UI
             List<DomainLayer.Invoice> meme = controller.GetInvoiceList();
             Invoice[] meme1 = meme.ToArray();
             int count = Lv.SelectedIndex;
-            invoice.OpenDocxFromShow(meme1[count].Filepath);
+            invoice.OpenDocx("", meme1[count].Filepath);
         }
     }
 }

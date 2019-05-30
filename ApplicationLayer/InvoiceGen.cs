@@ -26,10 +26,18 @@ namespace ApplicationLayer
             }
             else return path + "\\Fakturaer";
         }
-        public void OpenDocxFromShow(string filePath)
+        public void OpenDocx(string dir, string fileName)
         {
-            Process.Start(filePath);
-           
+            if (dir == "")
+            {
+                string where = Filepath() + fileName;
+                Process.Start(where);
+            }
+            else
+            {
+                string where = Filepath() + fileName;
+                Process.Start(dir, @where);
+            }
         }
 
 
@@ -61,13 +69,13 @@ namespace ApplicationLayer
                 int count = (invoiceTable.RowCount - 2);
                 double VAT = Convert.ToDouble(invoice.TotalWithoutVAT) * 0.25;
                 double finalprice = Convert.ToDouble(invoice.TotalWithoutVAT + VAT);
-                string finalpath = (@Filepath() + "\\faktura-" + invoice.InvoiceNum + "-" + DateTime.Now.ToString("dd-MM-yyyy") + ".docx");
+                string finalpath = ("\\faktura-" + invoice.InvoiceNum + "-" + DateTime.Now.ToString("dd-MM-yyyy") + ".docx");
 
                 document.ReplaceText("%VAT%", VAT.ToString());
                 document.ReplaceText("%totalPrice%", finalprice.ToString());
                 document.ReplaceText("%netto%", invoice.TotalWithoutVAT.ToString());
 
-                document.SaveAs(finalpath);
+                document.SaveAs(@Filepath()+finalpath);
                 File.Delete((@Filepath() + "\\temp.docx"));
 
                 return finalpath;
