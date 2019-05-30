@@ -41,7 +41,7 @@ namespace UI
 
         private void ShowSelectedInvoice_Clicked(object sender, RoutedEventArgs e)
         {
-            
+
             InvoiceGen invoice = new InvoiceGen();
             List<DomainLayer.Invoice> meme = controller.GetInvoiceList();
             Invoice[] meme1 = meme.ToArray();

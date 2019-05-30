@@ -66,9 +66,9 @@ namespace ApplicationLayer
                     var rowPattern = invoiceTable.Rows[1];
                     var invoiceRow = invoiceTable.InsertRow(rowPattern, invoiceTable.RowCount);
                     invoiceRow.Cells[0].Paragraphs.First().Append(description.ToUpper()).Italic();
-                    invoiceRow.Cells[1].Paragraphs.First().Append(hourlySalary+" DKK");
+                    invoiceRow.Cells[1].Paragraphs.First().Append(hourlySalary + " DKK");
                     invoiceRow.Cells[2].Paragraphs.First().Append(hoursWorked);
-                    invoiceRow.Cells[3].Paragraphs.First().Append(total.ToString()+" DKK").Bold();
+                    invoiceRow.Cells[3].Paragraphs.First().Append(total.ToString() + " DKK").Bold();
 
                     document.SaveAs(Filepath() + "\\temp.docx");
                     rowCount++;

@@ -55,7 +55,7 @@ namespace ApplicationLayer
 
             doc.SaveAs(@Filepath() + "\\temp.docx");
         }
-        
+
         public string InvoiceCalc(Invoice invoice)
         {
             using (DocX document = DocX.Load(@Filepath() + "\\temp.docx"))
@@ -70,7 +70,7 @@ namespace ApplicationLayer
                 document.ReplaceText("%totalPrice%", finalprice.ToString());
                 document.ReplaceText("%netto%", invoice.TotalWithoutVAT.ToString());
 
-                document.SaveAs(@Filepath()+finalpath);
+                document.SaveAs(@Filepath() + finalpath);
                 File.Delete((@Filepath() + "\\temp.docx"));
 
                 return finalpath;

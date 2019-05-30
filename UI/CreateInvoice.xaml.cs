@@ -63,9 +63,7 @@ namespace UI
 
             LineItemCount++;
             ItemCount.Content = LineItemCount;
-            Description.Text = "";
-            NumOfHours.Text = "";
-            HourlySalary.Text = "";
+            ClearTextBoxes();
         }
         private void SaveButtonClicked(object sender, RoutedEventArgs e)
         {
@@ -73,7 +71,7 @@ namespace UI
             invoice.Filepath = invoiceGen.InvoiceCalc(invoice);
 
             int count = CustomerNamesBox.SelectedIndex;
-            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary , invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath, count);
+            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary, invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath, count);
             if (control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary, invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath, count) == true)
             {
                 MessageBox.Show("Kunde blev gemt uden fejl.");
@@ -87,7 +85,7 @@ namespace UI
                 Window parentWindow = Window.GetWindow(this);
                 parentWindow.Close();
             }
-            
+
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -110,12 +108,17 @@ namespace UI
             AddItem.IsEnabled = true;
             Close.IsEnabled = true;
         }
+        public void ClearTextBoxes()
+        {
+            Description.Text = "";
+            NumOfHours.Text = "";
+            HourlySalary.Text = "";
+        }
 
         private void CustomerNames_ComboBox(object sender, SelectionChangedEventArgs e)
         {
             int selectedIndex = CustomerNamesBox.SelectedIndex;
             string selectedItem = CustomerNamesBox.SelectedItem.ToString();
-
             customer = customerRepo.GetCustomerAtIndex(selectedIndex, selectedItem);
         }
     }

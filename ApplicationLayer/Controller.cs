@@ -9,7 +9,18 @@ namespace ApplicationLayer
         DBController Dbcontroller = new DBController();
         public bool SaveInvoice(string invoiceDate, int invoiceNum, string invoiceTitle, string hoursWorked, string hourlySalary, double totalSalary, string description, string filepath, int count)
         {
-            Invoice invoice = new Invoice { InvoiceDate = invoiceDate, InvoiceNum = invoiceNum, InvoiceTitle = invoiceTitle, HoursWorked = hoursWorked, HourlySalary = hourlySalary, TotalWithoutVAT = totalSalary, Description = description, Filepath = filepath, Count = count};
+            Invoice invoice = new Invoice
+            {
+                InvoiceDate = invoiceDate,
+                InvoiceNum = invoiceNum,
+                InvoiceTitle = invoiceTitle,
+                HoursWorked = hoursWorked,
+                HourlySalary = hourlySalary,
+                TotalWithoutVAT = totalSalary,
+                Description = description,
+                Filepath = filepath,
+                Count = count
+            };
             if (Dbcontroller.SaveInvoice(invoice) == true)
             {
                 return true;
@@ -33,7 +44,14 @@ namespace ApplicationLayer
 
         public void AddCustomer(string customerName, string customerAddress, string customerZipCity, string customerEmail, string customerPhone)
         {
-            Customer customer = new Customer { CustomerName= customerName, CustomerAddress = customerAddress, CustomerZipCity = customerZipCity, CustomerEmail = customerEmail, CustomerPhone = customerPhone };
+            Customer customer = new Customer
+            {
+                CustomerName = customerName,
+                CustomerAddress = customerAddress,
+                CustomerZipCity = customerZipCity,
+                CustomerEmail = customerEmail,
+                CustomerPhone = customerPhone
+            };
             Dbcontroller.AddCustomer(customer);
         }
 
@@ -44,7 +62,14 @@ namespace ApplicationLayer
 
         public void AddEmployee(string employeeName, string employeeAddress, string employeeZipCity, string employeeSeNum, string employeeAccountNum)
         {
-            Employee employee = new Employee { EmployeeName = employeeName, EmployeeAddress = employeeAddress, EmployeeZipCity = employeeZipCity, EmployeeSeNum = employeeSeNum, EmployeeAccountNum = employeeAccountNum };
+            Employee employee = new Employee
+            {
+                EmployeeName = employeeName,
+                EmployeeAddress = employeeAddress,
+                EmployeeZipCity = employeeZipCity,
+                EmployeeSeNum = employeeSeNum,
+                EmployeeAccountNum = employeeAccountNum
+            };
             Dbcontroller.AddEmployee(employee);
         }
 
@@ -55,7 +80,14 @@ namespace ApplicationLayer
 
         public void SaveFisheryRemuneration(double fishPrice, string fishType, double fishWeight, string saleDate, int customerID)
         {
-            FisheryRemuneration fisheryRemuneration = new FisheryRemuneration { FishPrice = fishPrice, FishType = fishType, FishWeight = fishWeight, SaleDate = saleDate, CustomerID = customerID };
+            FisheryRemuneration fisheryRemuneration = new FisheryRemuneration
+            {
+                FishPrice = fishPrice,
+                FishType = fishType,
+                FishWeight = fishWeight,
+                SaleDate = saleDate,
+                CustomerID = customerID
+            };
             Dbcontroller.SaveFisheryRemuneration(fisheryRemuneration);
         }
 

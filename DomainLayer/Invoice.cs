@@ -20,7 +20,8 @@
 
         public string CustomerName
         {
-            get;set;
+            get;
+            set;
         }
 
         public string InvoiceDate
@@ -61,15 +62,18 @@
 
         public string Description
         {
-            get; set;
+            get;
+            set;
         }
         public string Filepath
         {
-            get; set;
+            get;
+            set;
         }
         public int Count
         {
-            get; set;
+            get;
+            set;
         }
     }
 }

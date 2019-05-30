@@ -33,7 +33,7 @@ namespace UI
         }
         private void ResetTextboxes()
         {
-            
+
             customerName.Text = "";
             customerAddress.Text = "";
             customerZipCity.Text = "";

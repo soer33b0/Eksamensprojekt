@@ -9,7 +9,7 @@ namespace ApplicationLayer
         Controller controller = new Controller();
 
         public List<Customer> customers = new List<Customer>();
-        
+
         public void UpdateCustomerList()
         {
             customers = controller.GetCustomerList();
