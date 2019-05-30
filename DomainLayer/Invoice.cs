@@ -2,7 +2,7 @@
 {
     public class Invoice
     {
-        public Invoice(string _customerName, string _invoiceDate, int _invoiceNum, string _invoiceTitle, string _hoursWorked, string _hourlySalary, string _description, double _totalSalary, string _filepath)
+        public Invoice(string _customerName, string _invoiceDate, int _invoiceNum, string _invoiceTitle, string _hoursWorked, string _hourlySalary, string _description, double _totalSalary, string _filepath, int _count)
         {
             CustomerName = _customerName;
             InvoiceDate = _invoiceDate;
@@ -13,6 +13,7 @@
             Description = _description;
             TotalWithoutVAT = _totalSalary;
             Filepath = _filepath;
+            Count = _count;
         }
 
         public Invoice() { }
@@ -63,6 +64,10 @@
             get; set;
         }
         public string Filepath
+        {
+            get; set;
+        }
+        public int Count
         {
             get; set;
         }

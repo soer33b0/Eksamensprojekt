@@ -24,7 +24,7 @@ namespace ApplicationLayer
                 {
                     SqlCommand saveInvoice = new SqlCommand("SaveInvoice", conn);
                     saveInvoice.CommandType = CommandType.StoredProcedure;
-                    saveInvoice.Parameters.Add(new SqlParameter("@CustomerID", 3));
+                    saveInvoice.Parameters.Add(new SqlParameter("@CustomerID", invoice.Count+1));
                     saveInvoice.Parameters.Add(new SqlParameter("@InvoiceDate", invoice.InvoiceDate));
                     saveInvoice.Parameters.Add(new SqlParameter("@InvoiceNum", invoice.InvoiceNum));
                     saveInvoice.Parameters.Add(new SqlParameter("@InvoiceTitle", invoice.InvoiceTitle));

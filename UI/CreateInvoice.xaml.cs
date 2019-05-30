@@ -73,7 +73,9 @@ namespace UI
         {
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
             invoice.Filepath = invoiceGen.InvoiceCalc(invoice);
-            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary , invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath);
+
+            int count = Customer_names.SelectedIndex;
+            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary , invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath, count);
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();

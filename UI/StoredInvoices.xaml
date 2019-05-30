@@ -6,6 +6,9 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
+        
+        ResizeMode="NoResize"
+        WindowStyle="None"
         Background="White"
         Foreground="White"
         Title="StoredInvoices" Height="450" Width="800">
