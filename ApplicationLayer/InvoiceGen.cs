@@ -13,7 +13,6 @@ namespace ApplicationLayer
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             bool exists = System.IO.Directory.Exists(path + "\\Fakturaer");
-
             if (!exists)
             {
                 System.IO.Directory.CreateDirectory(path + "\\Fakturaer");

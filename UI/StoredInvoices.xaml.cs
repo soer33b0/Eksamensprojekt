@@ -27,7 +27,14 @@ namespace UI
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (InvoiceSearch.Text != "")
+            {
+                GetSpecificInvoice.IsEnabled = true;
+            }
+            else
+            {
+                GetSpecificInvoice.IsEnabled = false;
+            }
         }
 
         private void GetSpecificInvoiced_Clicked(object sender, RoutedEventArgs e)
@@ -43,7 +50,7 @@ namespace UI
         {
 
             InvoiceGen invoice = new InvoiceGen();
-            List<DomainLayer.Invoice> meme = controller.GetInvoiceList();
+            List<Invoice> meme = controller.GetInvoiceList();
             Invoice[] meme1 = meme.ToArray();
             int count = Lv.SelectedIndex;
             invoice.OpenDocx("", meme1[count].Filepath);

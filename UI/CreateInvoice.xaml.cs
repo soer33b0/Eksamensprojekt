@@ -71,7 +71,6 @@ namespace UI
             invoice.Filepath = invoiceGen.InvoiceCalc(invoice);
 
             int count = CustomerNamesBox.SelectedIndex;
-            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary, invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath, count);
             if (control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary, invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath, count) == true)
             {
                 MessageBox.Show("Kunde blev gemt uden fejl.");

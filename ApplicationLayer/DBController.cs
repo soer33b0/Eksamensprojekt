@@ -11,7 +11,7 @@ namespace ApplicationLayer
 
         private string connectionString = "Server = ealSQL1.eal.local; Database = A_DB30_2018 ; User Id = A_STUDENT30; Password=A_OPENDB30;";
 
-        public bool  SaveInvoice(Invoice invoice)
+        public bool SaveInvoice(Invoice invoice)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -20,7 +20,7 @@ namespace ApplicationLayer
                 {
                     SqlCommand saveInvoice = new SqlCommand("SaveInvoice", conn);
                     saveInvoice.CommandType = CommandType.StoredProcedure;
-                    saveInvoice.Parameters.Add(new SqlParameter("@CustomerID", invoice.Count+1));
+                    saveInvoice.Parameters.Add(new SqlParameter("@CustomerID", invoice.Count + 1));
                     saveInvoice.Parameters.Add(new SqlParameter("@InvoiceDate", invoice.InvoiceDate));
                     saveInvoice.Parameters.Add(new SqlParameter("@InvoiceNum", invoice.InvoiceNum));
                     saveInvoice.Parameters.Add(new SqlParameter("@InvoiceTitle", invoice.InvoiceTitle));
@@ -32,7 +32,6 @@ namespace ApplicationLayer
                     saveInvoice.ExecuteNonQuery();
                     return true;
                 }
-
                 catch (SqlException e)
                 {
                     return false;
@@ -49,7 +48,6 @@ namespace ApplicationLayer
             {
                 try
                 {
-
                     conn.Open();
 
                     SqlCommand getInvoice = new SqlCommand("GetInvoice", conn);
@@ -70,9 +68,7 @@ namespace ApplicationLayer
                             invoices.Add(invoice);
                         }
                     }
-
                 }
-
                 catch (SqlException e)
                 {
                     Console.WriteLine("Fejl " + e.Message);
@@ -81,7 +77,7 @@ namespace ApplicationLayer
             }
         }
 
-        
+
         public void AddCustomer(Customer customer)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -98,7 +94,6 @@ namespace ApplicationLayer
                     addCustomer.Parameters.Add(new SqlParameter("@CustomerPhone", customer.CustomerPhone));
                     addCustomer.ExecuteNonQuery();
                 }
-
                 catch (SqlException e)
                 {
                     Console.WriteLine("Fejl" + e.Message);
@@ -135,7 +130,6 @@ namespace ApplicationLayer
                         }
                     }
                 }
-
                 catch (SqlException e)
                 {
                     Console.WriteLine("Fejl " + e.Message);
@@ -169,7 +163,6 @@ namespace ApplicationLayer
                 {
                     Console.WriteLine("Fejl " + e.Message);
                 }
-
                 string[] customerNames = templist.ToArray();
                 return customerNames;
             }
@@ -191,7 +184,6 @@ namespace ApplicationLayer
                     addEmployee.Parameters.Add(new SqlParameter("@EmployeeAccountNum", employee.EmployeeAccountNum));
                     addEmployee.ExecuteNonQuery();
                 }
-
                 catch (SqlException e)
                 {
                     Console.WriteLine("Fejl" + e.Message);
@@ -203,7 +195,6 @@ namespace ApplicationLayer
         {
             Employee employee = new Employee();
             List<Employee> employees = new List<Employee>();
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -227,7 +218,6 @@ namespace ApplicationLayer
                         }
                     }
                 }
-
                 catch (SqlException e)
                 {
                     Console.WriteLine("Fejl " + e.Message);
@@ -253,7 +243,6 @@ namespace ApplicationLayer
                     saveFisheryRemuneration.Parameters.Add(new SqlParameter("@CustomerID", fisheryRemuneration.CustomerID));
                     saveFisheryRemuneration.ExecuteNonQuery();
                 }
-
                 catch (SqlException e)
                 {
                     Console.WriteLine("Fejl" + e.Message);
@@ -284,7 +273,6 @@ namespace ApplicationLayer
                         }
                     }
                 }
-
                 catch (SqlException e)
                 {
                     Console.WriteLine("Fejl " + e.Message);
@@ -293,6 +281,6 @@ namespace ApplicationLayer
             }
         }
 
-        
+
     }
 }
