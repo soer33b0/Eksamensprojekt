@@ -82,7 +82,7 @@
             Margin="162,167,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="Button_Click_1"
+            Click="CreateInvoice_Clicked"
             Content="Optegn Faktura" />
         <Button
             Grid.Row="1"
@@ -92,7 +92,7 @@
             Margin="162,205,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="Gemte Fakturaer" Click="Button_Click_2" />
+            Content="Gemte Fakturaer" Click="StoredInvoices_Clicked" />
         <Label
             Grid.ColumnSpan="2"
             Width="90"
@@ -134,7 +134,7 @@
             Margin="162,91,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="Button_Click"
+            Click="Administration_Clicked"
             Content="Administration" />
     </Grid>
 </Window>

@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Management"
     Width="470"
-    Height="480"
+    Height="200"
     Foreground="White"
     MouseDown="Window_MouseDown"
     ResizeMode="NoResize"
@@ -31,7 +31,16 @@
                 </materialDesign:PopupBox>
             </StackPanel>
         </Grid>
-
+        <Label
+            Width="150"
+            Height="35"
+            Margin="165,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Administration"
+            FontSize="20"
+            Foreground="White"
+            RenderTransformOrigin="0.444,0.429" />
         <Button
             Width="187"
             Height="64"

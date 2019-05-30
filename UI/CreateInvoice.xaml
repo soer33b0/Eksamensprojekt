@@ -89,14 +89,14 @@
             Content="Vælg modtager:"
             FontSize="20" />
         <ComboBox
-            Name="Customer_names"
+            Name="CustomerNamesBox"
             Width="178"
             Height="39"
             Margin="243,103,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="LightGray"
-            Foreground="Black" SelectionChanged="Customer_names_SelectionChanged" />
+            Foreground="Black" SelectionChanged="CustomerNames_ComboBox" />
         <Label
             Width="96"
             Height="39"
@@ -124,7 +124,7 @@
             Margin="300,351,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="NextButttonClicked"
+            Click="NextButtton_Clicked"
             Content="Anvend"
             TabIndex="4" />
 
@@ -178,7 +178,7 @@
             Margin="760,302,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="AddItemClicked"
+            Click="AddItem_Clicked"
             Content="Tilføj punkt"
             IsEnabled="False"
             RenderTransformOrigin="2.52,0.323"
@@ -221,17 +221,6 @@
             IsEnabled="False"
             TabIndex="5"
             TextWrapping="Wrap" />
-        <Button
-            Name="OpenInvoice"
-            Width="135"
-            Height="46"
-            Margin="0,351,300,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Click="AddItemClicked"
-            Content="Se faktura"
-            FontSize="20"
-            IsEnabled="False" />
         <Button
             Name="Close"
             Width="105"

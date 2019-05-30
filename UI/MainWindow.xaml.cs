@@ -13,7 +13,7 @@ namespace UI
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void CreateInvoice_Clicked(object sender, RoutedEventArgs e)
         {
             CreateInvoice createInvoice = new CreateInvoice();
             createInvoice.Show();
@@ -30,13 +30,13 @@ namespace UI
                 this.DragMove();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Administration_Clicked(object sender, RoutedEventArgs e)
         {
             Management management = new Management();
             management.Show();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void StoredInvoices_Clicked(object sender, RoutedEventArgs e)
         {
             StoredInvoices storedInvoices = new StoredInvoices();
             storedInvoices.Show();

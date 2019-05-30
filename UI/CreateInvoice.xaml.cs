@@ -16,7 +16,7 @@ namespace UI
         {
             InitializeComponent();
 
-            Customer_names.ItemsSource = control.GetCustomerNames();
+            CustomerNamesBox.ItemsSource = control.GetCustomerNames();
             invoiceTable.InsertInvoiceTable();
             customerRepo.UpdateCustomerList();
         }
@@ -31,18 +31,16 @@ namespace UI
 
         int LineItemCount = 0;
 
-        private void NextButttonClicked(object sender, RoutedEventArgs e)
+        private void NextButtton_Clicked(object sender, RoutedEventArgs e)
         {
             if (customer == null)
             {
-                MessageBox.Show("Error 404 \nkunde not found");
+                MessageBox.Show("Fejl. Kunde blev ikke fundet.");
             }
 
             invoice.InvoiceTitle = Title.Text;
             invoice.InvoiceNum = Convert.ToInt32(InvoiceNum.Text);
             invoice.InvoiceDate = InvoiceDate.Text;
-
-            
 
             DisableStepOne();
         }
@@ -51,9 +49,9 @@ namespace UI
         {
             this.Close();
         }
-        
-        
-        private void AddItemClicked(object sender, RoutedEventArgs e)
+
+
+        private void AddItem_Clicked(object sender, RoutedEventArgs e)
         {
             invoiceTable.AddInvoiceLine(Description.Text, HourlySalary.Text, NumOfHours.Text);
 
@@ -74,11 +72,22 @@ namespace UI
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
             invoice.Filepath = invoiceGen.InvoiceCalc(invoice);
 
-            int count = Customer_names.SelectedIndex;
+            int count = CustomerNamesBox.SelectedIndex;
             control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary , invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath, count);
+            if (control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary, invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath, count) == true)
+            {
+                MessageBox.Show("Kunde blev gemt uden fejl.");
 
-            Window parentWindow = Window.GetWindow(this);
-            parentWindow.Close();
+                Window parentWindow = Window.GetWindow(this);
+                parentWindow.Close();
+            }
+            else
+            {
+                MessageBox.Show("Faktura kunne ikke gemmes.");
+                Window parentWindow = Window.GetWindow(this);
+                parentWindow.Close();
+            }
+            
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -89,7 +98,7 @@ namespace UI
 
         public void DisableStepOne()
         {
-            Customer_names.IsEnabled = false;
+            CustomerNamesBox.IsEnabled = false;
             Title.IsEnabled = false;
             InvoiceDate.IsEnabled = false;
             InvoiceNum.IsEnabled = false;
@@ -99,14 +108,13 @@ namespace UI
             NumOfHours.IsEnabled = true;
             HourlySalary.IsEnabled = true;
             AddItem.IsEnabled = true;
-            OpenInvoice.IsEnabled = true;
             Close.IsEnabled = true;
         }
 
-        private void Customer_names_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CustomerNames_ComboBox(object sender, SelectionChangedEventArgs e)
         {
-            int selectedIndex = Customer_names.SelectedIndex;
-            string selectedItem = Customer_names.SelectedItem.ToString();
+            int selectedIndex = CustomerNamesBox.SelectedIndex;
+            string selectedItem = CustomerNamesBox.SelectedItem.ToString();
 
             customer = customerRepo.GetCustomerAtIndex(selectedIndex, selectedItem);
         }

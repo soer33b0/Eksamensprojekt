@@ -54,7 +54,7 @@ namespace ApplicationLayer
 
                 if (invoiceTable == null)
                 {
-                    return "\tError, couldn't find table with caption INVOICE_TABLE in current document.";
+                    return "Fejl. Kunne ikke finde tabel i skabelon.";
                 }
                 else
                 {

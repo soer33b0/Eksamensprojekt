@@ -19,7 +19,7 @@ namespace UI
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GetAllInvoice_Clicked(object sender, RoutedEventArgs e)
         {
             Lv.ItemsSource = controller.GetInvoiceList();
             Show.IsEnabled = true;
@@ -30,7 +30,7 @@ namespace UI
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void GetSpecificInvoiced_Clicked(object sender, RoutedEventArgs e)
         {
             Lv.Items.Clear();
         }
@@ -39,7 +39,7 @@ namespace UI
             this.Close();
         }
 
-        private void Show_Click(object sender, RoutedEventArgs e)
+        private void ShowSelectedInvoice_Clicked(object sender, RoutedEventArgs e)
         {
             
             InvoiceGen invoice = new InvoiceGen();
