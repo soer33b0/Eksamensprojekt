@@ -65,8 +65,6 @@ namespace UI
         
         private void AddItemClicked(object sender, RoutedEventArgs e)
         {
-            //totalprice = Convert.ToDouble(invoiceTable.AddInvoiceLine(Description.Text, HourlySalary.Text, NumOfHours.Text));
-
             invoiceTable.AddInvoiceLine(Description.Text, HourlySalary.Text, NumOfHours.Text);
 
             invoice.HoursWorked += NumOfHours.Text + ",";

@@ -11,7 +11,7 @@ namespace ApplicationLayer
     {
         Controller controller = new Controller();
 
-        private List<Customer> customers = new List<Customer>();
+        public List<Customer> customers = new List<Customer>();
         
         public void UpdateCustomerList()
         {

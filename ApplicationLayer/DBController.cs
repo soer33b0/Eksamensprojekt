@@ -59,6 +59,7 @@ namespace ApplicationLayer
                     getInvoice.Fill(dt);
                     foreach (DataRow row in dt.Rows)
                     {
+                        invoice = new Invoice();
                         invoice.InvoiceDate = row["InvoiceDate"].ToString();
                         invoice.InvoiceNum = Convert.ToInt32(row["InvoiceNum"]);
                         invoice.InvoiceTitle = row["InvoiceTitle"].ToString();
@@ -122,6 +123,7 @@ namespace ApplicationLayer
                     {
                         while (read.Read())
                         {
+                            customer = new Customer();
                             customer.CustomerAddress = read["CustomerAddress"].ToString();
                             customer.CustomerEmail = read["CustomerEmail"].ToString();
                             customer.CustomerName = read["CustomerName"].ToString();
