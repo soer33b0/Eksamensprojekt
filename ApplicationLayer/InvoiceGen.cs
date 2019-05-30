@@ -52,7 +52,7 @@ namespace ApplicationLayer
             doc.SaveAs(@Filepath() + "\\temp.docx");
         }
         
-        public bool InvoiceCalc(Invoice invoice)
+        public string InvoiceCalc(Invoice invoice)
         {
             using (DocX document = DocX.Load(@Filepath() + "\\temp.docx"))
             {
@@ -60,15 +60,16 @@ namespace ApplicationLayer
                 int count = (invoiceTable.RowCount - 2);
                 double VAT = Convert.ToDouble(invoice.TotalWithoutVAT) * 0.25;
                 double finalprice = Convert.ToDouble(invoice.TotalWithoutVAT + VAT);
+                string finalpath = (@Filepath() + "\\faktura-" + invoice.InvoiceNum + "-" + DateTime.Now.ToString("dd-MM-yyyy") + ".docx");
 
                 document.ReplaceText("%VAT%", VAT.ToString());
                 document.ReplaceText("%totalPrice%", finalprice.ToString());
                 document.ReplaceText("%netto%", invoice.TotalWithoutVAT.ToString());
 
-                document.SaveAs(@Filepath() + "\\faktura-" + invoice.InvoiceNum + "-" + DateTime.Now.ToString("dd-MM-yyyy")+".docx");
+                document.SaveAs(finalpath);
                 File.Delete((@Filepath() + "\\temp.docx"));
 
-                return true;
+                return finalpath;
             }
         }
     }

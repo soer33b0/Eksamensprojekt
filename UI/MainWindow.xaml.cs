@@ -53,7 +53,8 @@ namespace UI
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             StoredInvoices storedInvoices = new StoredInvoices();
-            this.Content = storedInvoices;
+            storedInvoices.Show();
+            this.Close();
         }
     }
 }

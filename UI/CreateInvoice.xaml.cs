@@ -82,10 +82,9 @@ namespace UI
         private void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
-
-            invoiceGen.InvoiceCalc(invoice);
-
-            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary , invoice.TotalWithoutVAT, invoice.Description);
+            string Filepath = invoiceGen.InvoiceCalc(invoice);
+            MessageBox.Show(Filepath);
+            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary , invoice.TotalWithoutVAT, invoice.Description, Filepath);
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();

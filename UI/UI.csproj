@@ -71,6 +71,9 @@
     <Compile Include="Management.xaml.cs">
       <DependentUpon>Management.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StoredInvoices.xaml.cs">
+      <DependentUpon>StoredInvoices.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StoredRemunerations.xaml.cs">
       <DependentUpon>StoredRemunerations.xaml</DependentUpon>
     </Compile>
@@ -90,10 +93,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StoredInvoices.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,13 +104,14 @@
     <Compile Include="SaveRemuneration.xaml.cs">
       <DependentUpon>SaveRemuneration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StoredInvoices.xaml.cs">
-      <DependentUpon>StoredInvoices.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StoredInvoices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StoredRemunerations.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
