@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ApplicationLayer;
+using DomainLayer;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using ApplicationLayer;
-using DomainLayer;
-using UI;
 
 namespace UI
 {
@@ -82,9 +72,8 @@ namespace UI
         private void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
-            string Filepath = invoiceGen.InvoiceCalc(invoice);
-            MessageBox.Show(Filepath);
-            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary , invoice.TotalWithoutVAT, invoice.Description, Filepath);
+            invoice.Filepath = invoiceGen.InvoiceCalc(invoice);
+            control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary , invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath);
 
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();

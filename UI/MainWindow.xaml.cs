@@ -54,7 +54,6 @@ namespace UI
         {
             StoredInvoices storedInvoices = new StoredInvoices();
             storedInvoices.Show();
-            this.Close();
         }
     }
 }

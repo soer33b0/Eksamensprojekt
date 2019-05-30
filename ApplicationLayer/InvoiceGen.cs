@@ -26,11 +26,12 @@ namespace ApplicationLayer
             }
             else return path + "\\Fakturaer";
         }
-        public void OpenDocx(string dir, string fileName)
+        public void OpenDocxFromShow(string filePath)
         {
-            string where = Filepath() + fileName;
-            var doc = DocX.Load(@where);
+            Process.Start(filePath);
+           
         }
+
 
         public void ReplaceInvoiceText(Customer customer, Employee employee, Invoice invoice)
         {

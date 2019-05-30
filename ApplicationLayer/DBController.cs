@@ -24,13 +24,15 @@ namespace ApplicationLayer
                 {
                     SqlCommand saveInvoice = new SqlCommand("SaveInvoice", conn);
                     saveInvoice.CommandType = CommandType.StoredProcedure;
+                    saveInvoice.Parameters.Add(new SqlParameter("@CustomerID", 3));
                     saveInvoice.Parameters.Add(new SqlParameter("@InvoiceDate", invoice.InvoiceDate));
                     saveInvoice.Parameters.Add(new SqlParameter("@InvoiceNum", invoice.InvoiceNum));
                     saveInvoice.Parameters.Add(new SqlParameter("@InvoiceTitle", invoice.InvoiceTitle));
                     saveInvoice.Parameters.Add(new SqlParameter("@HoursWorked", invoice.HoursWorked));
                     saveInvoice.Parameters.Add(new SqlParameter("@HourlySalary", invoice.HourlySalary));
                     saveInvoice.Parameters.Add(new SqlParameter("@TotalSalary", invoice.TotalWithoutVAT));
-                    saveInvoice.Parameters.Add(new SqlParameter("@InvoiceDesription", invoice.Description));
+                    saveInvoice.Parameters.Add(new SqlParameter("@InvoiceDescription", invoice.Description));
+                    saveInvoice.Parameters.Add(new SqlParameter("@Filepath", invoice.Filepath));
                     saveInvoice.ExecuteNonQuery();
                 }
 
@@ -53,22 +55,25 @@ namespace ApplicationLayer
 
                     conn.Open();
 
-                    SqlDataAdapter getInvoice = new SqlDataAdapter("SELECT CustomerName, InvoiceDate, InvoiceNum, InvoiceTitle, HoursWorked, HourlySalary, TotalSalary, InvoiceDescription FROM INVOICE AS I JOIN CUSTOMER AS C ON I.CustomerID = C.CustomerID", conn);
+                    SqlCommand getInvoice = new SqlCommand("GetInvoice", conn);
+                    getInvoice.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader read = getInvoice.ExecuteReader();
 
-                    DataTable dt = new DataTable();
-                    getInvoice.Fill(dt);
-                    foreach (DataRow row in dt.Rows)
+                    if (read.HasRows)
                     {
-                        invoice = new Invoice();
-                        invoice.InvoiceDate = row["InvoiceDate"].ToString();
-                        invoice.InvoiceNum = Convert.ToInt32(row["InvoiceNum"]);
-                        invoice.InvoiceTitle = row["InvoiceTitle"].ToString();
-                        invoice.HoursWorked = row["HoursWorked"].ToString();
-                        invoice.HourlySalary = row["HourlySalary"].ToString();
-                        invoice.TotalWithoutVAT = Convert.ToDouble(row["TotalSalary"]);
-                        invoice.Description = row["InvoiceDescription"].ToString();
-                        invoices.Add(invoice);
+                        while (read.Read())
+                        {
+                            invoice = new Invoice();
+                            invoice.CustomerName = read["CustomerName"].ToString();
+                            invoice.InvoiceDate = read["InvoiceDate"].ToString();
+                            invoice.InvoiceNum = Convert.ToInt32(read["InvoiceNum"]);
+                            invoice.TotalWithoutVAT = Convert.ToDouble(read["TotalSalary"]);
+                            invoice.InvoiceTitle = read["InvoiceTitle"].ToString();
+                            invoice.Filepath = read["Filepath"].ToString();
+                            invoices.Add(invoice);
+                        }
                     }
+
                 }
 
                 catch (SqlException e)

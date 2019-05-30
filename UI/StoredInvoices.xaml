@@ -52,16 +52,15 @@
             <ListView Name = "Lv" HorizontalAlignment="Right" Height="270" VerticalAlignment="Top" Width="795" Margin="0,50,265,0"  RenderTransformOrigin="0.566,0.507">
                 <ListView.View>
                     <GridView>
+                        <GridViewColumn Header="Navn" Width="Auto" DisplayMemberBinding="{Binding CustomerName}" />
                         <GridViewColumn Header="Dato" Width="Auto" DisplayMemberBinding="{Binding InvoiceDate}" />
-                        <GridViewColumn Header="Nummer" Width="Auto" DisplayMemberBinding="{Binding InvoiceNum}" />
-                        <GridViewColumn Header="Titel" Width="Auto" DisplayMemberBinding="{Binding InvoiceTitle}" />
-                        <GridViewColumn Header="Antal timer" Width="Auto" DisplayMemberBinding="{Binding HoursWorked}" />
-                        <GridViewColumn Header="Enheds pris" Width="Auto" DisplayMemberBinding="{Binding HourlySalary}" />
-                        <GridViewColumn Header="Totalpris" Width="Auto" DisplayMemberBinding="{Binding TotalWithoutVAT}" />
-                        <GridViewColumn Header="Beskrivelse" Width="Auto" DisplayMemberBinding="{Binding Desription}" />
+                        <GridViewColumn Header="Faktura Nummer" Width="Auto" DisplayMemberBinding="{Binding InvoiceNum}" />
+                        <GridViewColumn Header="Total (DKK)" Width="Auto" DisplayMemberBinding="{Binding TotalWithoutVAT}" />
+                        <GridViewColumn Header="Beskrivelse" Width="Auto" DisplayMemberBinding="{Binding InvoiceTitle}" />
                     </GridView>
                 </ListView.View>
             </ListView>
+            <Button x:Name="Show" Content="Show" IsEnabled="False" HorizontalAlignment="Left" Margin="205,360,0,0" VerticalAlignment="Top" Click="Show_Click" Width="75"/>
 
         </Grid>
     </Grid>

@@ -36,6 +36,7 @@ namespace ApplicationLayer
                 invoiceList.Add(invoice.HoursWorked);
                 invoiceList.Add(invoice.TotalWithoutVAT.ToString());
                 invoiceList.Add(invoice.Description);
+                invoiceList.Add(invoice.Filepath);
                 UpdateInvoiceList();
             }
 

@@ -1,4 +1,5 @@
 ﻿using ApplicationLayer;
+using DomainLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,9 +32,9 @@ namespace UI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Lv.ItemsSource = controller.GetInvoiceList();
+            Show.IsEnabled = true;
 
         }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -46,6 +47,16 @@ namespace UI
         private void CloseProgram(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Show_Click(object sender, RoutedEventArgs e)
+        {
+            
+            InvoiceGen invoice = new InvoiceGen();
+            List<DomainLayer.Invoice> meme = controller.GetInvoiceList();
+            Invoice[] meme1 = meme.ToArray();
+            int count = Lv.SelectedIndex;
+            invoice.OpenDocxFromShow(meme1[count].Filepath);
         }
     }
 }
