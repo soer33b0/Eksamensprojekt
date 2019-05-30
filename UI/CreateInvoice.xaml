@@ -239,7 +239,7 @@
             Margin="775,351,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="CloseButtonClicked"
+            Click="SaveButtonClicked"
             Content="Afslut"
             FontSize="20"
             IsEnabled="False"

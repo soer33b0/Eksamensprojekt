@@ -35,17 +35,18 @@
         <Button
             Width="187"
             Height="64"
-            Margin="89,67,0,0"
+            Margin="40,67,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="Add_Customer"
-            Content="Add Customer" />
+            Content="Tilføj kunde" />
         <Button
-            Width="75"
-            Margin="331,99,0,0"
+            Width="187"
+            Height="64"
+            Margin="253,67,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="Button" />
+            Content="Rediger kunde" />
 
     </Grid>
 </Window>

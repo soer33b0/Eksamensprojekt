@@ -69,7 +69,7 @@ namespace UI
             NumOfHours.Text = "";
             HourlySalary.Text = "";
         }
-        private void CloseButtonClicked(object sender, RoutedEventArgs e)
+        private void SaveButtonClicked(object sender, RoutedEventArgs e)
         {
             invoiceGen.ReplaceInvoiceText(customer, employee, invoice);
             invoice.Filepath = invoiceGen.InvoiceCalc(invoice);

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DomainLayer;
+using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xceed.Words.NET;
-using DomainLayer;
 using System.IO;
-using System.Windows;
-using System.Threading;
+using System.Linq;
+using Xceed.Words.NET;
 
 namespace ApplicationLayer
 {
