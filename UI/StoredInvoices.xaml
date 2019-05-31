@@ -43,7 +43,7 @@
            
                    FontSize="24"
                    Foreground="White"/>
-            <ListView Name = "Lv" HorizontalAlignment="Right" Height="319" VerticalAlignment="Top" Width="800" Margin="0,47,260,0" Selected="Lv_Selected"  RenderTransformOrigin="0.566,0.507">
+            <ListView Name = "Lv" HorizontalAlignment="Right" Height="319" VerticalAlignment="Top" Width="800" Margin="0,47,260,0" RenderTransformOrigin="0.566,0.507">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Navn" Width="Auto" DisplayMemberBinding="{Binding CustomerName}" />
@@ -54,7 +54,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button x:Name="Show" Content="Vis valgt faktura" IsEnabled="False" HorizontalAlignment="Left" Margin="30,366,0,-10" VerticalAlignment="Top" Click="ShowSelectedInvoice_Clicked" Width="168" Height="64"/>
+            <Button x:Name="Show" Content="Vis valgt faktura" IsEnabled="True" HorizontalAlignment="Left" Margin="30,366,0,-10" VerticalAlignment="Top" Click="ShowSelectedInvoice_Clicked" Width="168" Height="64"/>
             <Button Content="Hent alle faktura" HorizontalAlignment="Left" Margin="639,58,0,0" VerticalAlignment="Top" Width="141" Click="GetAllInvoice_Clicked"/>
 
         </Grid>

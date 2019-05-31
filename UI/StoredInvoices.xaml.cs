@@ -53,10 +53,5 @@ namespace UI
             int count = Lv.SelectedIndex;
             invoice.OpenDocx("", invoicesarray[count].Filepath);
         }
-
-        private void Lv_Selected(object sender, RoutedEventArgs e)
-        {
-            Show.IsEnabled = true;
-        }
     }
 }
