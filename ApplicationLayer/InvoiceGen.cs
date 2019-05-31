@@ -15,7 +15,7 @@ namespace ApplicationLayer
             bool exists = System.IO.Directory.Exists(path + "\\Fakturaer");
             if (!exists)
             {
-                System.IO.Directory.CreateDirectory(path + "\\Fakturaer");
+                Directory.CreateDirectory(path + "\\Fakturaer");
                 return path + "\\Fakturaer";
             }
             else return path + "\\Fakturaer";
