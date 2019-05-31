@@ -44,6 +44,9 @@ namespace UI
 
         private void CloseProgram(object sender, RoutedEventArgs e)
         {
+
+            Management management = new Management();
+            management.Show();
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
         }

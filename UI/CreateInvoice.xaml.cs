@@ -73,7 +73,7 @@ namespace UI
             int count = CustomerNamesBox.SelectedIndex;
             if (control.SaveInvoice(invoice.InvoiceDate, invoice.InvoiceNum, invoice.InvoiceTitle, invoice.HoursWorked, invoice.HourlySalary, invoice.TotalWithoutVAT, invoice.Description, invoice.Filepath, count) == true)
             {
-                MessageBox.Show("Kunde blev gemt uden fejl.");
+                MessageBox.Show("Faktura blev gemt uden fejl.");
 
                 Window parentWindow = Window.GetWindow(this);
                 parentWindow.Close();

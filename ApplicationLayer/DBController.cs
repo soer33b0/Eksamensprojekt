@@ -38,7 +38,46 @@ namespace ApplicationLayer
                 }
             }
         }
+        public bool DeleteCustomer(String customerName)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                try
+                {
+                    SqlCommand deleteCustomer = new SqlCommand("DELETE FROM CUSTOMER WHERE CustomerName = @CustomerName", conn);
+                    deleteCustomer.Parameters.Add("@CustomerName", customerName);
+                    deleteCustomer.ExecuteNonQuery();
+                    return true;
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl" + e.Message);
+                    return false;
+                }
+            }
+        }
+        public bool DeleteInvoice(String date, int invoiceNum)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                try
+                {
+                    SqlCommand deleteInvoice = new SqlCommand("DELETE FROM INVOICE WHERE InvoiceNum = @InvoiceNum AND InvoiceDate = @InvoiceDate", conn);
 
+                    deleteInvoice.Parameters.Add("@InvoiceDate", date);
+                    deleteInvoice.Parameters.Add("@InvoiceNum", invoiceNum);
+                    deleteInvoice.ExecuteNonQuery();
+                    return true;
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Fejl" + e.Message);
+                    return false;
+                }
+            }
+        }
         public List<Invoice> GetInvoiceList()
         {
             List<Invoice> invoices = new List<Invoice>();

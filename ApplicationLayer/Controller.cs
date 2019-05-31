@@ -30,6 +30,34 @@ namespace ApplicationLayer
                 return false;
             }
         }
+        public bool deleteCustomer(string customerName)
+        {
+
+            if (Dbcontroller.DeleteCustomer(customerName) == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool deleteInvoice(string invoiceDate, int invoiceNum, string filepath)
+        {
+
+            if (Dbcontroller.DeleteInvoice(invoiceDate, invoiceNum) == true)
+            {
+                InvoiceGen invoice = new InvoiceGen();
+                invoice.DeleteDocx("", filepath);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         public List<Invoice> GetInvoiceList()
         {

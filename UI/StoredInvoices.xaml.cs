@@ -53,5 +53,26 @@ namespace UI
             int count = Lv.SelectedIndex;
             invoice.OpenDocx("", invoicesarray[count].Filepath);
         }
+
+        private void DeleteSpecificInvoice_Click(object sender, RoutedEventArgs e)
+        {
+
+            int count = Lv.SelectedIndex;
+            Invoice[] SelectedInvoice = controller.GetInvoiceList().ToArray();
+            string path = SelectedInvoice[count].Filepath;
+            string date = SelectedInvoice[count].InvoiceDate;
+            int invoiceNum = SelectedInvoice[count].InvoiceNum;
+            if (controller.deleteInvoice(date, invoiceNum, path) == true)
+            {
+                MessageBox.Show("Faktura blev slettet.");
+                Lv.ItemsSource = controller.GetInvoiceList();
+
+            }
+            else
+            {
+                MessageBox.Show("Fejl. Faktura kunne ikke slettes.");
+                Lv.ItemsSource = controller.GetInvoiceList();
+            }
+        }
     }
 }

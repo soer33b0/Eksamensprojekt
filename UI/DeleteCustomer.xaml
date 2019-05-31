@@ -1,0 +1,53 @@
+﻿<Window x:Class="UI.DeleteCustomer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:UI"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="CreateCustomer"
+        Width="470"
+        Height="480"
+        Background="White"
+        Foreground="White">
+
+    <Grid>
+        <Grid
+            Height="59"
+            Margin="0,0,0,421"
+            VerticalAlignment="Bottom"
+            Background="#FF5C99D6">
+
+            <StackPanel HorizontalAlignment="left" Orientation="Horizontal">
+                <materialDesign:PopupBox
+                    Margin="10"
+                    PlacementMode="BottomAndAlignRightEdges"
+                    RenderTransformOrigin="-1.647,0.256"
+                    StaysOpen="False">
+                    <StackPanel Width="150">
+                        <Button Click="CloseProgram" Content="Afslut" />
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+        </Grid>
+        <Label
+            Width="140"
+            Height="50"
+            Margin="165,40,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Kundens navn:"
+            FontSize="20" />
+
+        <Button
+
+            Width="140"
+            Height="60"
+            Margin="150,285,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Slet valgt kunde" RenderTransformOrigin="0.643,0.333" Click="DeleteButton_Click" />
+        <ComboBox x:Name="CustomerBox" Foreground="Black" Background="LightGray" HorizontalAlignment="Left" Margin="135,110,0,0" VerticalAlignment="Top" Width="185" Height="50"/>
+
+    </Grid>
+</Window>

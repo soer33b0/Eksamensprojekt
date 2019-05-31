@@ -18,7 +18,10 @@ namespace ApplicationLayer
                 Directory.CreateDirectory(path + "\\Fakturaer");
                 return path + "\\Fakturaer";
             }
-            else return path + "\\Fakturaer";
+            else
+            {
+                return path + "\\Fakturaer";
+            }
         }
         public void OpenDocx(string dir, string fileName)
         {
@@ -31,6 +34,19 @@ namespace ApplicationLayer
             {
                 string where = Filepath() + fileName;
                 Process.Start(dir, @where);
+            }
+        }
+        public void DeleteDocx(string dir, string fileName)
+        {
+            if (dir == "")
+            {
+                string where = Filepath() + fileName;
+                File.Delete(where);
+            }
+            else
+            {
+                string where = Filepath() + fileName;
+                File.Delete(where);
             }
         }
 

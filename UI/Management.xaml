@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Management"
     Width="470"
-    Height="200"
+    Height="470"
     Foreground="White"
     MouseDown="Window_MouseDown"
     ResizeMode="NoResize"
@@ -50,12 +50,13 @@
             Click="Add_Customer"
             Content="Tilføj kunde" />
         <Button
+            x:Name="DeleteCustomer"
             Width="187"
             Height="64"
             Margin="253,67,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="Rediger kunde" />
+            Content="Slet kunde" Click="DeleteCustomer_Click" />
 
     </Grid>
 </Window>

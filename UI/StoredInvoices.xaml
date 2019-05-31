@@ -58,5 +58,6 @@
             <Button Content="Hent alle faktura" HorizontalAlignment="Left" Margin="639,58,0,0" VerticalAlignment="Top" Width="141" Click="GetAllInvoice_Clicked"/>
 
         </Grid>
+        <Button x:Name="DeleteSpecificInvoice" Content="Slet faktura" HorizontalAlignment="Left" Margin="207,366,0,-60" VerticalAlignment="Top"  Width="108" Height="64" Click="DeleteSpecificInvoice_Click"/>
     </Grid>
 </Window>

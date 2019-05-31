@@ -25,8 +25,16 @@ namespace UI
         }
         private void CloseProgram(object sender, RoutedEventArgs e)
         {
+
             Window parentWindow = Window.GetWindow(this);
             parentWindow.Close();
+        }
+
+        private void DeleteCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteCustomer deletecustomer = new DeleteCustomer();
+            deletecustomer.Show();
+            this.Close();
         }
     }
 }
