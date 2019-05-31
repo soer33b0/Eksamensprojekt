@@ -22,7 +22,6 @@ namespace UI
         private void GetAllInvoice_Clicked(object sender, RoutedEventArgs e)
         {
             Lv.ItemsSource = controller.GetInvoiceList();
-            Show.IsEnabled = true;
 
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -48,12 +47,16 @@ namespace UI
 
         private void ShowSelectedInvoice_Clicked(object sender, RoutedEventArgs e)
         {
-
             InvoiceGen invoice = new InvoiceGen();
-            List<Invoice> meme = controller.GetInvoiceList();
-            Invoice[] meme1 = meme.ToArray();
+            List<Invoice> invoices = controller.GetInvoiceList();
+            Invoice[] invoicesarray = invoices.ToArray();
             int count = Lv.SelectedIndex;
-            invoice.OpenDocx("", meme1[count].Filepath);
+            invoice.OpenDocx("", invoicesarray[count].Filepath);
+        }
+
+        private void Lv_Selected(object sender, RoutedEventArgs e)
+        {
+            Show.IsEnabled = true;
         }
     }
 }

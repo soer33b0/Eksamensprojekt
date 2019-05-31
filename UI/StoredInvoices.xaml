@@ -43,7 +43,7 @@
            
                    FontSize="24"
                    Foreground="White"/>
-            <ListView Name = "Lv" HorizontalAlignment="Right" Height="319" VerticalAlignment="Top" Width="800" Margin="0,47,260,0"  RenderTransformOrigin="0.566,0.507">
+            <ListView Name = "Lv" HorizontalAlignment="Right" Height="319" VerticalAlignment="Top" Width="800" Margin="0,47,260,0" Selected="Lv_Selected"  RenderTransformOrigin="0.566,0.507">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Navn" Width="Auto" DisplayMemberBinding="{Binding CustomerName}" />
