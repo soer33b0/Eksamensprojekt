@@ -13,33 +13,14 @@
 
         public Employee() { }
 
-        public string EmployeeName
-        {
-            get;
-            set;
-        }
+        public string EmployeeName { get; set; }
 
-        public string EmployeeAddress
-        {
-            get;
-            set;
-        }
+        public string EmployeeAddress { get; set; }
 
-        public string EmployeeZipCity
-        {
-            get;
-            set;
-        }
+        public string EmployeeZipCity { get; set; }
 
-        public string EmployeeSeNum
-        {
-            get;
-            set;
-        }
-        public string EmployeeAccountNum
-        {
-            get;
-            set;
-        }
+        public string EmployeeSeNum { get; set; }
+
+        public string EmployeeAccountNum { get; set; }
     }
 }
