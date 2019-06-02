@@ -116,9 +116,7 @@ namespace UI
 
         private void CustomerNames_ComboBox(object sender, SelectionChangedEventArgs e)
         {
-            int selectedIndex = CustomerNamesBox.SelectedIndex;
-            string selectedItem = CustomerNamesBox.SelectedItem.ToString();
-            customer = customerRepo.GetCustomerAtIndex(selectedIndex, selectedItem);
+            customer = customerRepo.GetCustomerAtIndex(CustomerNamesBox.SelectedIndex);
         }
     }
 }

@@ -53,7 +53,7 @@ namespace ApplicationLayer
 
         public void ReplaceInvoiceText(Customer customer, Employee employee, Invoice invoice)
         {
-            var doc = DocX.Load(Filepath() + "\\temp.docx");
+            DocX doc = DocX.Load(Filepath() + "\\temp.docx");
             doc.ReplaceText("%customerName%", customer.CustomerName);
             doc.ReplaceText("%customerAddress%", customer.CustomerAddress);
             doc.ReplaceText("%customerZipCity%", customer.CustomerZipCity);
@@ -75,7 +75,7 @@ namespace ApplicationLayer
         {
             using (DocX document = DocX.Load(@Filepath() + "\\temp.docx"))
             {
-                var invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
+                Table invoiceTable = document.Tables.FirstOrDefault(t => t.TableCaption == "INVOICE_TABLE");
                 int count = (invoiceTable.RowCount - 2);
                 double VAT = Convert.ToDouble(invoice.TotalWithoutVAT) * 0.25;
                 double finalprice = Convert.ToDouble(invoice.TotalWithoutVAT + VAT);

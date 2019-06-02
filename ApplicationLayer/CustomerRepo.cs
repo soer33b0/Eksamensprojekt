@@ -14,7 +14,7 @@ namespace ApplicationLayer
         {
             customers = controller.GetCustomerList();
         }
-        public Customer GetCustomerAtIndex(int index, string customerName)
+        public Customer GetCustomerAtIndex(int index)
         {
             Customer customer = new Customer();
 
