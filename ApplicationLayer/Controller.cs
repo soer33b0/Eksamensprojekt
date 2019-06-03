@@ -119,5 +119,10 @@ namespace ApplicationLayer
             Dbcontroller.SaveFisheryRemuneration(fisheryRemuneration);
         }
 
+        public FisheryRemuneration GetFisheryRemuneration()
+        {
+            return Dbcontroller.GetFisheryRemuneration();
+        }
+
     }
 }
