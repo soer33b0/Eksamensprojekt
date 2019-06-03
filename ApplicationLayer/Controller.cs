@@ -30,7 +30,7 @@ namespace ApplicationLayer
                 return false;
             }
         }
-        public bool deleteCustomer(string customerName)
+        public bool DeleteCustomer(string customerName)
         {
 
             if (Dbcontroller.DeleteCustomer(customerName) == true)
@@ -43,7 +43,7 @@ namespace ApplicationLayer
             }
         }
 
-        public bool deleteInvoice(string invoiceDate, int invoiceNum, string filepath)
+        public bool DeleteInvoice(string invoiceDate, int invoiceNum, string filepath)
         {
 
             if (Dbcontroller.DeleteInvoice(invoiceDate, invoiceNum) == true)

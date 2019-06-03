@@ -38,7 +38,7 @@ namespace ApplicationLayer
                 }
             }
         }
-        public bool DeleteCustomer(String customerName)
+        public bool DeleteCustomer(string customerName)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -46,7 +46,7 @@ namespace ApplicationLayer
                 try
                 {
                     SqlCommand deleteCustomer = new SqlCommand("DELETE FROM CUSTOMER WHERE CustomerName = @CustomerName", conn);
-                    deleteCustomer.Parameters.Add("@CustomerName", customerName);
+                    deleteCustomer.Parameters.AddWithValue("@CustomerName", customerName);
                     deleteCustomer.ExecuteNonQuery();
                     return true;
                 }
@@ -57,7 +57,7 @@ namespace ApplicationLayer
                 }
             }
         }
-        public bool DeleteInvoice(String date, int invoiceNum)
+        public bool DeleteInvoice(string date, int invoiceNum)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -66,8 +66,8 @@ namespace ApplicationLayer
                 {
                     SqlCommand deleteInvoice = new SqlCommand("DELETE FROM INVOICE WHERE InvoiceNum = @InvoiceNum AND InvoiceDate = @InvoiceDate", conn);
 
-                    deleteInvoice.Parameters.Add("@InvoiceDate", date);
-                    deleteInvoice.Parameters.Add("@InvoiceNum", invoiceNum);
+                    deleteInvoice.Parameters.AddWithValue("@InvoiceDate", date);
+                    deleteInvoice.Parameters.AddWithValue("@InvoiceNum", invoiceNum);
                     deleteInvoice.ExecuteNonQuery();
                     return true;
                 }

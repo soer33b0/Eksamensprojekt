@@ -36,7 +36,7 @@ namespace UI
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             string value = CustomerBox.SelectedValue.ToString();
-            if (control.deleteCustomer(value) == true)
+            if (control.DeleteCustomer(value) == true)
             {
                 MessageBox.Show("Kunde blev slettet.");
                 CustomerBox.ItemsSource = control.GetCustomerNames();

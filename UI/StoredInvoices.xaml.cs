@@ -62,7 +62,7 @@ namespace UI
             string path = SelectedInvoice[count].Filepath;
             string date = SelectedInvoice[count].InvoiceDate;
             int invoiceNum = SelectedInvoice[count].InvoiceNum;
-            if (controller.deleteInvoice(date, invoiceNum, path) == true)
+            if (controller.DeleteInvoice(date, invoiceNum, path) == true)
             {
                 MessageBox.Show("Faktura blev slettet.");
                 Lv.ItemsSource = controller.GetInvoiceList();
